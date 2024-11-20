@@ -35,4 +35,4 @@ build/
 /mvnw.cmd
 /.mvn/
 /.gitattributes
-/biblioteca_pessoal.db
+/data/
