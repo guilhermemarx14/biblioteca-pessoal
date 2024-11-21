@@ -39,6 +39,11 @@ public class Livro{
     Editora editora;
 
     @NotNull
+    @ManyToOne
+    @JoinColumn(name = "localizacao_id")
+    Localizacao localizacao;
+
+    @NotNull
     Integer quantidade;
 
 
