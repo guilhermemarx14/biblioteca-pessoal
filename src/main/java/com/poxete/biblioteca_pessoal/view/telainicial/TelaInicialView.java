@@ -24,11 +24,12 @@ public class TelaInicialView extends ViewCustomizada<TelaInicialEstado> {
 
         var vBoxLivros = montarVBox(getEstado().getIconesComLabel().get(0));
         var vBoxAutores = montarVBox(getEstado().getIconesComLabel().get(1));
-
+        var vBoxPesquisar = montarVBox(getEstado().getIconesComLabel().get(2));
 
 
         meuGrid.add(vBoxLivros, 0, 0);
         meuGrid.add(vBoxAutores, 1, 0);
+        meuGrid.add(vBoxPesquisar, 0, 1);
 
         Scene scene = new Scene(meuGrid, LANGURA_PADRAO, ALTURA_PADRAO);
 
@@ -43,13 +44,13 @@ public class TelaInicialView extends ViewCustomizada<TelaInicialEstado> {
         labelIcone.setStyle("-fx-font-size: 80px; -fx-text-fill: blue;");
 
         Label labelNome = new Label(iconeComLabel.label());
-        labelNome.setStyle("-fx-font-size: 20px;");
+        labelNome.setStyle("-fx-font-size: 15px;");
 
         VBox vBox = new VBox(iconeComLabel.espacamento());
 
         vBox.getChildren().addAll(labelIcone, labelNome);
         vBox.setAlignment(Pos.CENTER);
-
+        vBox.setOnMouseClicked(iconeComLabel.handler());
         return vBox;
     }
 

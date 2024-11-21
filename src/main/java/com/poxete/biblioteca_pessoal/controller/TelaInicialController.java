@@ -23,8 +23,10 @@ public class TelaInicialController extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        telaInicialView.setEstado(new TelaInicialEstado(List.of(new IconeComLabel("Meus Livros", "\uD83D\uDCDA", 5),
-                new IconeComLabel("Meus Autores", "\uD83E\uDDD1\u200D\uD83D\uDCBB",8))));
+        telaInicialView.setEstado(new TelaInicialEstado(List.of(new IconeComLabel("Livros Cadastrados", "\uD83D\uDCDA", 5, event -> System.out.println("Você clicou em Livros Cadastrados")),
+                new IconeComLabel("Autores Cadastrados", "\uD83E\uDDD1\u200D\uD83D\uDCBB", 5, event -> System.out.println("Você clicou em Autores Cadastrados")),
+                new IconeComLabel("Pesquisar", "\uD83D\uDD0D", 5, event -> System.out.println("Voce clicou em Pesquisar")))));
+
         telaInicialView.show(primaryStage, springFXMLLoaderConfig.load("/fxml/telainicialview.fxml"));
     }
 }
