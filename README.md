@@ -1,2 +1,2 @@
 # biblioteca-pessoal
-Projeto de biblioteca pessoal utilizando a base de dados do ISBN
+Projeto de biblioteca pessoal utilizando Spring Boot, JavaFX e base de dados H2.

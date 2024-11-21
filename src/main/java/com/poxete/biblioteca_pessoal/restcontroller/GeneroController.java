@@ -1,4 +1,4 @@
-package com.poxete.biblioteca_pessoal.controller;
+package com.poxete.biblioteca_pessoal.restcontroller;
 
 import com.poxete.biblioteca_pessoal.model.Genero;
 import com.poxete.biblioteca_pessoal.service.GeneroService;
