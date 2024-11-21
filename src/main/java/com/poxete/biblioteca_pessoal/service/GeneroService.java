@@ -13,7 +13,8 @@ public class GeneroService {
     GeneroRepository generoRepository;
 
     public Genero salvar(Genero genero){
-        return generoRepository.save(genero);
+        var generoExistente = generoRepository.findByNome(genero.getNome());
+        return generoExistente.orElse(generoRepository.save(genero));
     }
 
     public Genero buscarPorId(Integer id){

@@ -1,9 +1,11 @@
 package com.poxete.biblioteca_pessoal;
 
-import com.poxete.biblioteca_pessoal.view.TelaInicial;
-import javafx.application.Application;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.event.ContextClosedEvent;
+import org.springframework.context.event.ContextStoppedEvent;
+import org.springframework.context.event.EventListener;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
@@ -11,16 +13,16 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 public class BibliotecaPessoalApplication{
 
     public static void main(String[] args) {
-        // Inicia o Spring Boot
-        SpringApplication.run(BibliotecaPessoalApplication.class, args);
-
-        // Inicia a interface JavaFX com a tela inicial
-        launchJavaFXApp();
+        ConfigurableApplicationContext context = SpringApplication.run(BibliotecaPessoalApplication.class, args);
+        launchJavaFXApp(context);
     }
 
-    public static void launchJavaFXApp() {
-        // Lança a tela principal do JavaFX
-        Application.launch(TelaInicial.class);
+    public static void launchJavaFXApp(ConfigurableApplicationContext context) {
+        SpringJavaFXApplication.launch(SpringJavaFXApplication.class, context);
     }
 
+    @EventListener({ContextClosedEvent.class, ContextStoppedEvent.class})
+    public void onContextClosed() {
+        SpringJavaFXApplication.shutdownJavaFX();
+    }
 }

@@ -1,6 +1,7 @@
 package com.poxete.biblioteca_pessoal.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -17,8 +18,13 @@ public class Livro{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
 
+    @NotNull
     String titulo;
+
+    @NotNull
     Integer anoPublicacao;
+
+    @NotNull
     @ManyToMany
     @JoinTable(
             name = "livro_genero",
@@ -26,6 +32,15 @@ public class Livro{
             inverseJoinColumns = @JoinColumn(name = "genero_id")
     )
     Set<Genero> generos;
-    String editora;
+
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name = "editora_id")
+    Editora editora;
+
+    @NotNull
+    Integer quantidade;
+
+
 
 }
