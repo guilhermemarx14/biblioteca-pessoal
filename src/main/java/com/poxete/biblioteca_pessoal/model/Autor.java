@@ -1,5 +1,6 @@
 package com.poxete.biblioteca_pessoal.model;
 
+import com.poxete.biblioteca_pessoal.utils.Utils;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -8,6 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.util.List;
+import java.util.Objects;
 
 @Data
 @Entity
@@ -30,5 +32,21 @@ public class Autor {
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "autor_outros_nomes", joinColumns = @JoinColumn(name = "autor_id"))
     @Column(name = "outros_nomes")
-    private List<String> outrosNomes;
+    List<String> outrosNomes;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Autor autor = (Autor) o;
+        return Objects.equals(id, autor.id) && Objects.equals(nome, autor.nome) &&
+                Utils.compararListasDesordenadas(outrosNomes, autor.outrosNomes);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nome, outrosNomes);
+    }
 }
