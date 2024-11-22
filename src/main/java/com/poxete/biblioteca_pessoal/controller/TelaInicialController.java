@@ -41,7 +41,7 @@ public class TelaInicialController extends Application {
                         event -> log.info("Você clicou em Autores Cadastrados")
                 ), new IconeComLabel("Pesquisar", "\uD83D\uDD0D", 5, event -> log.info("Voce clicou em Pesquisar"))
         )));
-
-        telaInicialView.show(primaryStage, springFXMLLoaderConfig.load("/fxml/telainicialview.fxml"));
+        telaInicialView.setPrimaryStage(primaryStage);
+        telaInicialView.show(springFXMLLoaderConfig.load("/fxml/telainicialview.fxml"));
     }
 }

@@ -2,6 +2,7 @@ package com.poxete.biblioteca_pessoal.view.telainicial;
 
 import com.poxete.biblioteca_pessoal.view.componentes.IconeComLabel;
 import com.poxete.biblioteca_pessoal.view.interfaces.ViewCustomizada;
+import jakarta.annotation.PreDestroy;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -17,14 +18,17 @@ import static com.poxete.biblioteca_pessoal.config.Constantes.*;
 
 @Component
 public class TelaInicialView extends ViewCustomizada<TelaInicialEstado> {
+    private TelaInicialEstado estado;
+    private Stage primaryStage;
+
 
     @Override
-    public void show(Stage primaryStage, FXMLLoader loader) throws IOException {
+    public void show(FXMLLoader loader) throws IOException {
         GridPane meuGrid = loader.load();
 
-        var vBoxLivros = montarVBox(getEstado().getIconesComLabel().get(0));
-        var vBoxAutores = montarVBox(getEstado().getIconesComLabel().get(1));
-        var vBoxPesquisar = montarVBox(getEstado().getIconesComLabel().get(2));
+        var vBoxLivros = montarVBox(estado.getIconesComLabel().get(0));
+        var vBoxAutores = montarVBox(estado.getIconesComLabel().get(1));
+        var vBoxPesquisar = montarVBox(estado.getIconesComLabel().get(2));
 
 
         meuGrid.add(vBoxLivros, 0, 0);
@@ -52,6 +56,26 @@ public class TelaInicialView extends ViewCustomizada<TelaInicialEstado> {
         vBox.setAlignment(Pos.CENTER);
         vBox.setOnMouseClicked(iconeComLabel.handler());
         return vBox;
+    }
+
+    @PreDestroy
+    public void fechar() {
+        super.onExit();
+    }
+
+    @Override
+    public void setEstado(TelaInicialEstado estado) {
+        this.estado = estado;
+    }
+
+    @Override
+    public void setPrimaryStage(Stage primaryStage) {
+        this.primaryStage = primaryStage;
+    }
+
+    @Override
+    public Stage getPrimaryStage() {
+        return this.primaryStage;
     }
 
 }

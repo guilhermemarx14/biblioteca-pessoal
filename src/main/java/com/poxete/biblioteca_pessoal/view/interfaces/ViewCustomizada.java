@@ -1,15 +1,27 @@
 package com.poxete.biblioteca_pessoal.view.interfaces;
 
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.io.IOException;
 
-@Getter
-@Setter
 public abstract class ViewCustomizada<T extends Estado> {
-    T estado;
-    public abstract void show(Stage primaryStage, FXMLLoader loader) throws IOException;
+
+    public abstract void setEstado(T estado);
+
+    public abstract void setPrimaryStage(Stage primaryStage);
+
+    public abstract Stage getPrimaryStage();
+
+    public abstract void show(FXMLLoader loader) throws IOException;
+
+    public void onExit() {
+        // Fecha a janela JavaFX
+        Platform.runLater(() -> {
+            if (getPrimaryStage() != null) {
+                getPrimaryStage().close();
+            }
+        });
+    }
 }
