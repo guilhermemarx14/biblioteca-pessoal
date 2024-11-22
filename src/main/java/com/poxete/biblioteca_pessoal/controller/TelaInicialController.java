@@ -33,15 +33,13 @@ public class TelaInicialController extends Application {
                         "Livros Cadastrados",
                         "\uD83D\uDCDA",
                         5,
-                        event -> log.debug(livroService.buscarTodos())
-                ),
-                new IconeComLabel(
+                        event -> log.info(livroService.buscarPorTitulo("  senhor  an"))
+                ), new IconeComLabel(
                         "Autores Cadastrados",
                         "\uD83E\uDDD1\u200D\uD83D\uDCBB",
                         5,
-                        event -> log.debug("Você clicou em Autores Cadastrados")
-                ),
-                new IconeComLabel("Pesquisar", "\uD83D\uDD0D", 5, event -> log.debug("Voce clicou em Pesquisar"))
+                        event -> log.info("Você clicou em Autores Cadastrados")
+                ), new IconeComLabel("Pesquisar", "\uD83D\uDD0D", 5, event -> log.info("Voce clicou em Pesquisar"))
         )));
 
         telaInicialView.show(primaryStage, springFXMLLoaderConfig.load("/fxml/telainicialview.fxml"));

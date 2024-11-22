@@ -23,4 +23,8 @@ public class LivroService {
     public List<Livro> buscarTodos() {
         return livroRepository.findAll();
     }
+
+    public List<Livro> buscarPorTitulo(String titulo) {
+        return livroRepository.findAllByTituloLike("%" + titulo.toUpperCase().trim().replaceAll("\\s+", "%") + "%");
+    }
 }
