@@ -15,17 +15,12 @@ public class SpringJavaFXApplication extends Application {
     }
 
     @Override
-    public void init() throws Exception {
-        super.init();
-    }
-
-    @Override
     public void start(Stage stage) throws Exception {
         TelaInicialController telaInicial = context.getBean(TelaInicialController.class);
         telaInicial.start(stage);
     }
 
     public static void shutdownJavaFX() {
-       Platform.exit();
+        Platform.exit();
     }
 }

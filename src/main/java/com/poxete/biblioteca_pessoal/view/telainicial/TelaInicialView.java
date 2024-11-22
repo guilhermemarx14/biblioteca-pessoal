@@ -17,7 +17,7 @@ import java.io.IOException;
 import static com.poxete.biblioteca_pessoal.config.Constantes.*;
 
 @Component
-public class TelaInicialView extends ViewCustomizada<TelaInicialEstado> {
+public class TelaInicialView implements ViewCustomizada<TelaInicialEstado> {
     private TelaInicialEstado estado;
     private Stage primaryStage;
 
@@ -60,7 +60,7 @@ public class TelaInicialView extends ViewCustomizada<TelaInicialEstado> {
 
     @PreDestroy
     public void fechar() {
-        super.onExit();
+        this.onExit();
     }
 
     @Override

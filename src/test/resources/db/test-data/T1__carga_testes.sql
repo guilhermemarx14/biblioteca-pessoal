@@ -51,8 +51,6 @@ INSERT INTO genero (nome)
 VALUES ('Biografia');
 INSERT INTO genero (nome)
 VALUES ('História');
-INSERT INTO genero (nome)
-VALUES ('Fantasia');
 
 -- Inserindo dados na tabela 'localizacao'
 INSERT INTO localizacao (descricao)

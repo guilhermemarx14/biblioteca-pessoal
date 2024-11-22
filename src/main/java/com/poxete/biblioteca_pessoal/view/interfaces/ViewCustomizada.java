@@ -6,17 +6,17 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public abstract class ViewCustomizada<T extends Estado> {
+public interface ViewCustomizada<T extends Estado> {
 
-    public abstract void setEstado(T estado);
+    void setEstado(T estado);
 
-    public abstract void setPrimaryStage(Stage primaryStage);
+    void setPrimaryStage(Stage primaryStage);
 
-    public abstract Stage getPrimaryStage();
+    Stage getPrimaryStage();
 
-    public abstract void show(FXMLLoader loader) throws IOException;
+    void show(FXMLLoader loader) throws IOException;
 
-    public void onExit() {
+    default void onExit() {
         // Fecha a janela JavaFX
         Platform.runLater(() -> {
             if (getPrimaryStage() != null) {
