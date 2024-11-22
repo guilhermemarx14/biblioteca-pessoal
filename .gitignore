@@ -37,3 +37,6 @@ build/
 /.gitattributes
 /data/
 /lib/
+/basedados/
+/basedados.properties
+/basedados.script

@@ -5,6 +5,8 @@ import com.poxete.biblioteca_pessoal.repository.LivroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class LivroService {
     @Autowired
@@ -16,5 +18,9 @@ public class LivroService {
 
     public Livro buscarPorId(Integer id) {
         return livroRepository.findById(id).orElse(null);
+    }
+
+    public List<Livro> buscarTodos() {
+        return livroRepository.findAll();
     }
 }

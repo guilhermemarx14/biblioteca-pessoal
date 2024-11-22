@@ -2,17 +2,19 @@ package com.poxete.biblioteca_pessoal.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Data
 @Entity
 @Builder
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class Livro{
+public class Livro {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,21 +27,13 @@ public class Livro{
     Integer anoPublicacao;
 
     @NotNull
-    @ManyToMany
-    @JoinTable(
-            name = "livro_genero",
-            joinColumns = @JoinColumn(name = "livro_id"),
-            inverseJoinColumns = @JoinColumn(name = "genero_id")
-    )
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "livro_genero", joinColumns = @JoinColumn(name = "livro_id"), inverseJoinColumns = @JoinColumn(name = "genero_id"))
     List<Genero> generos;
 
     @NotNull
-    @ManyToMany
-    @JoinTable(
-            name = "livro_autor",
-            joinColumns = @JoinColumn(name = "livro_id"),
-            inverseJoinColumns = @JoinColumn(name = "autor_id")
-    )
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "livro_autor", joinColumns = @JoinColumn(name = "livro_id"), inverseJoinColumns = @JoinColumn(name = "autor_id"))
     List<Autor> autores;
 
     @NotNull
@@ -54,7 +48,6 @@ public class Livro{
 
     @NotNull
     Integer quantidade;
-
 
 
 }

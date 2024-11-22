@@ -19,6 +19,7 @@ public class Autor {
         this.nome = nome;
         this.outrosNomes = outrosNomes;
     }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
@@ -26,8 +27,8 @@ public class Autor {
     @NotNull
     String nome;
 
-    @ElementCollection
-    @CollectionTable(name = "autor_apelidos", joinColumns = @JoinColumn(name = "autor_id"))
-    @Column(name = "apelido")
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "autor_outros_nomes", joinColumns = @JoinColumn(name = "autor_id"))
+    @Column(name = "outros_nomes")
     private List<String> outrosNomes;
 }
