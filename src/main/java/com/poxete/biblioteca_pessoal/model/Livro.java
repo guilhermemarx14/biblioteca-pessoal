@@ -2,16 +2,16 @@ package com.poxete.biblioteca_pessoal.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
-import java.util.Set;
+import java.util.List;
 
 @Data
 @Entity
+@Builder
 @ToString
 @NoArgsConstructor
+@AllArgsConstructor
 public class Livro{
 
     @Id
@@ -31,7 +31,16 @@ public class Livro{
             joinColumns = @JoinColumn(name = "livro_id"),
             inverseJoinColumns = @JoinColumn(name = "genero_id")
     )
-    Set<Genero> generos;
+    List<Genero> generos;
+
+    @NotNull
+    @ManyToMany
+    @JoinTable(
+            name = "livro_autor",
+            joinColumns = @JoinColumn(name = "livro_id"),
+            inverseJoinColumns = @JoinColumn(name = "autor_id")
+    )
+    List<Autor> autores;
 
     @NotNull
     @ManyToOne
