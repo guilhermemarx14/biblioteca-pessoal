@@ -24,6 +24,9 @@ public class Livro {
     String titulo;
 
     @NotNull
+    Boolean lido;
+
+    @NotNull
     Integer anoPublicacao;
 
     @NotNull

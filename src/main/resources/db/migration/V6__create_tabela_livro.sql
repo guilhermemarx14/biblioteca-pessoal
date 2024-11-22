@@ -7,6 +7,7 @@ CREATE TABLE IF NOT EXISTS livro
     editora_id     INT          NOT NULL,
     localizacao_id INT          NOT NULL,
     quantidade     INT          NOT NULL,
+    lido           BOOLEAN      NOT NULL,
     FOREIGN KEY (editora_id) REFERENCES editora (id),
     FOREIGN KEY (localizacao_id) REFERENCES localizacao (id)
 );
