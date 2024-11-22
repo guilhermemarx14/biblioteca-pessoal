@@ -10,13 +10,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.util.Objects;
+
 @Data
 @Entity
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
 public class Editora {
-    public Editora(String nome){
+    public Editora(String nome) {
         this.nome = nome;
     }
 
@@ -26,4 +28,19 @@ public class Editora {
 
     @NotNull
     String nome;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Editora editora = (Editora) o;
+        return Objects.equals(id, editora.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }

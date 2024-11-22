@@ -1,6 +1,6 @@
 package com.poxete.biblioteca_pessoal.service;
 
-import com.poxete.biblioteca_pessoal.model.Autor;
+import com.poxete.biblioteca_pessoal.model.*;
 import org.flywaydb.core.Flyway;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -20,12 +20,24 @@ import static com.google.common.truth.Truth.assertThat;
 
 @SpringBootTest(properties = "spring.profiles.active=test")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-class AutorServiceTest {
+class CriarLivroUseCaseTest {
     @Autowired
     Flyway flyway;
 
     @Autowired
     AutorService autorService;
+
+    @Autowired
+    EditoraService editoraService;
+
+    @Autowired
+    GeneroService generoService;
+
+    @Autowired
+    LocalizacaoService localizacaoService;
+
+    @Autowired
+    LivroService livroService;
 
     @Value("${spring.datasource.url}")
     private String datasourceUrl;
@@ -55,11 +67,50 @@ class AutorServiceTest {
     }
 
     @Test
-    void deveSalvarUmAutor() {
+    void deveSalvarUmLivroNovo() {
+        //criando o autor
         var autorSalvo = autorService.salvar(new Autor("Stephenie Meyer", List.of()));
 
         var autorBuscado = autorService.buscarPorId(autorSalvo.getId());
 
         assertThat(autorSalvo).isEqualTo(autorBuscado);
+
+        //criando a editora
+        var editoraSalva = editoraService.salvar(new Editora("Intrinseca"));
+
+        var editoraBuscada = editoraService.buscarPorId(editoraSalva.getId());
+
+        assertThat(editoraSalva).isEqualTo(editoraBuscada);
+
+        //criando o genero
+        var generoSalvo = generoService.salvar(new Genero("Romance"));
+
+        var generoBuscado = generoService.buscarPorId(generoSalvo.getId());
+
+        assertThat(generoSalvo).isEqualTo(generoBuscado);
+
+        var localizacaoSalva = localizacaoService.salvar(new Localizacao("Prateleira A1"));
+
+        var localizacaoBuscada = localizacaoService.buscarPorId(localizacaoSalva.getId());
+
+        assertThat(localizacaoSalva).isEqualTo(localizacaoBuscada);
+
+        //criando o livro
+        var livroNovo = new Livro(
+                "Eclipse",
+                2014,
+                List.of(generoSalvo),
+                List.of(autorSalvo),
+                editoraSalva,
+                localizacaoSalva,
+                1
+        );
+
+        var livroSalvo = livroService.salvar(livroNovo);
+
+        var livroBuscado = livroService.buscarPorId(livroSalvo.getId());
+
+        assertThat(livroSalvo).isEqualTo(livroBuscado);
     }
+
 }

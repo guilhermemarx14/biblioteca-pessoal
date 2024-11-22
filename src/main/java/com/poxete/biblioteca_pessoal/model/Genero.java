@@ -5,7 +5,12 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotNull;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+import java.util.Objects;
 
 @Data
 @Entity
@@ -14,7 +19,7 @@ import lombok.*;
 @AllArgsConstructor
 public class Genero {
 
-    public Genero(String nome){
+    public Genero(String nome) {
         this.nome = nome;
     }
 
@@ -24,4 +29,19 @@ public class Genero {
 
     @NotNull
     String nome;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Genero genero = (Genero) o;
+        return Objects.equals(id, genero.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }

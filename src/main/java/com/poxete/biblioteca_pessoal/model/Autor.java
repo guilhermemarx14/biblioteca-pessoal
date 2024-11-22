@@ -1,6 +1,5 @@
 package com.poxete.biblioteca_pessoal.model;
 
-import com.poxete.biblioteca_pessoal.utils.Utils;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -41,12 +40,11 @@ public class Autor {
         if (o == null || getClass() != o.getClass())
             return false;
         Autor autor = (Autor) o;
-        return Objects.equals(id, autor.id) && Objects.equals(nome, autor.nome) &&
-                Utils.compararListasDesordenadas(outrosNomes, autor.outrosNomes);
+        return Objects.equals(id, autor.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nome, outrosNomes);
+        return Objects.hash(id);
     }
 }

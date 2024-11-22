@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.Objects;
 
 @Data
 @Entity
@@ -15,6 +16,23 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Livro {
+
+    public Livro(String titulo,
+                 Integer anoPublicacao,
+                 List<Genero> generos,
+                 List<Autor> autores,
+                 Editora editora,
+                 Localizacao localizacao,
+                 Integer quantidade) {
+        this.titulo = titulo;
+        this.lido = false;
+        this.anoPublicacao = anoPublicacao;
+        this.generos = generos;
+        this.autores = autores;
+        this.editora = editora;
+        this.localizacao = localizacao;
+        this.quantidade = quantidade;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -52,5 +70,18 @@ public class Livro {
     @NotNull
     Integer quantidade;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Livro livro = (Livro) o;
+        return Objects.equals(id, livro.id);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }
