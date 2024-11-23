@@ -11,7 +11,7 @@ import java.sql.SQLException;
 
 @Log4j2
 @Component
-public class ConnectionManager {
+public class ConnectionManagerConfig {
     @Autowired
     ApplicationContext applicationContext;
 

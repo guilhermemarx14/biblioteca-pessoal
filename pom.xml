@@ -31,9 +31,12 @@
         <javafx.version>21.0.5</javafx.version>
         <sonar.projectKey>biblioteca-pessoal</sonar.projectKey>
         <sonar.host.url>http://localhost:9000</sonar.host.url>
-        <sonar.login>sqp_48b687cbd41ee3de322355e6c2ce313bf6275d29</sonar.login>
+        <sonar.login>sqp_9a6a60e60b231eb460c2c3ac2a01b32ca7b783fc</sonar.login>
         <sonar.coverage.jacoco.xmlReportPaths>${project.build.directory}/jacoco/jacoco.xml
         </sonar.coverage.jacoco.xmlReportPaths>
+        <sonar.coverage.exclusions>
+            **Config.java,**Application.java,**ExceptionHandler.java, **DTO.java,**Exception.java, **Constantes.java
+        </sonar.coverage.exclusions>
     </properties>
     <dependencies>
         <dependency>
@@ -62,6 +65,13 @@
             <version>9.10.0</version>
         </dependency>
         <dependency>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
+            <version>3.1.0</version>
+        </dependency>
+
+        <!-- Dependência do JavaFX -->
+        <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
             <version>${javafx.version}</version>
@@ -77,9 +87,9 @@
             <version>${javafx.version}</version>
         </dependency>
         <dependency>
-            <groupId>jakarta.validation</groupId>
-            <artifactId>jakarta.validation-api</artifactId>
-            <version>3.1.0</version>
+            <groupId>com.jfoenix</groupId>
+            <artifactId>jfoenix</artifactId>
+            <version>9.0.10</version>
         </dependency>
 
         <!-- Dependência dos testes -->

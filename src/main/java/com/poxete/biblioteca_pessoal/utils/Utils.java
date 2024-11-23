@@ -8,6 +8,8 @@ import java.util.List;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Utils {
     public static String prepararLikeParaBuscaGenerica(String query) {
+        if (query == null || query.replaceAll("\\s+", "").isEmpty())
+            return "";
         return "%" + query.toUpperCase().trim().replaceAll("\\s+", "%") + "%";
     }
 
