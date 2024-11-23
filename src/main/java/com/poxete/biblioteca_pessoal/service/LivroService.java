@@ -16,6 +16,10 @@ public class LivroService {
         return livroRepository.findAll();
     }
 
+    public Livro salvar(Livro livro) {
+        return livroRepository.save(livro);
+    }
+
     public List<Livro> buscarPorTitulo(String titulo) {
         return livroRepository.buscarPorTituloLike(titulo);
     }
