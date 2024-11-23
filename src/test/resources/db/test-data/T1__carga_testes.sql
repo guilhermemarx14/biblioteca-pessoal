@@ -65,12 +65,12 @@ INSERT INTO localizacao (descricao)
 VALUES ('Depósito 3');
 
 -- Inserindo dados na tabela 'livro'
-INSERT INTO livro (titulo, ano_publicacao, editora_id, localizacao_id, quantidade, lido)
-VALUES ('O Senhor dos Anéis', 1954, 4, 0, 1, true),
-       ('Dom Casmurro', 1899, 1, 1, 1, false),
-       ('O Alquimista', 1988, 0, 2, 1, true),
-       ('1984', 1949, 2, 3, 2, false),
-       ('O Pequeno Príncipe', 1943, 3, 4, 0, true);
+INSERT INTO livro (titulo, ano_publicacao, editora_id, localizacao_id, quantidade, lido, classificacao, comentario, data_leitura)
+VALUES ('O Senhor dos Anéis', 1954, 4, 0, 1, true, 5, 'Livro muito bom', '2023-01-01'),
+       ('Dom Casmurro', 1899, 1, 1, 1, false, 3, 'Livro bom', '2023-01-02'),
+       ('O Alquimista', 1988, 0, 2, 1, true, 4, 'Livro excelente', '2023-01-03'),
+       ('1984', 1949, 2, 3, 2, false, 2, 'Livro bom', '2023-01-04'),
+       ('O Pequeno Príncipe', 1943, 3, 4, 0, true, 5, 'Livro excelente', '2023-01-05');
 
 -- Inserindo dados na tabela 'livro_genero'
 INSERT INTO livro_genero (livro_id, genero_id)

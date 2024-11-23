@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
@@ -32,6 +34,9 @@ public class Livro {
         this.editora = editora;
         this.localizacao = localizacao;
         this.quantidade = quantidade;
+        this.classificacao = 0;
+        this.dataLeitura = new Date(LocalDate.MIN.toEpochDay());
+        this.comentario = "";
     }
 
     @Id
@@ -69,6 +74,12 @@ public class Livro {
 
     @NotNull
     Integer quantidade;
+
+    Integer classificacao;
+
+    Date dataLeitura;
+
+    String comentario;
 
     @Override
     public boolean equals(Object o) {

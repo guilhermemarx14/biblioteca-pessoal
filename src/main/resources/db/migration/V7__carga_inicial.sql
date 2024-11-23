@@ -19,8 +19,8 @@ INSERT INTO localizacao (descricao)
 VALUES ('Prateleira A1');
 
 -- Inserindo dados na tabela 'livro'
-INSERT INTO livro (titulo, ano_publicacao, editora_id, localizacao_id, quantidade, lido)
-VALUES ('Harry Potter e a Pedra Filosofal', 1997, 0, 0, 1, true);
+INSERT INTO livro (titulo, ano_publicacao, editora_id, localizacao_id, quantidade, lido, classificacao, comentario, data_leitura)
+VALUES ('Harry Potter e a Pedra Filosofal', 1997, 0, 0, 1, true, 5, 'Livro muito bom', '2023-01-01');
 
 -- Inserindo dados na tabela 'livro_genero'
 INSERT INTO livro_genero (livro_id, genero_id)

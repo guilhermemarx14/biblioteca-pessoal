@@ -11,19 +11,23 @@ import java.util.List;
 public class EditoraService {
 
     @Autowired
-    EditoraRepository editoraRepositoryRepository;
+    EditoraRepository editoraRepository;
 
-    public Editora salvar(Editora editora){
-        var editoraExistente = editoraRepositoryRepository.findByNome(editora.getNome());
+    public Editora salvar(Editora editora) {
+        var editoraExistente = editoraRepository.findByNome(editora.getNome());
 
-        return editoraExistente.orElse(editoraRepositoryRepository.save(editora));
+        return editoraExistente.orElse(editoraRepository.save(editora));
     }
 
-    public Editora buscarPorId(Integer id){
-        return editoraRepositoryRepository.findById(id).orElse(null);
+    public Editora buscarPorId(Integer id) {
+        return editoraRepository.findById(id).orElse(null);
     }
 
-    public List<Editora> obterTodos(){
-        return editoraRepositoryRepository.findAll();
+    public List<Editora> obterTodos() {
+        return editoraRepository.findAll();
+    }
+
+    public List<Editora> buscarPorNome(String nome) {
+        return editoraRepository.findAllByNomeLike(nome);
     }
 }

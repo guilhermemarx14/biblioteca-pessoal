@@ -1,6 +1,6 @@
 package com.poxete.biblioteca_pessoal.service;
 
-import com.poxete.biblioteca_pessoal.model.Livro;
+import com.poxete.biblioteca_pessoal.model.*;
 import com.poxete.biblioteca_pessoal.repository.LivroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +25,22 @@ public class LivroService {
     }
 
     public List<Livro> buscarPorTitulo(String titulo) {
-        return livroRepository.findAllByTituloLike("%" + titulo.toUpperCase().trim().replaceAll("\\s+", "%") + "%");
+        return livroRepository.buscarPorTituloLike(titulo);
+    }
+
+    public List<Livro> buscarTodosPorAutor(List<Autor> autores) {
+        return livroRepository.buscarTodosPorAutor(autores);
+    }
+
+    public List<Livro> buscarTodosPorGenero(List<Genero> generos) {
+        return livroRepository.buscarTodosPorGenero(generos);
+    }
+
+    public List<Livro> buscarTodosPorEditora(List<Editora> editoras) {
+        return livroRepository.findAllByEditoraIn(editoras);
+    }
+
+    public List<Livro> buscarTodosPorLocalizacao(List<Localizacao> localizacoes) {
+        return livroRepository.findAllByLocalizacaoIn(localizacoes);
     }
 }
