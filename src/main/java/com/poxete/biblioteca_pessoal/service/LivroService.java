@@ -12,14 +12,6 @@ public class LivroService {
     @Autowired
     LivroRepository livroRepository;
 
-    public Livro salvar(Livro livro) {
-        return livroRepository.save(livro);
-    }
-
-    public Livro buscarPorId(Integer id) {
-        return livroRepository.findById(id).orElse(null);
-    }
-
     public List<Livro> buscarTodos() {
         return livroRepository.findAll();
     }

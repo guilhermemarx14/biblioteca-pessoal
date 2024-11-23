@@ -12,14 +12,6 @@ public class AutorService {
     @Autowired
     AutorRepository autorRepository;
 
-    public Autor salvar(Autor autor) {
-        return autorRepository.save(autor);
-    }
-
-    public Autor buscarPorId(Integer id) {
-        return autorRepository.findById(id).orElse(null);
-    }
-
     public List<Autor> buscarPorNome(String nome) {
         return autorRepository.buscarPorNome(nome);
     }
