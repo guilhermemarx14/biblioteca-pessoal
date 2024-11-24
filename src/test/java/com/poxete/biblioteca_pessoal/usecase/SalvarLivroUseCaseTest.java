@@ -27,15 +27,15 @@ class SalvarLivroUseCaseTest {
     void deveSalvarLivro() {
         var livroSalvo = salvarLivroUseCase.salvarLivro(mockLivro());
         assertThat(livroSalvo).isNotNull();
-        assertThat(livroSalvo.toString()).isEqualTo("\n{\n\tTitulo: titulo\n\tAutores: Autor(id=6, nome=nomeAutor, outrosNomes=null)\n\tNota: ***\n}");
+        assertThat(livroSalvo.toString()).isEqualTo("{ Id: 4 || Titulo: Titulo que Não É Real || Autores: Nomeautor de Sobrenomeautor || Nota: *** }");
     }
 
     private Livro mockLivro() {
         var nomeEditora = "nomeEditora";
-        var nomeAutor = "nomeAutor";
+        var nomeAutor = "nomeAutor de sobrenomeAutor";
         var genero = "genero";
         var localizacaoS = "localizacao";
-        var titulo = "titulo";
+        var titulo = "titulo que não é real";
         var anoPublicacao = 0;
         var generos = new Genero(genero);
         var autores = new Autor(nomeAutor, null);

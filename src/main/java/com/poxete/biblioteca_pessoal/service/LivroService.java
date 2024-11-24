@@ -24,12 +24,12 @@ public class LivroService {
         return livroRepository.buscarPorTituloLike(titulo);
     }
 
-    public List<Livro> buscarTodosPorAutor(List<Autor> autores) {
+    public List<Livro> buscarTodosPorListAutor(List<Autor> autores) {
         return livroRepository.buscarTodosPorAutor(autores);
     }
 
-    public List<Livro> buscarTodosPorGenero(List<Genero> generos) {
-        return livroRepository.buscarTodosPorGenero(generos);
+    public List<Livro> buscarTodosPorGenero(List<Genero> genero) {
+        return livroRepository.buscarTodosPorGenero(genero);
     }
 
     public List<Livro> buscarTodosPorEditora(List<Editora> editoras) {

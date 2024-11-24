@@ -58,4 +58,40 @@ class UtilsTest {
         String resultado = Utils.formatarListaComE(lista);
         Truth.assertThat(resultado).isEqualTo("abc, def e ghi");
     }
+
+    @Test
+    void testCapitalizarPalavras() {
+        String texto = "o livro de java é muito interessante";
+        String resultado = Utils.capitalizarPalavras(texto);
+        Truth.assertThat(resultado).isEqualTo("O Livro de Java É Muito Interessante");
+
+        texto = "suco de uva";
+        resultado = Utils.capitalizarPalavras(texto);
+        Truth.assertThat(resultado).isEqualTo("Suco de Uva");
+
+        texto = "suco da uva";
+        resultado = Utils.capitalizarPalavras(texto);
+        Truth.assertThat(resultado).isEqualTo("Suco da Uva");
+
+        texto = "suco das uva";
+        resultado = Utils.capitalizarPalavras(texto);
+        Truth.assertThat(resultado).isEqualTo("Suco das Uva");
+
+        texto = "dia do julgamento";
+        resultado = Utils.capitalizarPalavras(texto);
+        Truth.assertThat(resultado).isEqualTo("Dia do Julgamento");
+
+        texto = "Dia dos santos";
+        resultado = Utils.capitalizarPalavras(texto);
+        Truth.assertThat(resultado).isEqualTo("Dia dos Santos");
+
+        texto = "  multiplos  espacos  ";
+        resultado = Utils.capitalizarPalavras(texto);
+        Truth.assertThat(resultado).isEqualTo("Multiplos Espacos");
+
+
+        texto = null;
+        resultado = Utils.capitalizarPalavras(texto);
+        Truth.assertThat(resultado).isEqualTo("");
+    }
 }

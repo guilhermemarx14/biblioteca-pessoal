@@ -26,4 +26,23 @@ public class Utils {
 
         return String.join(", ", listaString.subList(0, listaString.size() - 1)) + " e " + listaString.get(listaString.size() - 1);
     }
+
+    public static String capitalizarPalavras(String texto) {
+        if (texto == null)
+            return "";
+        StringBuilder resultado = new StringBuilder();
+        String[] tokens = texto.replaceAll("\\s+", " ").trim().split(" "); // Substitui múltiplos espaços por um único espaço
+
+        for (String token : tokens) {
+            if (!token.equalsIgnoreCase("de") && !token.equalsIgnoreCase("e") && !token.equalsIgnoreCase("do") && !token.equalsIgnoreCase("dos") &&
+                    !token.equalsIgnoreCase("da") && !token.equalsIgnoreCase("das") && !token.equalsIgnoreCase("que")) {
+                token = token.substring(0, 1).toUpperCase() + token.substring(1).toLowerCase();
+            } else {
+                token = token.toLowerCase();
+            }
+            resultado.append(token).append(" "); // Adiciona um espaço após cada token
+        }
+
+        return resultado.toString().trim();
+    }
 }

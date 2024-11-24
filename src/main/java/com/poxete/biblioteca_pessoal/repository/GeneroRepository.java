@@ -7,9 +7,11 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 import java.util.Optional;
 
-public interface GeneroRepository extends JpaRepository<Genero, Integer> {
-    Optional<Genero> findByNome(String nome);
+public interface GeneroRepository extends JpaRepository<Genero, String> {
+    @Query("SELECT g FROM Genero g  WHERE upper(g.nome) LIKE ?1 ORDER BY g.nome")
+    List<Genero> buscarPorNome(String parteNome);
 
-    @Query("Select g from Genero g where upper(g.nome) like ?1")
-    List<Genero> findAllByNomeLike(String nome);
+    @Query("SELECT g FROM Genero g  WHERE upper(g.nome) = ?1")
+    Optional<Genero> findbyId(String parteNome);
+
 }

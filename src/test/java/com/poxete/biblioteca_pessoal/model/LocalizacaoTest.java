@@ -23,9 +23,7 @@ class LocalizacaoTest {
     @Test
     void testEquals_DifferentObjectWithDifferentId_ReturnsFalse() {
         Localizacao localizacao1 = new Localizacao("Biblioteca");
-        localizacao1.id = 1;
         Localizacao localizacao2 = new Localizacao("Arquivo");
-        localizacao2.id = 2;
         Truth.assertThat(localizacao1.equals(localizacao2)).isFalse();
     }
 
@@ -58,9 +56,7 @@ class LocalizacaoTest {
     @Test
     void testHashCode_DifferentObjectWithDifferentId_ReturnsDifferentHashCode() {
         Localizacao localizacao1 = new Localizacao("Biblioteca");
-        localizacao1.id = 1;
         Localizacao localizacao2 = new Localizacao("Arquivo");
-        localizacao2.id = 2;
         Truth.assertThat(localizacao1.hashCode()).isNotEqualTo(localizacao2.hashCode());
     }
 }

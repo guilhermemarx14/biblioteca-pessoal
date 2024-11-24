@@ -28,12 +28,13 @@ class BuscarLivroUseCaseTest {
 
     @Test
     void deveBuscarLivroPorTitulo() {
-        var query = "    d  c  ";
+        var query = "    g   t  ";
 
         var livros = buscarLivrosUseCase.buscarLivroPorTitulo(query);
 
-        assertThat(livros.size()).isEqualTo(1);
+        assertThat(livros.size()).isEqualTo(2);
         assertThat(livros.get(0).getId()).isEqualTo(2);
+        assertThat(livros.get(1).getId()).isEqualTo(3);
     }
 
     @Test
@@ -48,33 +49,34 @@ class BuscarLivroUseCaseTest {
     @Test
     void deveObterTodosOsLivros() {
         var livros = buscarLivrosUseCase.obterTodosOsLivros();
-
-        assertThat(livros.size()).isEqualTo(6);
+        System.out.println(livros);
+        assertThat(livros.size()).isEqualTo(4);
     }
 
     @Test
     void deveObterLivroBuscaGenerica() {
-        var query = "    d  c  ";
+        var query = "    o  p  ";
 
         var livros = buscarLivrosUseCase.obterLivroBuscaGenerica(query);
 
         assertThat(livros.size()).isEqualTo(1);
-        assertThat(livros.get(0).getId()).isEqualTo(2);
+        assertThat(livros.get(0).getId()).isEqualTo(3);
 
         query = "a";
 
         livros = buscarLivrosUseCase.obterLivroBuscaGenerica(query);
-        var ids = List.of(0, 1, 2, 3, 4, 5);
+        var ids = List.of(0, 1, 2, 3);
 
-        assertThat(livros.size()).isEqualTo(6);
+        assertThat(livros.size()).isEqualTo(4);
         assertThat(livros.stream().map(Livro::getId).toList()).containsExactlyElementsIn(ids);
 
         var queryGenero = "Fantasia";
 
         livros = buscarLivrosUseCase.obterLivroBuscaGenerica(queryGenero);
 
-        assertThat(livros.size()).isEqualTo(1);
-        assertThat(livros.get(0).getId()).isEqualTo(0);
+        assertThat(livros.size()).isEqualTo(2);
+        assertThat(livros.get(0).getId()).isEqualTo(1);
+        assertThat(livros.get(1).getId()).isEqualTo(2);
     }
 
 }

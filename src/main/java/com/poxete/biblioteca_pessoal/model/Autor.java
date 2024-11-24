@@ -1,12 +1,12 @@
 package com.poxete.biblioteca_pessoal.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -16,16 +16,8 @@ import java.util.Objects;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Autor {
-    public Autor(String nome, List<String> outrosNomes) {
-        this.nome = nome;
-        this.outrosNomes = outrosNomes;
-    }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
-
-    @NotNull
     String nome;
 
     @ElementCollection(fetch = FetchType.EAGER)
@@ -33,18 +25,22 @@ public class Autor {
     @Column(name = "outros_nomes")
     List<String> outrosNomes;
 
+
     @Override
     public boolean equals(Object o) {
+        var todosNomes = new ArrayList<>(outrosNomes);
+        todosNomes.add(nome);
+
         if (this == o)
             return true;
         if (o == null || getClass() != o.getClass())
             return false;
         Autor autor = (Autor) o;
-        return Objects.equals(id, autor.id);
+        return todosNomes.contains(autor.nome);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(nome);
     }
 }

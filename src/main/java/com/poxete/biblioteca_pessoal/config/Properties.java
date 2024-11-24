@@ -16,4 +16,6 @@ public class Properties {
     @Value("${spring.datasource.password}")
     private String datasourcePassword;
 
+    @Value("${spring.launcher.url}")
+    private String launcherUrl;
 }

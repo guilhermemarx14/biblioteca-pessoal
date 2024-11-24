@@ -23,9 +23,7 @@ class EditoraTest {
     @Test
     void testEquals_DifferentObjectWithDifferentId_ReturnsFalse() {
         Editora editora1 = new Editora("Editora Brasil");
-        editora1.id = 1;
         Editora editora2 = new Editora("Editora Portugal");
-        editora2.id = 2;
         Truth.assertThat(editora1.equals(editora2)).isFalse();
     }
 
@@ -58,9 +56,7 @@ class EditoraTest {
     @Test
     void testHashCode_DifferentObjectWithDifferentId_ReturnsDifferentHashCode() {
         Editora editora1 = new Editora("Editora Brasil");
-        editora1.id = 1;
         Editora editora2 = new Editora("Editora Portugal");
-        editora2.id = 2;
         Truth.assertThat(editora1.hashCode()).isNotEqualTo(editora2.hashCode());
     }
 }

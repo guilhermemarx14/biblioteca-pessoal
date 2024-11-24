@@ -1,6 +1,6 @@
 -- Criação da tabela 'localizacao'
-CREATE TABLE IF NOT EXISTS localizacao
+CREATE TABLE Localizacao
 (
-    id        INT IDENTITY PRIMARY KEY,
-    descricao VARCHAR(255) NOT NULL
+    descricao VARCHAR(255) NOT NULL, -- Chave primária
+    PRIMARY KEY (descricao)
 );

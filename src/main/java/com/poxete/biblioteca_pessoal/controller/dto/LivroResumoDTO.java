@@ -8,23 +8,28 @@ import lombok.Setter;
 
 import java.util.List;
 
+import static com.poxete.biblioteca_pessoal.utils.Utils.capitalizarPalavras;
 import static com.poxete.biblioteca_pessoal.utils.Utils.formatarListaComE;
 
 @Getter
 @Setter
 @AllArgsConstructor
 public class LivroResumoDTO {
+    Integer id;
     String titulo;
     List<Autor> autores;
     String classificacao;
 
     public LivroResumoDTO(Livro livro) {
+        this.id = livro.getId();
         this.titulo = livro.getTitulo();
         this.autores = livro.getAutores();
         this.classificacao = livro.getClassificacao() == 0 ? "Sem classificação" : "*".repeat(Math.max(0, livro.getClassificacao()));
     }
 
     public String toString() {
-        return "\n{\n\tTitulo: " + titulo + "\n\tAutores: " + formatarListaComE(autores) + "\n\tNota: " + classificacao + "\n}";
+        return capitalizarPalavras(
+                "\n{ Id: " + id + " || Titulo: " + titulo + " || Autores: " + formatarListaComE(autores.stream().map(Autor::getNome).toList()) +
+                        " || Nota: " + classificacao + " }");
     }
 }

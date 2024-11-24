@@ -23,12 +23,10 @@ class AutorTest {
     }
 
     @Test
-    void testEquals_DifferentObjectWithDifferentId_ReturnsFalse() {
+    void testEquals_DifferentObjectNomesTrocadosRetornaTrue() {
         Autor autor1 = new Autor("John Doe", List.of("Jane Smith"));
-        autor1.id = 1;
         Autor autor2 = new Autor("Jane Smith", List.of("John Doe"));
-        autor2.id = 2;
-        Truth.assertThat(autor1.equals(autor2)).isFalse();
+        Truth.assertThat(autor1.equals(autor2)).isTrue();
     }
 
     @Test
@@ -60,9 +58,7 @@ class AutorTest {
     @Test
     void testHashCode_DifferentObjectWithDifferentId_ReturnsDifferentHashCode() {
         Autor autor1 = new Autor("John Doe", List.of("Jane Smith"));
-        autor1.id = 1;
         Autor autor2 = new Autor("Jane Smith", List.of("John Doe"));
-        autor2.id = 2;
         Truth.assertThat(autor1.hashCode()).isNotEqualTo(autor2.hashCode());
     }
 }

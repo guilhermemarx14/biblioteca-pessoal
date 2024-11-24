@@ -12,7 +12,7 @@ public class LocalizacaoService {
     @Autowired
     LocalizacaoRepository localizacaoRepository;
 
-    public List<Localizacao> buscarLocalizacaoPorDescricao(String descricao) {
-        return localizacaoRepository.findAllByDescricaoLike(descricao);
+    public List<Localizacao> buscarLocalizacaoPorParteDescricao(String descricao) {
+        return localizacaoRepository.encontrarPorPerteDescricao(descricao);
     }
 }

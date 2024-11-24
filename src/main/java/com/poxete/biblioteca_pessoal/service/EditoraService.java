@@ -13,7 +13,7 @@ public class EditoraService {
     @Autowired
     EditoraRepository editoraRepository;
 
-    public List<Editora> buscarPorNome(String nome) {
-        return editoraRepository.findAllByNomeLike(nome);
+    public List<Editora> buscarPorParteNome(String nome) {
+        return editoraRepository.buscarTodosPorNome(nome);
     }
 }

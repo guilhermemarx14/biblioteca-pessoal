@@ -1,6 +1,5 @@
 package com.poxete.biblioteca_pessoal.config;
 
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -12,17 +11,9 @@ import java.sql.SQLException;
 @Configuration
 @ComponentScan(basePackages = "com.poxete.biblioteca_pessoal")
 public class AppConfig {
-    @Bean
-    public SpringFXMLLoaderConfig springFXMLLoaderConfig(ApplicationContext context) {
-        return new SpringFXMLLoaderConfig(context);
-    }
 
     @Bean
     public Connection connection(Properties properties) throws SQLException {
-        return DriverManager.getConnection(
-                properties.getDatasourceUrl(),
-                properties.getDatasourceUsername(),
-                properties.getDatasourcePassword()
-        );
+        return DriverManager.getConnection(properties.getDatasourceUrl(), properties.getDatasourceUsername(), properties.getDatasourcePassword());
     }
 }

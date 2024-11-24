@@ -23,9 +23,7 @@ class GeneroTest {
     @Test
     void testEquals_DifferentObjectWithDifferentId_ReturnsFalse() {
         Genero genero1 = new Genero("Romance");
-        genero1.id = 1;
         Genero genero2 = new Genero("Ficção");
-        genero2.id = 2;
         Truth.assertThat(genero1.equals(genero2)).isFalse();
     }
 
@@ -58,9 +56,7 @@ class GeneroTest {
     @Test
     void testHashCode_DifferentObjectWithDifferentId_ReturnsDifferentHashCode() {
         Genero genero1 = new Genero("Romance");
-        genero1.id = 1;
         Genero genero2 = new Genero("Ficção");
-        genero2.id = 2;
         Truth.assertThat(genero1.hashCode()).isNotEqualTo(genero2.hashCode());
     }
 }

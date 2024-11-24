@@ -1,90 +1,71 @@
--- Inserindo dados na tabela 'autor'
-INSERT INTO autor (nome)
-VALUES ('João Silva');
-INSERT INTO autor (nome)
-VALUES ('Maria Oliveira');
-INSERT INTO autor (nome)
-VALUES ('Carlos Souza');
-INSERT INTO autor (nome)
-VALUES ('Ana Costa');
-INSERT INTO autor (nome)
-VALUES ('Luiz Pereira');
+-- Inserindo dados na tabela Editora
+INSERT INTO Editora (nome)
+VALUES ('Editora Alfa');
+INSERT INTO Editora (nome)
+VALUES ('Editora Beta');
+INSERT INTO Editora (nome)
+VALUES ('Editora Gama');
 
--- Inserindo dados na tabela 'autor_outros_nomes' para associar outros nomes aos autores
-INSERT INTO autor_outros_nomes (autor_id, outros_nomes)
-VALUES (1, 'Joãozinho');
-INSERT INTO autor_outros_nomes (autor_id, outros_nomes)
-VALUES (1, 'Silvinha');
-INSERT INTO autor_outros_nomes (autor_id, outros_nomes)
-VALUES (2, 'Mari');
-INSERT INTO autor_outros_nomes (autor_id, outros_nomes)
-VALUES (3, 'Carlão');
-INSERT INTO autor_outros_nomes (autor_id, outros_nomes)
-VALUES (3, 'Cacá');
-INSERT INTO autor_outros_nomes (autor_id, outros_nomes)
-VALUES (4, 'Aninha');
-INSERT INTO autor_outros_nomes (autor_id, outros_nomes)
-VALUES (4, 'Naná');
-INSERT INTO autor_outros_nomes (autor_id, outros_nomes)
-VALUES (4, 'Lu');
-INSERT INTO autor_outros_nomes (autor_id, outros_nomes)
-VALUES (4, 'Zinho');
-
--- Inserindo dados na tabela 'editora'
-INSERT INTO editora (nome)
-VALUES ('Editora Abril');
-INSERT INTO editora (nome)
-VALUES ('Companhia das Letras');
-INSERT INTO editora (nome)
-VALUES ('Saraiva');
-INSERT INTO editora (nome)
-VALUES ('Nova Fronteira');
-INSERT INTO editora (nome)
-VALUES ('Editora Globo');
-
--- Inserindo dados na tabela 'genero'
-INSERT INTO genero (nome)
-VALUES ('Ficção');
-INSERT INTO genero (nome)
-VALUES ('Romance');
-INSERT INTO genero (nome)
-VALUES ('Biografia');
-INSERT INTO genero (nome)
+-- Inserindo dados na tabela Genero
+INSERT INTO Genero (nome)
+VALUES ('Ficção Científica');
+INSERT INTO Genero (nome)
 VALUES ('História');
+INSERT INTO Genero (nome)
+VALUES ('Fantasia');
+INSERT INTO Genero (nome)
+VALUES ('Romance');
 
--- Inserindo dados na tabela 'localizacao'
-INSERT INTO localizacao (descricao)
-VALUES ('Prateleira A1');
-INSERT INTO localizacao (descricao)
-VALUES ('Estante B2');
-INSERT INTO localizacao (descricao)
-VALUES ('Sala de Leitura 1');
-INSERT INTO localizacao (descricao)
-VALUES ('Arquivo Central');
-INSERT INTO localizacao (descricao)
-VALUES ('Depósito 3');
+-- Inserindo dados na tabela Localizacao
+INSERT INTO Localizacao (descricao)
+VALUES ('Estante A');
+INSERT INTO Localizacao (descricao)
+VALUES ('Estante B');
+INSERT INTO Localizacao (descricao)
+VALUES ('Estante C');
 
--- Inserindo dados na tabela 'livro'
-INSERT INTO livro (titulo, ano_publicacao, editora_id, localizacao_id, quantidade, lido, classificacao, comentario, data_leitura)
-VALUES ('O Senhor dos Anéis', 1954, 4, 0, 1, true, 5, 'Livro muito bom', '2023-01-01'),
-       ('Dom Casmurro', 1899, 1, 1, 1, false, 3, 'Livro bom', '2023-01-02'),
-       ('O Alquimista', 1988, 0, 2, 1, true, 4, 'Livro excelente', '2023-01-03'),
-       ('1984', 1949, 2, 3, 2, false, 2, 'Livro bom', '2023-01-04'),
-       ('O Pequeno Príncipe', 1943, 3, 4, 0, true, 5, 'Livro excelente', '2023-01-05');
+-- Inserindo dados na tabela Autor
+INSERT INTO Autor (nome)
+VALUES ('Isaac Asimov');
+INSERT INTO Autor (nome)
+VALUES ('J.R.R. Tolkien');
+INSERT INTO Autor (nome)
+VALUES ('George R.R. Martin');
+INSERT INTO Autor (nome)
+VALUES ('Jane Austen');
 
--- Inserindo dados na tabela 'livro_genero'
+-- Inserindo dados na tabela autor_outros_nomes
+INSERT INTO autor_outros_nomes (autor_id, outros_nomes)
+VALUES ('Isaac Asimov', 'Paul French');
+INSERT INTO autor_outros_nomes (autor_id, outros_nomes)
+VALUES ('George R.R. Martin', 'GRRM');
+
+-- Inserindo dados na tabela Livro
+INSERT INTO Livro (titulo, lido, ano_publicacao, editora_id, localizacao_id, quantidade, classificacao, data_leitura, comentario)
+VALUES ('Fundação', TRUE, 1951, 'Editora Alfa', 'Estante A', 2, 5, '2023-10-15', 'Clássico da Ficção Científica.');
+INSERT INTO Livro (titulo, lido, ano_publicacao, editora_id, localizacao_id, quantidade, classificacao, data_leitura, comentario)
+VALUES ('O Senhor dos Anéis', FALSE, 1954, 'Editora Beta', 'Estante B', 1, 0, '2023-10-15', 'Ler em breve.');
+INSERT INTO Livro (titulo, lido, ano_publicacao, editora_id, localizacao_id, quantidade, classificacao, data_leitura, comentario)
+VALUES ('Guerra dos Tronos', TRUE, 1996, 'Editora Gama', 'Estante C', 3, 4, '2024-01-20', 'Empolgante, mas denso.');
+INSERT INTO Livro (titulo, lido, ano_publicacao, editora_id, localizacao_id, quantidade, classificacao, data_leitura, comentario)
+VALUES ('Orgulho e Preconceito', TRUE, 1813, 'Editora Alfa', 'Estante A', 2, 5, '2022-06-10', 'Romance atemporal.');
+
+-- Inserindo dados na tabela livro_genero
 INSERT INTO livro_genero (livro_id, genero_id)
-VALUES (0, 4), -- O Senhor dos Anéis - Fantasia
-       (1, 1), -- Dom Casmurro - Romance
-       (2, 1), -- O Alquimista - Romance
-       (3, 1), -- 1984 - História
-       (4, 1);
--- O Pequeno Príncipe - Romance
+VALUES (0, 'Ficção Científica');
+INSERT INTO livro_genero (livro_id, genero_id)
+VALUES (1, 'Fantasia');
+INSERT INTO livro_genero (livro_id, genero_id)
+VALUES (2, 'Fantasia');
+INSERT INTO livro_genero (livro_id, genero_id)
+VALUES (3, 'Romance');
 
--- Inserindo dados na tabela 'livro_autor'
+-- Inserindo dados na tabela livro_autor
 INSERT INTO livro_autor (livro_id, autor_id)
-VALUES (0, 4), -- O Senhor dos Anéis - Luiz Pereira
-       (1, 1), -- Dom Casmurro - Maria Oliveira
-       (2, 2), -- O Alquimista - Carlos Souza
-       (3, 3), -- 1984 - Ana Costa
-       (4, 0); -- O Pequeno Príncipe - João Silva
+VALUES (0, 'Isaac Asimov');
+INSERT INTO livro_autor (livro_id, autor_id)
+VALUES (1, 'J.R.R. Tolkien');
+INSERT INTO livro_autor (livro_id, autor_id)
+VALUES (2, 'George R.R. Martin');
+INSERT INTO livro_autor (livro_id, autor_id)
+VALUES (3, 'Jane Austen');

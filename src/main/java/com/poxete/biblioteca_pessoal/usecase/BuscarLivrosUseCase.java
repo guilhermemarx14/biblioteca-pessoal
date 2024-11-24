@@ -44,10 +44,10 @@ public class BuscarLivrosUseCase {
         var chave = prepararLikeParaBuscaGenerica(query);
 
         Set<Livro> livros = new HashSet<>(livroService.buscarPorTitulo(chave));
-        livros.addAll(livroService.buscarTodosPorAutor(autorService.buscarPorNome(chave)));
-        livros.addAll(livroService.buscarTodosPorEditora(editoraService.buscarPorNome(chave)));
-        livros.addAll(livroService.buscarTodosPorGenero(generoService.buscarPorNomeLike(chave)));
-        livros.addAll(livroService.buscarTodosPorLocalizacao(localizacaoService.buscarLocalizacaoPorDescricao(chave)));
+        livros.addAll(livroService.buscarTodosPorListAutor(autorService.buscarPorParteNome(chave)));
+        livros.addAll(livroService.buscarTodosPorEditora(editoraService.buscarPorParteNome(chave)));
+        livros.addAll(livroService.buscarTodosPorGenero(generoService.buscarPorParteNome(chave)));
+        livros.addAll(livroService.buscarTodosPorLocalizacao(localizacaoService.buscarLocalizacaoPorParteDescricao(chave)));
 
         return livros.stream().toList();
     }
