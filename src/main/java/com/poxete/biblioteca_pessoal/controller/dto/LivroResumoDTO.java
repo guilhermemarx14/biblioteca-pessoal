@@ -24,12 +24,12 @@ public class LivroResumoDTO {
         this.id = livro.getId();
         this.titulo = livro.getTitulo();
         this.autores = livro.getAutores();
-        this.classificacao = livro.getClassificacao() == 0 ? "Sem classificação" : "*".repeat(Math.max(0, livro.getClassificacao()));
+        this.classificacao = livro.getClassificacao() == null ? "Sem classificação" : "*".repeat(Math.max(0, livro.getClassificacao()));
     }
 
     public String toString() {
         return capitalizarPalavras(
                 "\n{ Id: " + id + " || Titulo: " + titulo + " || Autores: " + formatarListaComE(autores.stream().map(Autor::getNome).toList()) +
-                        " || Nota: " + classificacao + " }");
+                        " || Nota: " + ((classificacao == null) ? "Sem classificação" : classificacao) + " }");
     }
 }

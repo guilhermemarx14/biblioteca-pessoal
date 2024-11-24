@@ -13,6 +13,8 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
+import static com.poxete.biblioteca_pessoal.utils.Utils.formatarListaComE;
+
 @Data
 @Entity
 @Builder
@@ -64,12 +66,12 @@ public class Livro {
     List<Autor> autores;
 
     @NotNull
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "editora_id")
     Editora editora;
 
     @NotNull
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "localizacao_id")
     Localizacao localizacao;
 
@@ -101,4 +103,7 @@ public class Livro {
         return (new LivroResumoDTO(this)).toString();
     }
 
+    public String obterAutoresComoString() {
+        return formatarListaComE(autores.stream().map(Autor::getNome).toList());
+    }
 }

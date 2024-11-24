@@ -2,9 +2,23 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spring Boot com Thymeleaf</title>
+
+    <!-- Importando Material Design Lite -->
+    <link rel="stylesheet" href="webjars/material-design-lite/1.3.0/material.min.css">
+    <script src="webjars/material-design-lite/1.3.0/material.min.js"></script>
 </head>
 <body>
-<h1 th:text="${mensagem}"></h1>
+<div class="container" style="padding: 20px;">
+    <!-- Título com a mensagem -->
+    <h3 th:text="${titulo}">Título padrão</h3>
+
+    <!-- Botão Material Design -->
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+            onclick="window.location.href='/listar';">
+        Listar
+    </button>
+</div>
 </body>
 </html>

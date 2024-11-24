@@ -16,6 +16,14 @@ import java.util.Objects;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Autor {
+    public Autor(String nome) {
+        this.nome = nome;
+    }
+
+    public Autor(String nome, List<String> nomesAlternativos) {
+        this.nome = nome;
+        this.outrosNomes = nomesAlternativos;
+    }
 
     @Id
     String nome;
@@ -25,6 +33,8 @@ public class Autor {
     @Column(name = "outros_nomes")
     List<String> outrosNomes;
 
+    @Transient
+    String biografia;
 
     @Override
     public boolean equals(Object o) {

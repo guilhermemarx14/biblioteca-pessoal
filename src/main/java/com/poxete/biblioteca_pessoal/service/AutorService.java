@@ -14,7 +14,7 @@ public class AutorService {
     @Autowired
     AutorRepository autorRepository;
 
-    public List<Autor> salvar(List<Autor> autores) {
+    public List<Autor> obterOuSalvar(List<Autor> autores) {
         final List<Autor> autoresSalvos = new ArrayList<>();
         autores.forEach(autor -> {
             var autorExistente = autorRepository.buscarPorNomeCompleto(Utils.prepararLikeParaBuscaGenerica(autor.getNome()));

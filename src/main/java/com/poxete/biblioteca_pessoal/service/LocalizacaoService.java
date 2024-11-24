@@ -15,4 +15,12 @@ public class LocalizacaoService {
     public List<Localizacao> buscarLocalizacaoPorParteDescricao(String descricao) {
         return localizacaoRepository.encontrarPorPerteDescricao(descricao);
     }
+
+    public Localizacao obterOuSalvar(Localizacao localizacao) {
+        if (localizacao == null || localizacao.getDescricao() == null || localizacao.getDescricao().isEmpty()) {
+            return null;
+        }
+        var localizacaoExistente = localizacaoRepository.findById(localizacao.getDescricao());
+        return localizacaoExistente.orElseGet(() -> localizacaoRepository.save(localizacao));
+    }
 }
