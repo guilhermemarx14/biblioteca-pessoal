@@ -1,5 +1,6 @@
 package com.poxete.biblioteca_pessoal.model;
 
+import com.poxete.biblioteca_pessoal.controller.dto.LivroCompletoDTO;
 import com.poxete.biblioteca_pessoal.controller.dto.LivroResumoDTO;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -13,6 +14,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
+import static com.poxete.biblioteca_pessoal.utils.Utils.capitalizarPalavras;
 import static com.poxete.biblioteca_pessoal.utils.Utils.formatarListaComE;
 
 @Data
@@ -40,6 +42,20 @@ public class Livro {
         this.classificacao = 0;
         this.dataLeitura = new Date(LocalDate.MIN.toEpochDay());
         this.comentario = "";
+    }
+
+    public Livro(LivroCompletoDTO dto) {
+        this.titulo = dto.getTitulo();
+        this.lido = dto.getLido();
+        this.anoPublicacao = dto.getAnoPublicacao();
+        this.generos = dto.getGeneros().stream().map(Genero::new).toList();
+        this.autores = dto.getAutores().stream().map(Autor::new).toList();
+        this.editora = new Editora(dto.getEditora());
+        this.localizacao = new Localizacao(dto.getLocalizacao());
+        this.quantidade = dto.getQuantidade();
+        this.classificacao = dto.getClassificacao();
+        this.dataLeitura = dto.getDataLeitura();
+        this.comentario = dto.getComentario();
     }
 
     @Id
@@ -104,6 +120,10 @@ public class Livro {
     }
 
     public String obterAutoresComoString() {
-        return formatarListaComE(autores.stream().map(Autor::getNome).toList());
+        return capitalizarPalavras(formatarListaComE(autores.stream().map(Autor::getNome).toList()));
+    }
+
+    public String obterGenerosComoString() {
+        return capitalizarPalavras(formatarListaComE(generos.stream().map(Genero::getNome).toList()));
     }
 }

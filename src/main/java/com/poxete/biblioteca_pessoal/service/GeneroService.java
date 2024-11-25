@@ -29,4 +29,10 @@ public class GeneroService {
     public List<Genero> buscarPorParteNome(String nome) {
         return generoRepository.buscarPorNome(Utils.prepararLikeParaBuscaGenerica(nome));
     }
+
+    public List<Genero> buscarTodos() {
+        var todos = generoRepository.findAll();
+        todos.forEach(g -> g.setNome(Utils.capitalizarPalavras(g.getNome())));
+        return todos;
+    }
 }

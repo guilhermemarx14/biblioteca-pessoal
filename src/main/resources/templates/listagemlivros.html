@@ -5,38 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mensagem</title>
 
-    <!-- Importando o CSS do Material Design Lite -->
-    <link rel="stylesheet" href="webjars/material-design-lite/1.3.0/material.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <script src="webjars/material-design-lite/1.3.0/material.min.js"></script>
+    <link rel="stylesheet" href="/static-css/materialize.min.css">
+    <link rel="stylesheet" href="/static-css/material-icons.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/static-js/materialize.min.js"></script>
 </head>
 <body>
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <main class="mdl-layout__content">
         <div class="page-content">
-            <!-- Tabela para exibir a lista de livros -->
-            <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="width: 100%; margin: 20px auto;">
+            <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="width: 50%; margin: 20px auto;">
                 <thead>
                 <tr>
                     <th class="mdl-data-table__cell--non-numeric">Título</th>
                     <th class="mdl-data-table__cell--non-numeric">Autores</th>
+                    <th class="mdl-data-table__cell--non-numeric">Editora</th>
+                    <th class="mdl-data-table__cell--non-numeric">Generos</th>
+
                     <th>Ano de Publicação</th>
                 </tr>
                 </thead>
                 <tbody>
-                <!-- Loop pelos livros usando Thymeleaf -->
                 <tr th:each="livro : ${livros}">
                     <td class="mdl-data-table__cell--non-numeric" th:text="${livro.getTitulo()}">Título</td>
                     <td class="mdl-data-table__cell--non-numeric" th:text="${livro.obterAutoresComoString()}">Autores</td>
+                    <td class="mdl-data-table__cell--non-numeric" th:text="${livro.getEditora()}">Editora</td>
+                    <td class="mdl-data-table__cell--non-numeric" th:text="${livro.obterGenerosComoString()}">Generos</td>
                     <td th:text="${livro.getAnoPublicacao()}">Ano de Publicação</td>
                 </tr>
                 </tbody>
             </table>
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+                    onclick="window.location.href='/';">
+                Voltar
+            </button>
         </div>
     </main>
 </div>
 
-<!-- Importando o JS do Material Design Lite -->
 
 </body>
 </html>

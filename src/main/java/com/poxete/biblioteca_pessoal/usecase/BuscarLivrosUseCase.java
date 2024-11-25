@@ -2,6 +2,7 @@ package com.poxete.biblioteca_pessoal.usecase;
 
 import com.poxete.biblioteca_pessoal.model.Livro;
 import com.poxete.biblioteca_pessoal.service.*;
+import com.poxete.biblioteca_pessoal.utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -34,6 +35,8 @@ public class BuscarLivrosUseCase {
     }
 
     public List<Livro> obterTodosOsLivros() {
+        var livros = livroService.buscarTodos();
+        livros.forEach(l -> l.setTitulo(Utils.capitalizarPalavras(l.getTitulo())));
         return livroService.buscarTodos()
                 .stream()
                 .sorted(Comparator.comparing(Livro::getDataLeitura, Comparator.nullsLast(Comparator.reverseOrder())))
@@ -51,5 +54,4 @@ public class BuscarLivrosUseCase {
 
         return livros.stream().toList();
     }
-
 }

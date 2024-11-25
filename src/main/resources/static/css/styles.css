@@ -1,0 +1,58 @@
+.mdl-data-table {
+    border-collapse: collapse;
+}
+
+.mdl-data-table th, .mdl-data-table td {
+    border: 1px solid #ddd;
+    padding: 4px 8px;
+    line-height: 1.2;
+}
+
+.mdl-data-table tr:nth-child(odd) {
+    background-color: #eeeeee;
+}
+
+.mdl-data-table tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+.mdl-data-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.mdl-data-table th {
+    background-color: #4CAF50;
+    color: white;
+    text-align: left;
+    padding: 6px 8px;
+}
+
+.form-container {
+    width: 75%;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.form-group {
+    max-width: 100%;
+}
+
+select {
+    width: 100%;
+}
+
+.btn-voltar {
+    margin-left: 10px;
+}
+
+input[type="checkbox"] {
+    width: 20px; /* Ajuste o tamanho do checkbox */
+    height: 20px; /* Ajuste o tamanho do checkbox */
+    margin-right: 10px; /* Espaço à direita do checkbox */
+}
+
+label[for="lido"] {
+    font-weight: normal;
+    font-size: 14px;
+}

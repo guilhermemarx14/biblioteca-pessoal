@@ -1,17 +1,16 @@
 package com.poxete.biblioteca_pessoal.model;
 
+import com.poxete.biblioteca_pessoal.utils.Utils;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 import java.util.Objects;
 
 @Data
 @Entity
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 public class Editora {
@@ -31,5 +30,10 @@ public class Editora {
     @Override
     public int hashCode() {
         return Objects.hash(nome);
+    }
+
+    @Override
+    public String toString() {
+        return Utils.capitalizarPalavras(nome);
     }
 }

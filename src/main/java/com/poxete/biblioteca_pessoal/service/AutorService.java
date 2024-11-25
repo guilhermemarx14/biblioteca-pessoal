@@ -26,4 +26,10 @@ public class AutorService {
     public List<Autor> buscarPorParteNome(String nome) {
         return autorRepository.buscarPorParteNome(nome);
     }
+
+    public List<Autor> buscarTodos() {
+        var todos = autorRepository.findAll();
+        todos.forEach(a -> a.setNome(Utils.capitalizarPalavras(a.getNome())));
+        return todos;
+    }
 }

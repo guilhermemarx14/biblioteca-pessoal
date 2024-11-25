@@ -1,7 +1,7 @@
 package com.poxete.biblioteca_pessoal.usecase;
 
 import com.poxete.biblioteca_pessoal.ConfiguraBaseEmMemoria;
-import com.poxete.biblioteca_pessoal.model.*;
+import com.poxete.biblioteca_pessoal.controller.dto.LivroCompletoDTO;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -30,23 +30,23 @@ class SalvarLivroUseCaseTest {
         assertThat(livroSalvo.toString()).isEqualTo("{ Id: 4 || Titulo: Titulo que Não É Real || Autores: Nomeautor de Sobrenomeautor || Nota: *** }");
     }
 
-    private Livro mockLivro() {
-        var nomeEditora = "nomeEditora";
-        var nomeAutor = "nomeAutor de sobrenomeAutor";
-        var genero = "genero";
-        var localizacaoS = "localizacao";
-        var titulo = "titulo que não é real";
-        var anoPublicacao = 0;
-        var generos = new Genero(genero);
-        var autores = new Autor(nomeAutor, null);
-        var editora = new Editora(nomeEditora);
-        var localizacao = new Localizacao(localizacaoS);
-        var quantidade = 0;
-        var livro = new Livro(titulo, anoPublicacao, List.of(generos), List.of(autores), editora, localizacao, quantidade);
-        livro.setClassificacao(3);
-        livro.setDataLeitura(new Date(LocalDate.now().toEpochDay()));
-        livro.setComentario("comentario");
-        return livro;
+    private LivroCompletoDTO mockLivro() {
+
+
+        return new LivroCompletoDTO(
+                "titulo que não é real",
+                Boolean.FALSE,
+                0,
+                List.of("genero"),
+                List.of("nomeAutor de sobrenomeAutor"),
+                "nomeEditora",
+                "localizacao",
+                3,
+                3,
+                new Date(LocalDate.now().toEpochDay()),
+                "comentario"
+        );
+
     }
 
     @BeforeAll
