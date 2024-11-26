@@ -1,4 +1,4 @@
-package com.poxete.biblioteca_pessoal.controller.dto;
+package com.poxete.biblioteca_pessoal.service.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,7 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 public class LivroCompletoDTO {
     String titulo;
-    Boolean lido;
+    boolean lido;
     Integer anoPublicacao;
     List<String> generos;
     List<String> autores;

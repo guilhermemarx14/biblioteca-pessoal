@@ -1,6 +1,6 @@
 package com.poxete.biblioteca_pessoal.service;
 
-import com.poxete.biblioteca_pessoal.client.WikipediaFeignClient;
+import com.poxete.biblioteca_pessoal.service.client.WikipediaFeignClient;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;

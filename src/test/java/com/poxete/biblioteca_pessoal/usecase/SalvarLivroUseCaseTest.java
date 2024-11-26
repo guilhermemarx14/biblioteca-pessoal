@@ -1,7 +1,7 @@
 package com.poxete.biblioteca_pessoal.usecase;
 
 import com.poxete.biblioteca_pessoal.ConfiguraBaseEmMemoria;
-import com.poxete.biblioteca_pessoal.controller.dto.LivroCompletoDTO;
+import com.poxete.biblioteca_pessoal.service.dto.LivroCompletoDTO;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;

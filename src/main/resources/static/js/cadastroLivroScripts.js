@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function confirmarSalvar(event) {
     event.preventDefault();
 
-    const foiLido = false;//todo: marcar como lido
+    const foiLido = document.getElementById("lido").checked;
 
     if (foiLido) {
         Swal.fire({

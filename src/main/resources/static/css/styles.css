@@ -42,17 +42,20 @@ select {
     width: 100%;
 }
 
-.btn-voltar {
+.btn-padrao {
+    margin-top: 10px;
     margin-left: 10px;
 }
 
-input[type="checkbox"] {
-    width: 20px; /* Ajuste o tamanho do checkbox */
-    height: 20px; /* Ajuste o tamanho do checkbox */
-    margin-right: 10px; /* Espaço à direita do checkbox */
-}
 
-label[for="lido"] {
-    font-weight: normal;
-    font-size: 14px;
-}
+/*input[type="checkbox"] {*/
+/*    width: 20px; !* Ajuste o tamanho do checkbox *!*/
+/*    height: 20px; !* Ajuste o tamanho do checkbox *!*/
+/*    margin-right: 10px;*/
+/*    border: 2px solid red;*/
+/*}*/
+
+/*label[for="lido"] {*/
+/*    font-weight: normal;*/
+/*    font-size: 14px;*/
+/*}*/

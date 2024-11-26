@@ -1,6 +1,6 @@
 package com.poxete.biblioteca_pessoal.controller;
 
-import com.poxete.biblioteca_pessoal.controller.dto.LivroCompletoDTO;
+import com.poxete.biblioteca_pessoal.service.dto.LivroCompletoDTO;
 import com.poxete.biblioteca_pessoal.usecase.SalvarLivroUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

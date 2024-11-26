@@ -1,4 +1,4 @@
-package com.poxete.biblioteca_pessoal.controller.dto;
+package com.poxete.biblioteca_pessoal.service.dto;
 
 import com.poxete.biblioteca_pessoal.model.Autor;
 import com.poxete.biblioteca_pessoal.model.Livro;

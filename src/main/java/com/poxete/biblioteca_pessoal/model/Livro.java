@@ -1,7 +1,7 @@
 package com.poxete.biblioteca_pessoal.model;
 
-import com.poxete.biblioteca_pessoal.controller.dto.LivroCompletoDTO;
-import com.poxete.biblioteca_pessoal.controller.dto.LivroResumoDTO;
+import com.poxete.biblioteca_pessoal.service.dto.LivroCompletoDTO;
+import com.poxete.biblioteca_pessoal.service.dto.LivroResumoDTO;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -46,7 +46,7 @@ public class Livro {
 
     public Livro(LivroCompletoDTO dto) {
         this.titulo = dto.getTitulo();
-        this.lido = dto.getLido();
+        this.lido = dto.isLido();
         this.anoPublicacao = dto.getAnoPublicacao();
         this.generos = dto.getGeneros().stream().map(Genero::new).toList();
         this.autores = dto.getAutores().stream().map(Autor::new).toList();

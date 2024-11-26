@@ -16,7 +16,7 @@ public class LocalizacaoService {
         return localizacaoRepository.encontrarPorPerteDescricao(descricao);
     }
 
-    public Localizacao obterOuSalvar(Localizacao localizacao) {
+    public Localizacao salvar(Localizacao localizacao) {
         if (localizacao == null || localizacao.getDescricao() == null || localizacao.getDescricao().isEmpty()) {
             return null;
         }

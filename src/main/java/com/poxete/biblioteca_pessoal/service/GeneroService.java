@@ -15,7 +15,7 @@ public class GeneroService {
     GeneroRepository generoRepository;
 
 
-    public List<Genero> obterOuSalvar(List<Genero> generos) {
+    public List<Genero> salvar(List<Genero> generos) {
         var generosSalvos = new ArrayList<Genero>();
         generos.forEach(genero -> {
             var generoExistente = generoRepository.findbyId(Utils.prepararLikeParaBuscaGenerica(genero.getNome()));

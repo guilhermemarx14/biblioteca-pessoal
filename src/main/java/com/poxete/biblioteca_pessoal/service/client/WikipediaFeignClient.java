@@ -1,4 +1,4 @@
-package com.poxete.biblioteca_pessoal.client;
+package com.poxete.biblioteca_pessoal.service.client;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
