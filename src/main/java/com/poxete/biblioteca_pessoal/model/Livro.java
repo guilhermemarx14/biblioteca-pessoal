@@ -1,7 +1,6 @@
 package com.poxete.biblioteca_pessoal.model;
 
-import com.poxete.biblioteca_pessoal.service.dto.LivroCompletoDTO;
-import com.poxete.biblioteca_pessoal.service.dto.LivroResumoDTO;
+import com.poxete.biblioteca_pessoal.model.mapper.LivroMapper;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -42,20 +41,6 @@ public class Livro {
         this.classificacao = 0;
         this.dataLeitura = new Date(LocalDate.MIN.toEpochDay());
         this.comentario = "";
-    }
-
-    public Livro(LivroCompletoDTO dto) {
-        this.titulo = dto.getTitulo();
-        this.lido = dto.isLido();
-        this.anoPublicacao = dto.getAnoPublicacao();
-        this.generos = dto.getGeneros().stream().map(Genero::new).toList();
-        this.autores = dto.getAutores().stream().map(Autor::new).toList();
-        this.editora = new Editora(dto.getEditora());
-        this.localizacao = new Localizacao(dto.getLocalizacao());
-        this.quantidade = dto.getQuantidade();
-        this.classificacao = dto.getClassificacao();
-        this.dataLeitura = dto.getDataLeitura();
-        this.comentario = dto.getComentario();
     }
 
     @Id
@@ -116,7 +101,7 @@ public class Livro {
     }
 
     public String toString() {
-        return (new LivroResumoDTO(this)).toString();
+        return (LivroMapper.transformarLivroEmLivroResumoDTO(this)).toString();
     }
 
     public String obterAutoresComoString() {

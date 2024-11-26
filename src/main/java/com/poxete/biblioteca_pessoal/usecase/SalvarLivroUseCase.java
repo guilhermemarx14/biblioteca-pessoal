@@ -10,6 +10,8 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+import static com.poxete.biblioteca_pessoal.model.mapper.LivroMapper.transformarLivroCompletoDTOEmLivro;
+
 @Component
 public class SalvarLivroUseCase {
     @Autowired
@@ -28,7 +30,7 @@ public class SalvarLivroUseCase {
     LocalizacaoService localizacaoService;
 
     public Livro salvarLivro(LivroCompletoDTO livrocompletoDTO) {
-        var livroASerSalvo = new Livro(livrocompletoDTO);
+        var livroASerSalvo = transformarLivroCompletoDTOEmLivro(livrocompletoDTO);
         livroASerSalvo.setTitulo(livrocompletoDTO.getTitulo());
 
         livroASerSalvo.setAutores(autorService.salvar(livroASerSalvo.getAutores()));
