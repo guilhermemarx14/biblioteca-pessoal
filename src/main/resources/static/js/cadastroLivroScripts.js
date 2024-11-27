@@ -35,3 +35,15 @@ function confirmarSalvar(event) {
         document.querySelector('form').submit();
     }
 }
+
+document.getElementById("genero").addEventListener("change", function (event) {
+    const selectedOptions = Array.from(event.target.selectedOptions);
+    const newGenreOption = selectedOptions.find(option => option.value === "novo-genero");
+
+    if (newGenreOption) {
+        // Exibir um modal ou redirecionar o usuário para criar um novo gênero
+        alert("Adicionar novo gênero!");
+        // Remover a seleção do "Adicionar novo" para evitar confusão
+        newGenreOption.selected = false;
+    }
+});

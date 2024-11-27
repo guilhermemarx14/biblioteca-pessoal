@@ -23,6 +23,12 @@ class SalvarLivroUseCaseTest {
     @Autowired
     SalvarLivroUseCase salvarLivroUseCase;
 
+    @Autowired
+    SalvarAutorUseCase salvarAutorUseCase;
+
+    @Autowired
+    SalvarGeneroUseCase salvarGeneroUseCase;
+
     @Test
     void deveSalvarLivro() {
         var livroSalvo = salvarLivroUseCase.salvarLivro(mockLivro());
@@ -52,12 +58,12 @@ class SalvarLivroUseCaseTest {
 
     @Test
     void deveObterTodosOsGeneros() {
-        assertThat(salvarLivroUseCase.obterTodosOsGeneros().size()).isEqualTo(4);
+        assertThat(salvarGeneroUseCase.obterTodosOsGeneros().size()).isEqualTo(4);
     }
 
     @Test
     void deveObterTodosOsAutores() {
-        assertThat(salvarLivroUseCase.obterTodosOsAutores().size()).isEqualTo(5);
+        assertThat(salvarAutorUseCase.obterTodosOsAutores().size()).isEqualTo(5);
     }
 
     @BeforeAll
