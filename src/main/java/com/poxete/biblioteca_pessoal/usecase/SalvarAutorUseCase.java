@@ -1,5 +1,6 @@
 package com.poxete.biblioteca_pessoal.usecase;
 
+import com.poxete.biblioteca_pessoal.model.Autor;
 import com.poxete.biblioteca_pessoal.model.mapper.AutorMapper;
 import com.poxete.biblioteca_pessoal.service.AutorService;
 import com.poxete.biblioteca_pessoal.service.dto.AutorDTO;
@@ -11,7 +12,7 @@ public class SalvarAutorUseCase {
     @Autowired
     AutorService autorService;
 
-    public void salvarAutor(AutorDTO autorDTO) {
-        autorService.salvar(AutorMapper.transformarAutorDTOemAutor(autorDTO));
+    public Autor salvarAutor(AutorDTO autorDTO) {
+        return autorService.salvar(AutorMapper.transformarAutorDTOemAutor(autorDTO));
     }
 }

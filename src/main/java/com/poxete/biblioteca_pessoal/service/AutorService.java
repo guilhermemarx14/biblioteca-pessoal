@@ -23,8 +23,8 @@ public class AutorService {
         return autoresSalvos;
     }
 
-    public void salvar(Autor autor) {
-        salvar(List.of(autor));
+    public Autor salvar(Autor autor) {
+        return salvar(List.of(autor)).getFirst();
     }
 
     public List<Autor> buscarPorParteNome(String nome) {

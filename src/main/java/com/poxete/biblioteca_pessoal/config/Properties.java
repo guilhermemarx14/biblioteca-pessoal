@@ -1,5 +1,6 @@
 package com.poxete.biblioteca_pessoal.config;
 
+import com.poxete.biblioteca_pessoal.utils.IgnorarNoCoverage;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Component;
  */
 @Getter
 @Component
+@IgnorarNoCoverage
 public class Properties {
     /**
      * URL do banco de dados.

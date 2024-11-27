@@ -1,15 +1,14 @@
 package com.poxete.biblioteca_pessoal.config;
 
+import com.poxete.biblioteca_pessoal.utils.IgnorarNoCoverage;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
-import java.awt.*;
 import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
 
 @Log4j2
+@IgnorarNoCoverage
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ApplicationLauncherConfig {
     /**
@@ -21,13 +20,8 @@ public class ApplicationLauncherConfig {
         String url = "http://localhost:8080";
 
         try {
-            if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
-
-                Desktop.getDesktop().browse(new URI(url));
-            } else {
-                log.error("Ação BROWSE não suportada neste sistema. Abra manualmente: " + url);
-            }
-        } catch (IOException | URISyntaxException e) {
+            Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + url);
+        } catch (IOException e) {
             log.error("Erro ao tentar abrir o navegador: " + e.getMessage(), e);
         }
     }

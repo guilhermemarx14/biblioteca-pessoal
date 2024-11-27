@@ -50,6 +50,16 @@ class SalvarLivroUseCaseTest {
 
     }
 
+    @Test
+    void deveObterTodosOsGeneros() {
+        assertThat(salvarLivroUseCase.obterTodosOsGeneros().size()).isEqualTo(4);
+    }
+
+    @Test
+    void deveObterTodosOsAutores() {
+        assertThat(salvarLivroUseCase.obterTodosOsAutores().size()).isEqualTo(5);
+    }
+
     @BeforeAll
     public void setup() {
         configuraBaseEmMemoria.configurarBancoDeDados();

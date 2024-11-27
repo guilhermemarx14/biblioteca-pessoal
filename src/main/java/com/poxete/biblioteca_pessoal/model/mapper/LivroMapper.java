@@ -19,7 +19,7 @@ public class LivroMapper {
                 .titulo(dto.getTitulo())
                 .lido(!dto.getLido())
                 .generos(dto.getGeneros().stream().map(Genero::new).toList())
-                .autores(dto.getAutores().stream().map(Autor::new).toList())
+                .autores(dto.getAutores().stream().map(a -> new Autor(a, null, null)).toList())
                 .editora(new Editora(dto.getEditora()))
                 .localizacao(new Localizacao(dto.getLocalizacao()))
                 .quantidade(dto.getQuantidade())

@@ -1,6 +1,7 @@
 package com.poxete.biblioteca_pessoal.service.dto;
 
 import com.poxete.biblioteca_pessoal.model.Autor;
+import com.poxete.biblioteca_pessoal.utils.IgnorarNoCoverage;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -15,6 +16,7 @@ import static com.poxete.biblioteca_pessoal.utils.Utils.formatarListaComE;
 @Setter
 @Builder
 @AllArgsConstructor
+@IgnorarNoCoverage
 public class LivroResumoDTO {
     Integer id;
     String titulo;

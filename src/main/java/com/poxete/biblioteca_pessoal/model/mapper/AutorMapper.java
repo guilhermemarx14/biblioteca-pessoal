@@ -15,10 +15,10 @@ public class AutorMapper {
     public static Autor transformarAutorDTOemAutor(AutorDTO autorDTO) {
         var outrosNomes = new ArrayList<>(Arrays.stream(autorDTO.getOutrosNomes().split("\n")).toList());
 
-        return new Autor(autorDTO.getNome(), outrosNomes);
+        return new Autor(autorDTO.getNome(), outrosNomes, autorDTO.getFavorito());
     }
 
     public static AutorDTO transformarAutorEmAutorDTO(Autor autor) {
-        return new AutorDTO(autor.getNome(), formatarListaComE(autor.getOutrosNomes()));
+        return new AutorDTO(autor.getNome(), formatarListaComE(autor.getOutrosNomes()), autor.getFavorito());
     }
 }

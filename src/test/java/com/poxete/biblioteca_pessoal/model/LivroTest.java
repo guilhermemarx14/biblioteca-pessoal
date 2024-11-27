@@ -12,7 +12,7 @@ class LivroTest {
                 "Título",
                 2020,
                 List.of(new Genero("Gênero")),
-                List.of(new Autor("Autor", null)),
+                List.of(new Autor("Autor", null, false)),
                 new Editora("Editora"),
                 new Localizacao("Localização"),
                 10
@@ -26,7 +26,7 @@ class LivroTest {
                 "Título",
                 2020,
                 List.of(new Genero("Gênero")),
-                List.of(new Autor("Autor", null)),
+                List.of(new Autor("Autor", null, false)),
                 new Editora("Editora"),
                 new Localizacao("Localização"),
                 10
@@ -35,7 +35,7 @@ class LivroTest {
                 "Título",
                 2020,
                 List.of(new Genero("Gênero")),
-                List.of(new Autor("Autor", null)),
+                List.of(new Autor("Autor", null, false)),
                 new Editora("Editora"),
                 new Localizacao("Localização"),
                 10
@@ -51,7 +51,7 @@ class LivroTest {
                 "Título",
                 2020,
                 List.of(new Genero("Gênero")),
-                List.of(new Autor("Autor", null)),
+                List.of(new Autor("Autor", null, false)),
                 new Editora("Editora"),
                 new Localizacao("Localização"),
                 10
@@ -60,7 +60,7 @@ class LivroTest {
                 "Título",
                 2020,
                 List.of(new Genero("Gênero")),
-                List.of(new Autor("Autor", null)),
+                List.of(new Autor("Autor", null, false)),
                 new Editora("Editora"),
                 new Localizacao("Localização"),
                 10
@@ -76,7 +76,7 @@ class LivroTest {
                 "Título",
                 2020,
                 List.of(new Genero("Gênero")),
-                List.of(new Autor("Autor", null)),
+                List.of(new Autor("Autor", null, false)),
                 new Editora("Editora"),
                 new Localizacao("Localização"),
                 10
@@ -90,7 +90,7 @@ class LivroTest {
                 "Título",
                 2020,
                 List.of(new Genero("Gênero")),
-                List.of(new Autor("Autor", null)),
+                List.of(new Autor("Autor", null, false)),
                 new Editora("Editora"),
                 new Localizacao("Localização"),
                 10
@@ -104,7 +104,7 @@ class LivroTest {
                 "Título",
                 2020,
                 List.of(new Genero("Gênero")),
-                List.of(new Autor("Autor", null)),
+                List.of(new Autor("Autor", null, false)),
                 new Editora("Editora"),
                 new Localizacao("Localização"),
                 10
@@ -118,7 +118,7 @@ class LivroTest {
                 "Título",
                 2020,
                 List.of(new Genero("Gênero")),
-                List.of(new Autor("Autor", null)),
+                List.of(new Autor("Autor", null, false)),
                 new Editora("Editora"),
                 new Localizacao("Localização"),
                 10
@@ -127,7 +127,7 @@ class LivroTest {
                 "Título",
                 2020,
                 List.of(new Genero("Gênero")),
-                List.of(new Autor("Autor", null)),
+                List.of(new Autor("Autor", null, false)),
                 new Editora("Editora"),
                 new Localizacao("Localização"),
                 10
@@ -143,7 +143,7 @@ class LivroTest {
                 "Título",
                 2020,
                 List.of(new Genero("Gênero")),
-                List.of(new Autor("Autor", null)),
+                List.of(new Autor("Autor", null, false)),
                 new Editora("Editora"),
                 new Localizacao("Localização"),
                 10
@@ -152,7 +152,7 @@ class LivroTest {
                 "Título",
                 2020,
                 List.of(new Genero("Gênero")),
-                List.of(new Autor("Autor", null)),
+                List.of(new Autor("Autor", null, false)),
                 new Editora("Editora"),
                 new Localizacao("Localização"),
                 10

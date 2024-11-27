@@ -23,6 +23,7 @@ import java.util.List;
 import static com.poxete.biblioteca_pessoal.config.Constantes.MENSAGEM_EXCEPTION_SERIALIZACAO;
 
 @Log4j2
+@IgnorarNoCoverage
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Serializador {
     private static final ObjectMapper objectMapper;

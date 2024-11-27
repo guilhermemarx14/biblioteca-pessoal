@@ -73,6 +73,7 @@ public class Utils {
      * @param e Exce o a ser serializada
      * @return String com a stack trace da exce o
      */
+    @IgnorarNoCoverage
     public static String serializarExcecao(Exception e) {
         StringWriter sw = new StringWriter();
         e.printStackTrace(new PrintWriter(sw));

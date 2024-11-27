@@ -19,14 +19,7 @@ import java.util.Objects;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Autor {
-    /**
-     * Constrói um autor com o nome fornecido.
-     *
-     * @param nome o nome do autor
-     */
-    public Autor(String nome) {
-        this.nome = nome;
-    }
+
 
     /**
      * Constrói um autor com o nome e lista de nomes alternativos fornecidos.
@@ -34,9 +27,10 @@ public class Autor {
      * @param nome              o nome do autor
      * @param nomesAlternativos lista de nomes alternativos do autor
      */
-    public Autor(String nome, List<String> nomesAlternativos) {
+    public Autor(String nome, List<String> nomesAlternativos, Boolean favorito) {
         this.nome = nome;
         this.outrosNomes = nomesAlternativos;
+        this.favorito = favorito;
     }
 
     /**
@@ -59,6 +53,11 @@ public class Autor {
      */
     @Transient
     String biografia;
+
+    /**
+     * Se o autor é favorito ou não.
+     */
+    Boolean favorito;
 
     /**
      * Verifica se o autor é igual a outro objeto. (somente os nomes serem iguais já é suficiente por ele ser chave primária)

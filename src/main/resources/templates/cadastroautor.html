@@ -22,6 +22,10 @@
             <textarea class="w3-input w3-border w3-round" id="nomesalternativos" th:field="*{outrosNomes}" rows="5"
                       style="resize: vertical;"></textarea>
 
+            <label class="w3-text-gray" for="favorito">Favorito</label>
+            <input class="w3-check" id="favorito" type="checkbox" th:field="*{favorito}" value="true">
+
+
             <div class="w3-margin-top">
                 <button type="button" class="w3-button w3-light-grey w3-round w3-margin-right" onclick="window.history.back();">Voltar</button>
                 <button type="submit" class="w3-button w3-blue w3-round">Salvar</button>
