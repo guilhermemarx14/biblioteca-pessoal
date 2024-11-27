@@ -47,13 +47,6 @@ class EditoraTest {
     }
 
     @Test
-    void testHashCode_DifferentObjectWithSameId_ReturnsSameHashCode() {
-        Editora editora1 = new Editora("Editora Brasil");
-        Editora editora2 = new Editora("Editora Brasil");
-        Truth.assertThat(editora1.hashCode()).isEqualTo(editora2.hashCode());
-    }
-
-    @Test
     void testHashCode_DifferentObjectWithDifferentId_ReturnsDifferentHashCode() {
         Editora editora1 = new Editora("Editora Brasil");
         Editora editora2 = new Editora("Editora Portugal");

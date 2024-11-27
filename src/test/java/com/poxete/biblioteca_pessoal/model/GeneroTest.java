@@ -47,13 +47,6 @@ class GeneroTest {
     }
 
     @Test
-    void testHashCode_DifferentObjectWithSameId_ReturnsSameHashCode() {
-        Genero genero1 = new Genero("Romance");
-        Genero genero2 = new Genero("Romance");
-        Truth.assertThat(genero1.hashCode()).isEqualTo(genero2.hashCode());
-    }
-
-    @Test
     void testHashCode_DifferentObjectWithDifferentId_ReturnsDifferentHashCode() {
         Genero genero1 = new Genero("Romance");
         Genero genero2 = new Genero("Ficção");

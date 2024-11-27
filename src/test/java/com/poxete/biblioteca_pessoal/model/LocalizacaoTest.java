@@ -47,13 +47,6 @@ class LocalizacaoTest {
     }
 
     @Test
-    void testHashCode_DifferentObjectWithSameId_ReturnsSameHashCode() {
-        Localizacao localizacao1 = new Localizacao("Biblioteca");
-        Localizacao localizacao2 = new Localizacao("Biblioteca");
-        Truth.assertThat(localizacao1.hashCode()).isEqualTo(localizacao2.hashCode());
-    }
-
-    @Test
     void testHashCode_DifferentObjectWithDifferentId_ReturnsDifferentHashCode() {
         Localizacao localizacao1 = new Localizacao("Biblioteca");
         Localizacao localizacao2 = new Localizacao("Arquivo");

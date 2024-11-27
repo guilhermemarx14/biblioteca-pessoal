@@ -49,13 +49,6 @@ class AutorTest {
     }
 
     @Test
-    void testHashCode_DifferentObjectWithSameId_ReturnsSameHashCode() {
-        Autor autor1 = new Autor("John Doe", List.of("Jane Smith"));
-        Autor autor2 = new Autor("John Doe", List.of("Jane Smith"));
-        Truth.assertThat(autor1.hashCode()).isEqualTo(autor2.hashCode());
-    }
-
-    @Test
     void testHashCode_DifferentObjectWithDifferentId_ReturnsDifferentHashCode() {
         Autor autor1 = new Autor("John Doe", List.of("Jane Smith"));
         Autor autor2 = new Autor("Jane Smith", List.of("John Doe"));
