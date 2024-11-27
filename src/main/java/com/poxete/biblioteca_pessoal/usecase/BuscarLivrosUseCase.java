@@ -30,6 +30,13 @@ public class BuscarLivrosUseCase {
     @Autowired
     LocalizacaoService localizacaoService;
 
+
+    /**
+     * Busca livros pelo título.
+     *
+     * @param titulo título do livro a ser buscado
+     * @return lista de livros que correspondem ao título buscado
+     */
     public List<Livro> buscarLivroPorTitulo(String titulo) {
         return livroService.buscarPorTitulo(prepararLikeParaBuscaGenerica(titulo));
     }
@@ -43,6 +50,12 @@ public class BuscarLivrosUseCase {
                 .toList();
     }
 
+    /**
+     * Realiza uma busca genérica por livros com base em uma consulta.
+     *
+     * @param query consulta a ser utilizada para buscar livros
+     * @return lista de livros que correspondem à consulta
+     */
     public List<Livro> obterLivroBuscaGenerica(String query) {
         var chave = prepararLikeParaBuscaGenerica(query);
 

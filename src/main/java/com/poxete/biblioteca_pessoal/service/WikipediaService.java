@@ -16,12 +16,7 @@ public class WikipediaService {
         String searchResponse = wikipediaFeignClient.search(ACTION_QUERY, "search", nome, "json", "*");
         Integer pageId;
 
-        try {
-            pageId = extractPageIdFromResponse(searchResponse);
-        } catch (Exception e) {
-            return null;
-        }
-
+        pageId = extractPageIdFromResponse(searchResponse);
 
         String biografiaResponse = wikipediaFeignClient.getPageExtract(ACTION_QUERY, "extracts", true, pageId, "json", "*");
 

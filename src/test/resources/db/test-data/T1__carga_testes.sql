@@ -33,6 +33,9 @@ INSERT INTO Autor (nome)
 VALUES ('George R.R. Martin');
 INSERT INTO Autor (nome)
 VALUES ('Jane Austen');
+INSERT INTO Autor (nome)
+VALUES ('Poxete');
+
 
 -- Inserindo dados na tabela autor_outros_nomes
 INSERT INTO autor_outros_nomes (autor_id, outros_nomes)

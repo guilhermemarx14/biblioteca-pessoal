@@ -22,7 +22,7 @@ class ArquiteturaTest {
     }
 
     @Test
-    void UseCasesSoPodemImportarUseCasesOuServices() {
+    void useCasesSoPodemImportarUseCasesOuServices() {
         ArchRuleDefinition.noClasses()
                 .that()
                 .resideInAPackage("..usecase..")
@@ -33,7 +33,7 @@ class ArquiteturaTest {
     }
 
     @Test
-    void ServicesSoPodemImportarRepositories() {
+    void servicesSoPodemImportarRepositories() {
         ArchRuleDefinition.classes()
                 .that()
                 .resideInAPackage("..service")

@@ -29,6 +29,12 @@ public class SalvarLivroUseCase {
     @Autowired
     LocalizacaoService localizacaoService;
 
+    /**
+     * Salva um livro e todos os seus relacionamentos.
+     *
+     * @param livrocompletoDTO dados do livro a ser salvo
+     * @return o livro salvo
+     */
     public Livro salvarLivro(LivroCompletoDTO livrocompletoDTO) {
         var livroASerSalvo = transformarLivroCompletoDTOEmLivro(livrocompletoDTO);
         livroASerSalvo.setTitulo(livrocompletoDTO.getTitulo());

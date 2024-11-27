@@ -5,7 +5,5 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Constantes {
-    public static final Integer ALTURA_PADRAO = 600;
-    public static final Integer LANGURA_PADRAO = 800;
-    public static final String NOME_APLICACAO = "Biblioteca Pessoal";
+    public static final String MENSAGEM_EXCEPTION_AUTOR_NAO_ENCONTRADO = "Autor %s não encontrado";
 }
