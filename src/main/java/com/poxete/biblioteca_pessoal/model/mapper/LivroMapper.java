@@ -17,7 +17,7 @@ public class LivroMapper {
 
         return Livro.builder()
                 .titulo(dto.getTitulo())
-                .lido(dto.isLido())
+                .lido(!dto.getLido())
                 .generos(dto.getGeneros().stream().map(Genero::new).toList())
                 .autores(dto.getAutores().stream().map(Autor::new).toList())
                 .editora(new Editora(dto.getEditora()))
@@ -27,6 +27,7 @@ public class LivroMapper {
                 .anoPublicacao(dto.getAnoPublicacao())
                 .dataLeitura(dto.getDataLeitura())
                 .comentario(dto.getComentario())
+                .favorito(!dto.getFavorito())
                 .build();
     }
 
@@ -47,6 +48,7 @@ public class LivroMapper {
                 .dataLeitura(livro.getDataLeitura())
                 .anoPublicacao(livro.getAnoPublicacao())
                 .comentario(livro.getComentario())
+                .favorito(livro.getFavorito())
                 .build();
     }
 

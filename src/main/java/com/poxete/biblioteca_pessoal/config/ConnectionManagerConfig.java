@@ -15,6 +15,12 @@ public class ConnectionManagerConfig {
     @Autowired
     ApplicationContext applicationContext;
 
+    /**
+     * Fecha a conexão com o banco de dados.
+     * <p>
+     * Essa funcao é chamado automaticamente pelo Spring quando a aplicação
+     * est  sendo encerrada.
+     */
     @PreDestroy
     public void closeConnection() {
         var connection = applicationContext.getBean(Connection.class);

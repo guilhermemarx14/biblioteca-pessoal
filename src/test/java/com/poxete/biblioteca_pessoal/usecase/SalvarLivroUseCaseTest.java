@@ -35,7 +35,7 @@ class SalvarLivroUseCaseTest {
 
         return new LivroCompletoDTO(
                 "titulo que não é real",
-                Boolean.FALSE,
+                false,
                 0,
                 List.of("genero"),
                 List.of("nomeAutor de sobrenomeAutor"),
@@ -44,7 +44,8 @@ class SalvarLivroUseCaseTest {
                 3,
                 3,
                 new Date(LocalDate.now().toEpochDay()),
-                "comentario"
+                "comentario",
+                false
         );
 
     }

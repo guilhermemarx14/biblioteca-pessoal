@@ -12,7 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 public class LivroCompletoDTO {
     String titulo;
-    boolean lido;
+    Boolean lido;
     Integer anoPublicacao;
     List<String> generos;
     List<String> autores;
@@ -22,4 +22,5 @@ public class LivroCompletoDTO {
     Integer classificacao;
     Date dataLeitura;
     String comentario;
+    Boolean favorito;
 }

@@ -1,79 +1,67 @@
-<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="pt-br">
 <head>
     <title>Cadastro de Livros</title>
-    <link rel="stylesheet" href="/static-css/materialize.min.css">
+
     <link rel="stylesheet" href="/css/styles.css">
-    <link href="/static-css/select2.min.css" rel="stylesheet"/>
-    <style>
-        input[type="checkbox"] {
-            all: unset; /* Remove estilos herdados */
-        }
-    </style>
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="/js/cadastroLivroScripts.js"></script>
+
 </head>
 <body>
 <div class="container">
-    <div class="form-container">
-        <h1>Cadastro de Livros</h1>
-        <form th:action="@{/salvar-livro}" th:object="${livro}" method="post">
-            <div class="form-group">
-                <label for="titulo">Título</label>
-                <input class="form-control" id="titulo" th:field="*{titulo}" required>
-            </div>
+    <div class="w3-container w3-card-4 w3-light-grey w3-padding-large w3-margin">
+        <h1 class="w3-center">Cadastro de Livros</h1>
+        <form th:action="@{/salvar-livro}" th:object="${livro}" method="post" class="w3-container">
 
-            <div class="form-group">
-                <label for="anoPublicacao">Ano de Publicação</label>
-                <input class="form-control" type="number" id="anoPublicacao" th:field="*{anoPublicacao}" required>
-            </div>
+            <label class="w3-text-gray" for="titulo">Título</label>
+            <input class="w3-input w3-border w3-round" id="titulo" th:field="*{titulo}" required>
 
-            <div class="form-group">
-                <label for="autor">Autor</label>
-                <select class="form-control select2" id="autor" name="autor" multiple="multiple" th:field="*{autores}">
-                    <option th:each="autor : ${autores}" th:value="${autor.nome}" th:text="${autor.nome}"></option>
-                </select>
-            </div>
+            <label class="w3-text-gray" for="anoPublicacao">Ano de Publicação</label>
+            <input class="w3-input w3-border w3-round" type="number" id="anoPublicacao" th:field="*{anoPublicacao}" required>
 
-            <div class="form-group">
-                <label for="genero">Gênero</label>
-                <select class="form-control select2" id="genero" name="genero" multiple="multiple" th:field="*{generos}">
-                    <option th:each="genero : ${generos}" th:value="${genero.nome}" th:text="${genero.nome}"></option>
-                </select>
-            </div>
+            <label class="w3-text-gray" for="autor">Autor</label>
+            <select class="w3-select w3-border w3-round" id="autor" name="autor" multiple="multiple" th:field="*{autores}">
+                <option th:each="autor : ${autores}" th:value="${autor.nome}" th:text="${autor.nome}"></option>
+            </select>
 
-            <div class="form-group">
-                <label for="editora">Editora</label>
-                <input class="form-control" id="editora" th:field="*{editora}" required>
-            </div>
+            <label class="w3-text-gray" for="genero">Gênero</label>
+            <select class="w3-select w3-border w3-round" id="genero" name="genero" multiple="multiple" th:field="*{generos}">
+                <option th:each="genero : ${generos}" th:value="${genero.nome}" th:text="${genero.nome}"></option>
+            </select>
 
-            <div class="form-group">
-                <label for="localizacao">Localização</label>
-                <input class="form-control" id="localizacao" th:field="*{localizacao}" required>
-            </div>
+            <label class="w3-text-gray" for="editora">Editora</label>
+            <input class="w3-input w3-border w3-round" id="editora" th:field="*{editora}" required>
 
-            <div class="form-group">
-                <label for="quantidade">Quantidade</label>
-                <input class="form-control" type="number" id="quantidade" th:field="*{quantidade}" required>
-            </div>
+            <label class="w3-text-gray" for="localizacao">Localização</label>
+            <input class="w3-input w3-border w3-round" id="localizacao" th:field="*{localizacao}" required>
 
-            <div class="switch">
-                <label>
-                    Já foi lido?
-                    <input type="checkbox" id="lido" th:field="*{lido}">
-                    <span class="lever"></span>
-                </label>
-            </div>
-            <button type="button" class="btn btn-secondary btn-padrao" onclick="window.history.back();">Voltar</button>
+            <label class="w3-text-gray" for="quantidade">Quantidade</label>
+            <input class="w3-input w3-border w3-round" type="number" id="quantidade" th:field="*{quantidade}" required>
 
-            <button type="submit" class="btn btn-primary btn-padrao" id="btnSalvar">Salvar</button>
+            <label class="w3-text-gray" for="lido">Lido</label>
+            <input class="w3-check" id="lido" type="checkbox" th:field="*{lido}" value="false">
+
+            <label class="w3-text-gray" for="favorito">Favorito</label>
+            <input class="w3-check" id="favorito" type="checkbox" th:field="*{favorito}" value="true">
+
+            <div class="w3-margin-top">
+                <button type="button" class="w3-button w3-light-grey w3-round w3-margin-right" onclick="window.history.back();">Voltar</button>
+                <button type="submit" class="w3-button w3-blue w3-round">Salvar</button>
+            </div>
 
         </form>
     </div>
+
 </div>
+<script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+        M.AutoInit();  // Isso garante que todos os componentes sejam inicializados corretamente
+    });
+</script>
 
 
-<script src="/static-js/jquery-3.7.1.min.js"></script>
-<script src="/static-js/materialize.min.js"></script>
-<script src="/static-js/select2.min.js"></script>
-<script src="/js/cadastroLivroScripts.js"></script>
-<script src="/sweetalert2@11"></script>
 </body>
 </html>

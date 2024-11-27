@@ -23,6 +23,10 @@ public class AutorService {
         return autoresSalvos;
     }
 
+    public void salvar(Autor autor) {
+        salvar(List.of(autor));
+    }
+
     public List<Autor> buscarPorParteNome(String nome) {
         return autorRepository.buscarPorParteNome(Utils.prepararLikeParaBuscaGenerica(nome));
     }

@@ -4,43 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mensagem</title>
-
-    <link rel="stylesheet" href="/static-css/materialize.min.css">
-    <link rel="stylesheet" href="/static-css/material-icons.css">
-    <link rel="stylesheet" href="/css/styles.css">
-    <script src="/static-js/materialize.min.js"></script>
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-    <main class="mdl-layout__content">
-        <div class="page-content">
-            <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="width: 50%; margin: 20px auto;">
-                <thead>
-                <tr>
-                    <th class="mdl-data-table__cell--non-numeric">Título</th>
-                    <th class="mdl-data-table__cell--non-numeric">Autores</th>
-                    <th class="mdl-data-table__cell--non-numeric">Editora</th>
-                    <th class="mdl-data-table__cell--non-numeric">Generos</th>
 
-                    <th>Ano de Publicação</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="livro : ${livros}">
-                    <td class="mdl-data-table__cell--non-numeric" th:text="${livro.getTitulo()}">Título</td>
-                    <td class="mdl-data-table__cell--non-numeric" th:text="${livro.obterAutoresComoString()}">Autores</td>
-                    <td class="mdl-data-table__cell--non-numeric" th:text="${livro.getEditora()}">Editora</td>
-                    <td class="mdl-data-table__cell--non-numeric" th:text="${livro.obterGenerosComoString()}">Generos</td>
-                    <td th:text="${livro.getAnoPublicacao()}">Ano de Publicação</td>
-                </tr>
-                </tbody>
-            </table>
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
-                    onclick="window.location.href='/';">
-                Voltar
-            </button>
-        </div>
-    </main>
+<div class="w3-container w3-card-4 w3-light-grey w3-padding-large w3-margin">
+    <table class="w3-table-all tabela-listagem-livros ">
+        <thead>
+        <tr>
+            <th>Favorito</th>
+            <th>Título</th>
+            <th>Autores</th>
+            <th>Editora</th>
+            <th>Generos</th>
+
+            <th>Ano de Publicação</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="livro : ${livros}">
+            <td th:text="${livro.getFavorito()}">Favorito</td>
+            <td th:text="${livro.getTitulo()}">Título</td>
+            <td th:text="${livro.obterAutoresComoString()}">Autores</td>
+            <td th:text="${livro.getEditora()}">Editora</td>
+            <td th:text="${livro.obterGenerosComoString()}">Generos</td>
+            <td th:text="${livro.getAnoPublicacao()}">Ano de Publicação</td>
+        </tr>
+        </tbody>
+    </table>
+    <button class="mdc-button mdc-js-button mdc-button--raised mdc-button--colored"
+            onclick="window.location.href='/';">
+        Voltar
+    </button>
 </div>
 
 

@@ -3,6 +3,8 @@ package com.poxete.biblioteca_pessoal.utils;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.List;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
@@ -32,12 +34,12 @@ public class Utils {
         }
 
         if (lista.size() == 1) {
-            return lista.get(0).toString();
+            return lista.getFirst().toString();
         }
 
         List<String> listaString = lista.stream().map(Object::toString).toList();
 
-        return String.join(", ", listaString.subList(0, listaString.size() - 1)) + " e " + listaString.get(listaString.size() - 1);
+        return String.join(", ", listaString.subList(0, listaString.size() - 1)) + " e " + listaString.getLast();
     }
 
     /**
@@ -63,5 +65,17 @@ public class Utils {
         }
 
         return resultado.toString().trim();
+    }
+
+    /**
+     * Retorna uma string com a stack trace da exce o.
+     *
+     * @param e Exce o a ser serializada
+     * @return String com a stack trace da exce o
+     */
+    public static String serializarExcecao(Exception e) {
+        StringWriter sw = new StringWriter();
+        e.printStackTrace(new PrintWriter(sw));
+        return sw.toString();
     }
 }

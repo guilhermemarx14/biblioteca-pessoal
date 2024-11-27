@@ -85,6 +85,8 @@ public class Livro {
 
     String comentario;
 
+    Boolean favorito;
+
     @Override
     public boolean equals(Object o) {
         if (this == o)
