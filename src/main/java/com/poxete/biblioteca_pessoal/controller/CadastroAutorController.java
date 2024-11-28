@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 
 @Controller
-public class CadastroAutorController {
+public class CadastroAutorController {//todo: fazer testes unitarios dos controllers
     @Autowired
     SalvarAutorUseCase salvarAutorUseCase;
 

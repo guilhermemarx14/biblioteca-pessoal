@@ -26,8 +26,20 @@
         <tbody>
         <tr th:each="livro : ${livros}">
             <td th:text="${livro.getFavorito()}">Favorito</td>
-            <td th:text="${livro.getTitulo()}">Título</td>
-            <td th:text="${livro.obterAutoresComoString()}">Autores</td>
+            <td>
+                <span th:each="titulo : ${livro.getTitulo()}">
+                    <a href="#" th:attr="href='/detalhesLivro?id=' + ${livro.id}"
+                       th:text="${titulo}"
+                       onclick="this.href='${/detalhesLivro?id=' + encodeURIComponent(livro.id)"></a><br/>
+                </span>
+            </td>
+            <td>
+                <span th:each="autor : ${livro.obterAutoresComoString()}">
+                    <a href="#" th:attr="href='/detalhesAutor?nome=' + ${autor}"
+                       th:text="${autor}"
+                       onclick="this.href='${/detalhesAutor?nome=' + encodeURIComponent(autor)"></a><br/>
+                </span>
+            </td>
             <td th:text="${livro.getEditora()}">Editora</td>
             <td th:text="${livro.obterGenerosComoString()}">Generos</td>
             <td th:text="${livro.getAnoPublicacao()}">Ano de Publicação</td>

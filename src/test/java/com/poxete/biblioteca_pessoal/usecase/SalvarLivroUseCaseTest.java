@@ -51,7 +51,8 @@ class SalvarLivroUseCaseTest {
                 3,
                 new Date(LocalDate.now().toEpochDay()),
                 "comentario",
-                false
+                false,
+                null
         );
 
     }

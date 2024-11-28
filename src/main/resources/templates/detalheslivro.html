@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes do Livro</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<style>
+    .custom-margin {
+        margin: 20px; /* Adiciona uma margem de 20px em todos os lados */
+    }
+</style>
+<body>
+<div class="w3-container w3-margin-top">
+    <h1 class="w3-text-teal">Detalhes do Livro</h1>
+
+    <div class="w3-card-4 w3-margin-top">
+        <header class="w3-container w3-teal">
+            <h2 th:text="${livro.titulo}">Título do livro</h2>
+        </header>
+
+        <div class="w3-container w3-padding">
+            <!-- Autores -->
+            <div>
+                <h3>Autores</h3>
+                <ul class="w3-ul w3-border">
+                    <li th:each="nome : ${livro.getAutoresComoString()}" th:text="${nome}">Autores</li>
+                </ul>
+            </div>
+
+            <!-- Dados de Leitura (Campos de leitura) -->
+            <div class="w3-margin-top">
+                <h3>Dados de Leitura</h3>
+                <table class="w3-table-all">
+                    <tr>
+                        <td><b>Lido:</b></td>
+                        <td th:text="${livro.lido}">Lido</td>
+                    </tr>
+                    <tr>
+                        <td><b>Ano de Publicação:</b></td>
+                        <td th:text="${livro.anoPublicacao}">Ano de Publicação</td>
+                    </tr>
+                    <tr>
+                        <td><b>Gêneros:</b></td>
+                        <td>
+                            <ul>
+                                <li th:each="generos : ${livro.getGenerosComoString()}" th:text="${genero}">Gêneros</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Editora:</b></td>
+                        <td th:text="${livro.editora}">Editora</td>
+                    </tr>
+                    <tr>
+                        <td><b>Localização:</b></td>
+                        <td th:text="${livro.localizacao}">Localização</td>
+                    </tr>
+                    <tr>
+                        <td><b>Quantidade:</b></td>
+                        <td th:text="${livro.quantidade}">Quantidade</td>
+                    </tr>
+                    <tr>
+                        <td><b>Classificação:</b></td>
+                        <td th:text="${livro.classificacao}">Classificação</td>
+                    </tr>
+                    <tr>
+                        <td><b>Data de Leitura:</b></td>
+                        <td th:text="${livro.dataLeitura}">Data de Leitura</td>
+                    </tr>
+                    <tr>
+                        <td><b>Comentário:</b></td>
+                        <td th:text="${livro.comentario}">Comentário</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Biografia -->
+            <h3 class="w3-margin-top">Dados Wikipedia</h3>
+            <p th:utext="${livro.dadosWikipedia}">Texto do Wikipedia</p>
+
+            <footer class="w3-margin-top w3-small w3-text-grey w3-right">
+                Powered by <a href="https://www.wikipedia.org" target="_blank" class="w3-text-blue">Wikipedia</a>
+            </footer>
+
+            <!-- Favorito -->
+            <h3 class="w3-margin-top">Favorito</h3>
+            <p>
+                <i th:if="${livro.favorito}" class="w3-text-green">Este livro é favorito.</i>
+                <i th:if="${!livro.favorito}" class="w3-text-red">Este livro não é favorito.</i>
+            </p>
+        </div>
+        <button type="button" class="w3-button w3-light-grey w3-round w3-margin-right custom-margin" onclick="window.history.back();">Voltar</button>
+    </div>
+</div>
+</body>
+</html>

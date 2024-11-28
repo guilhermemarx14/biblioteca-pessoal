@@ -6,6 +6,9 @@ import lombok.*;
 import java.sql.Date;
 import java.util.List;
 
+import static com.poxete.biblioteca_pessoal.utils.Utils.capitalizarPalavras;
+import static com.poxete.biblioteca_pessoal.utils.Utils.formatarListaComE;
+
 @Getter
 @Setter
 @Builder
@@ -25,4 +28,15 @@ public class LivroCompletoDTO {
     Date dataLeitura;
     String comentario;
     Boolean favorito;
+    String dadosWikipedia;
+
+    public String getAutoresComoString() {
+        return capitalizarPalavras(formatarListaComE(autores));
+    }
+
+    public String getGenerosComoString() {
+        return capitalizarPalavras(formatarListaComE(generos));
+    }
+
+
 }

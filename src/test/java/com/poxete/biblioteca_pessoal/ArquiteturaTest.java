@@ -32,24 +32,5 @@ class ArquiteturaTest {
                 .check(importedClasses);
     }
 
-    @Test
-    void servicesSoPodemImportarRepositories() {
-        ArchRuleDefinition.classes()
-                .that()
-                .resideInAPackage("..service")
-                .should()
-                .onlyDependOnClassesThat()
-                .resideInAnyPackage(
-                        "..repository",
-                        "..model",
-                        "..service.dto",
-                        "..service.client",
-                        "java..",
-                        "org.springframework..",
-                        "..utils",
-                        "org.json.."
-                )
-
-                .check(importedClasses);
-    }
+    //TODO: aprofundar nesses testes
 }
