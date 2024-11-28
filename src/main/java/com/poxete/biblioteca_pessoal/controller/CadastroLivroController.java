@@ -1,7 +1,7 @@
 package com.poxete.biblioteca_pessoal.controller;
 
 import com.poxete.biblioteca_pessoal.service.dto.LivroCompletoDTO;
-import com.poxete.biblioteca_pessoal.usecase.SalvarAutorUseCase;
+import com.poxete.biblioteca_pessoal.usecase.ObterDetalhesAutorUseCase;
 import com.poxete.biblioteca_pessoal.usecase.SalvarGeneroUseCase;
 import com.poxete.biblioteca_pessoal.usecase.SalvarLivroUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ public class CadastroLivroController {
     SalvarGeneroUseCase salvarGeneroUseCase;
 
     @Autowired
-    SalvarAutorUseCase salvarAutorUseCase;
+    ObterDetalhesAutorUseCase obterDetalhesAutorUseCase;
 
     /**
      * Exibe o formulário de cadastro de livro
@@ -31,7 +31,7 @@ public class CadastroLivroController {
     @GetMapping("/cadastroLivro")
     public String exibirFormulario(Model model) {
         model.addAttribute("livro", new LivroCompletoDTO());
-        model.addAttribute("autores", salvarAutorUseCase.obterTodosOsAutores());
+        model.addAttribute("autores", obterDetalhesAutorUseCase.obterTodosOsAutores());
         model.addAttribute("generos", salvarGeneroUseCase.obterTodosOsGeneros());
         return "cadastrolivro";
     }

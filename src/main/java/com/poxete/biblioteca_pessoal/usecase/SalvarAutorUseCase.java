@@ -7,8 +7,6 @@ import com.poxete.biblioteca_pessoal.service.dto.AutorDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
-
 @Component
 public class SalvarAutorUseCase {
     @Autowired
@@ -24,12 +22,5 @@ public class SalvarAutorUseCase {
         return autorService.salvar(AutorMapper.transformarAutorDTOemAutor(autorDTO));
     }
 
-    /**
-     * Obtém todos os autores cadastrados.
-     *
-     * @return uma lista contendo todos os autores
-     */
-    public List<Autor> obterTodosOsAutores() {
-        return autorService.buscarTodos();
-    }
+
 }

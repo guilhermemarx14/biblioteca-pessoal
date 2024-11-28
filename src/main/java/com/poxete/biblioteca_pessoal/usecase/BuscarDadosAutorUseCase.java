@@ -33,7 +33,7 @@ public class BuscarDadosAutorUseCase {
             throw new AutorNaoEncontradoException(MENSAGEM_EXCEPTION_AUTOR_NAO_ENCONTRADO.formatted(capitalizarPalavras(autorNome)));
         }
         try {
-            var biografia = wikipediaService.obterBiografia(autorExistente.getNome());
+            var biografia = wikipediaService.obterDadosWikipedia(autorExistente.getNome());
             autorExistente.setBiografia(biografia);
         } catch (Exception e) {
             autorExistente.setBiografia(BIOGRAFIA_NAO_ENCONTRADA.formatted(capitalizarPalavras(autorNome)));

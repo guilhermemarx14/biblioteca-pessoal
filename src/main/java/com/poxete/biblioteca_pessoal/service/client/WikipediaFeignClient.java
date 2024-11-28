@@ -21,4 +21,11 @@ public interface WikipediaFeignClient {
                           @RequestParam("pageids") Integer pageId,
                           @RequestParam("format") String format,
                           @RequestParam("origin") String origin);
+
+    @GetMapping
+    String getPageDetails(@RequestParam("action") String action,
+                          @RequestParam("prop") String prop,
+                          @RequestParam("pageids") Integer pageid,
+                          @RequestParam("format") String format,
+                          @RequestParam("utf8") String utf8);
 }

@@ -19,7 +19,7 @@ public class SalvarGeneroUseCase {
      * @return o g nero salvo, com o id gerado
      */
     public Genero salvarGenero(Genero genero) {
-        return generoService.salvarTodos(genero);
+        return generoService.salvar(genero);
     }
 
     /**

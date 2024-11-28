@@ -5,3 +5,40 @@
     min-height: 100vh;
     margin-bottom: 20px;
 }
+
+.estrelas {
+    display: block;
+}
+
+.star {
+    font-size: 30px;
+    color: lightgray;
+    cursor: pointer;
+    margin: 5px 0;
+}
+
+input[type="radio"]:checked + label {
+    color: gold;
+}
+
+input[type="radio"]:not(:checked) + label:hover,
+input[type="radio"]:not(:checked) + label:hover ~ label {
+    color: gold;
+}
+
+input[type="radio"]:checked + label:hover,
+input[type="radio"]:checked + label:hover ~ label {
+    color: gold;
+}
+
+input[type="radio"]:checked + label {
+    color: gold;
+}
+
+.comment-field {
+    margin-top: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}

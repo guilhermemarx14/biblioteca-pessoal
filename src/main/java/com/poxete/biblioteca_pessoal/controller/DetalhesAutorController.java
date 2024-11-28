@@ -1,14 +1,21 @@
 package com.poxete.biblioteca_pessoal.controller;
 
+import com.poxete.biblioteca_pessoal.usecase.ObterDetalhesAutorUseCase;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestParam;
 
-@RestController
+@Controller
 public class DetalhesAutorController {
+    @Autowired
+    ObterDetalhesAutorUseCase obterDetalhesAutorUseCase;
 
-    @GetMapping("/detalhesAutor/{nome}")
-    public String obterDetalhesAutor(@PathVariable("nome") String nome) {
-        return "texto";
+    @GetMapping("/detalhesAutor")
+    public String obterDetalhesAutor(@RequestParam("nome") String nome, Model model) {
+        model.addAttribute("autor", obterDetalhesAutorUseCase.obterDetalhesAutor(nome));
+
+        return "detalhesautor";
     }
 }

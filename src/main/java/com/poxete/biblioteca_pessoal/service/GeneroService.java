@@ -23,11 +23,7 @@ public class GeneroService {
      */
     public List<Genero> salvarTodos(List<Genero> generos) {
         var generosSalvos = new ArrayList<Genero>();
-        generos.forEach(genero -> {
-            var generoExistente = generoRepository.findbyId(Utils.prepararLikeParaBuscaGenerica(genero.getNome()));
-            generosSalvos.add(generoExistente.orElse(generoRepository.save(genero)));
-        });
-
+        generos.forEach(genero -> generosSalvos.add(salvar(genero)));
         return generosSalvos;
     }
 
@@ -37,18 +33,9 @@ public class GeneroService {
      * @param genero genero a ser salvo
      * @return o genero salvo
      */
-    public Genero salvarTodos(Genero genero) {
-        return salvarTodos(List.of(genero)).getFirst();
-    }
-
-    /**
-     * Realiza uma busca de generos que contenham a string <code>nome</code> no seu nome.
-     *
-     * @param nome string a ser buscada
-     * @return lista de generos que contenham <code>nome</code> no seu nome
-     */
-    public List<Genero> buscarPorParteNome(String nome) {
-        return generoRepository.buscarPorNome(Utils.prepararLikeParaBuscaGenerica(nome));
+    public Genero salvar(Genero genero) {
+        var generoExistente = generoRepository.encontrarPorIdLike(Utils.prepararLikeParaBuscaGenerica(genero.getNome()));
+        return generoExistente.isEmpty() ? generoRepository.save(genero) : generoExistente.getFirst();
     }
 
     /**
@@ -61,5 +48,16 @@ public class GeneroService {
         var todos = generoRepository.findAll();
         todos.forEach(g -> g.setNome(Utils.capitalizarPalavras(g.getNome())));
         return todos;
+    }
+
+    /**
+     * Busca todos os generos que contenham a string nome.
+     *
+     * @param nome string a ser buscada nos generos
+     * @return lista de generos que contenham a string nome, com os nomes formatados para
+     * primeira letra maiúscula.
+     */
+    public List<Genero> buscarPorParteNome(String nome) {
+        return generoRepository.encontrarPorIdLike(nome);
     }
 }

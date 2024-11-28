@@ -41,10 +41,40 @@
             <input class="w3-input w3-border w3-round" type="number" id="quantidade" th:field="*{quantidade}" required>
 
             <label class="w3-text-gray" for="lido">Lido</label>
-            <input class="w3-check" id="lido" type="checkbox" th:field="*{lido}" value="false">
+            <input class="w3-check" id="lido" type="checkbox" th:field="*{lido}" value="false" onclick="mostrarCampos()">
 
             <label class="w3-text-gray" for="favorito">Favorito</label>
             <input class="w3-check" id="favorito" type="checkbox" th:field="*{favorito}" value="true">
+            <div id="camposLido" style="display:none;">
+                <div class="w3-margin-top">
+                    <label for="classificacao">Classificação (1 a 5 estrelas):</label><br>
+
+                    <div class="estrelas">
+
+                        <input type="radio" id="star1" name="classificacao" value="1" required><label for="star1" class="star"> &#9733;</label><br>
+                        <input type="radio" id="star2" name="classificacao" value="2" required><label for="star2" class="star"> &#9733;
+                        &#9733;</label><br>
+                        <input type="radio" id="star3" name="classificacao" value="3" required><label for="star3" class="star">
+                        &#9733;&#9733;&#9733;</label><br>
+                        <input type="radio" id="star4" name="classificacao" value="4" required><label for="star4" class="star"> &#9733; &#9733;
+                        &#9733; &#9733;</label><br>
+                        <input type="radio" id="star5" name="classificacao" value="5" required><label for="star5" class="star"> &#9733; &#9733;
+                        &#9733; &#9733; &#9733;</label><br>
+
+                    </div>
+
+                </div>
+
+                <div class="w3-margin-top">
+                    <label for="dataLeitura">Data da Leitura:</label>
+                    <input type="date" id="dataLeitura" name="dataLeitura" required>
+                </div>
+
+                <div class="w3-margin-top">
+                    <label for="comentario">Comentário (máximo de 5000 caracteres):</label><br>
+                    <textarea id="comentario" name="comentario" rows="4" maxlength="5000" class="comment-field"></textarea>
+                </div>
+            </div>
 
             <div class="w3-margin-top">
                 <button type="button" class="w3-button w3-light-grey w3-round w3-margin-right" onclick="window.history.back();">Voltar</button>
@@ -60,6 +90,29 @@
     document.addEventListener('DOMContentLoaded', function () {
         M.AutoInit();  // Isso garante que todos os componentes sejam inicializados corretamente
     });
+
+    function mostrarCampos() {
+        var lido = document.getElementById("lido");
+        var camposLido = document.getElementById("camposLido");
+
+        // Se a flag 'lido' estiver marcada, mostra os campos, caso contrário, esconde
+        if (lido.checked) {
+            camposLido.style.display = "block";
+        } else {
+            camposLido.style.display = "none";
+        }
+    }
+
+    function formatDate(date) {
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        return `${day}/${month}/${year}`;
+    }
+
+    // Obter a data de hoje e definir no input
+    const today = new Date();
+    document.getElementById('data').value = formatDate(today);
 </script>
 
 

@@ -24,10 +24,10 @@ class SalvarLivroUseCaseTest {
     SalvarLivroUseCase salvarLivroUseCase;
 
     @Autowired
-    SalvarAutorUseCase salvarAutorUseCase;
+    SalvarGeneroUseCase salvarGeneroUseCase;
 
     @Autowired
-    SalvarGeneroUseCase salvarGeneroUseCase;
+    ObterDetalhesAutorUseCase obterDetalhesAutorUseCase;
 
     @Test
     void deveSalvarLivro() {
@@ -63,7 +63,7 @@ class SalvarLivroUseCaseTest {
 
     @Test
     void deveObterTodosOsAutores() {
-        assertThat(salvarAutorUseCase.obterTodosOsAutores().size()).isEqualTo(5);
+        assertThat(obterDetalhesAutorUseCase.obterTodosOsAutores().size()).isEqualTo(5);
     }
 
     @BeforeAll

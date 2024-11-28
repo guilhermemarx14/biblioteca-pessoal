@@ -49,7 +49,7 @@ public class Utils {
      * @return texto com as palavras capitalizadas
      */
     public static String capitalizarPalavras(String texto) {
-        if (texto == null)
+        if (texto == null || texto.trim().isEmpty())
             return "";
         StringBuilder resultado = new StringBuilder();
         String[] tokens = texto.replaceAll("\\s+", " ").trim().split(" "); // Substitui múltiplos espaços por um único espaço
