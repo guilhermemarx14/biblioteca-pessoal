@@ -19,6 +19,7 @@ public class ObterDetalhesAutorUseCase {
     @Autowired
     WikipediaService wikipediaService;
 
+
     public Autor obterDetalhesAutor(String nome) {
         var autor = autorService.buscarPorParteNome(nome).getFirst();
         autor.setNome(capitalizarPalavras(autor.getNome()));
@@ -26,7 +27,6 @@ public class ObterDetalhesAutorUseCase {
         autor.setOutrosNomes(autor.getOutrosNomes().stream().map(Utils::capitalizarPalavras).toList());
         autor.setBiografia(wikipediaService.obterDadosWikipedia(autor.getNome()));
         autor.setFavorito(autor.getFavorito() != null && autor.getFavorito());
-
         return autor;
     }
 

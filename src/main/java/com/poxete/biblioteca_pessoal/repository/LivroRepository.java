@@ -21,4 +21,9 @@ public interface LivroRepository extends JpaRepository<Livro, Integer> {
     List<Livro> findAllByEditoraIn(List<Editora> editoras);
 
     List<Livro> findAllByLocalizacaoIn(List<Localizacao> localizacoes);
+
+    List<Livro> findAllByFavorito(Boolean favorito);
+
+    List<Livro> findAllByLidoAndFavorito(Boolean lido, Boolean favorito);
+
 }

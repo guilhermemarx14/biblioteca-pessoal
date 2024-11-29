@@ -16,6 +16,7 @@ public class LivroMapper {
         }
 
         return Livro.builder()
+                .id(dto.getId())
                 .titulo(dto.getTitulo())
                 .lido(!dto.getLido())
                 .generos(dto.getGeneros().stream().map(Genero::new).toList())
@@ -37,6 +38,7 @@ public class LivroMapper {
         }
 
         return LivroCompletoDTO.builder()
+                .id(livro.getId())
                 .titulo(livro.getTitulo())
                 .lido(livro.getLido())
                 .generos(livro.getGeneros().stream().map(Genero::getNome).toList())
@@ -56,11 +58,6 @@ public class LivroMapper {
         if (livro == null)
             return null;
 
-        return LivroResumoDTO.builder()
-                .id(livro.getId())
-                .titulo(livro.getTitulo())
-                .autores(livro.getAutores())
-                .classificacao("*".repeat(Math.max(0, livro.getClassificacao())))
-                .build();
+        return LivroResumoDTO.builder().titulo(livro.getTitulo()).autores(livro.getAutores()).classificacao(livro.getClassificacao()).build();
     }
 }

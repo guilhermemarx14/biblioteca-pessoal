@@ -43,6 +43,14 @@ public class LivroService {
         return livroRepository.findAllByLocalizacaoIn(localizacoes);
     }
 
+    public List<Livro> buscarTodosPorFavorito() {
+        return livroRepository.findAllByFavorito(true);
+    }
+
+    public List<Livro> buscarTodosPorLidoENaoFavorito() {
+        return livroRepository.findAllByLidoAndFavorito(true, false);
+    }
+
     public Livro buscarPorId(Integer id) {
         return livroRepository.findById(id).orElseThrow(() -> new LivroNaoEncontradoException(MENSAGEM_EXCEPTION_LIVRO_NAO_ENCONTRADO.formatted(id)));
     }

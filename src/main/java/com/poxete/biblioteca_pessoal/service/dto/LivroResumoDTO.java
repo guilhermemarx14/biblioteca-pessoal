@@ -18,14 +18,23 @@ import static com.poxete.biblioteca_pessoal.utils.Utils.formatarListaComE;
 @AllArgsConstructor
 @IgnorarNoCoverage
 public class LivroResumoDTO {
-    Integer id;
     String titulo;
     List<Autor> autores;
-    String classificacao;
+    Integer classificacao;
+
+    private String decodeClassificacao() {
+        return switch (classificacao) {
+            case 1 -> "achei muito ruim";
+            case 2 -> "achei ruim";
+            case 3 -> "achei mediano";
+            case 4 -> "gostei";
+            case 5 -> "gostei muito";
+            default -> "nao lembro se gostei";
+        };
+    }
 
     public String toString() {
         return capitalizarPalavras(
-                "\n{ Id: " + id + " || Titulo: " + titulo + " || Autores: " + formatarListaComE(autores.stream().map(Autor::getNome).toList()) +
-                        " || Nota: " + ((classificacao == null) ? "Sem classificação" : classificacao) + " }");
+                " " + titulo + " de " + formatarListaComE(autores.stream().map(Autor::getNome).toList()) + " (" + decodeClassificacao() + ")");
     }
 }

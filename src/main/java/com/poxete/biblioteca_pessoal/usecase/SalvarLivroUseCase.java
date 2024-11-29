@@ -41,4 +41,11 @@ public class SalvarLivroUseCase {
         livroASerSalvo.setLocalizacao(localizacaoService.salvar(livroASerSalvo.getLocalizacao()));
         return livroService.salvar(livroASerSalvo);
     }
+
+    public void atualizarStatusLivro(Integer id, Boolean lido, Boolean favorito) {
+        var livro = livroService.buscarPorId(id);
+        livro.setLido(lido);
+        livro.setFavorito(favorito);
+        livroService.salvar(livro);
+    }
 }

@@ -41,4 +41,8 @@ public class AutorService {
         todos.forEach(a -> a.setNome(Utils.capitalizarPalavras(a.getNome())));
         return todos;
     }
+
+    public List<Autor> buscarPorFavorito() {
+        return autorRepository.findAllByFavorito(true);
+    }
 }

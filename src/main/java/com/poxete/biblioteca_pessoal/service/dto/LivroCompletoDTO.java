@@ -16,6 +16,7 @@ import static com.poxete.biblioteca_pessoal.utils.Utils.formatarListaComE;
 @AllArgsConstructor
 @NoArgsConstructor
 public class LivroCompletoDTO {
+    Integer id;
     String titulo;
     Boolean lido;
     Integer anoPublicacao;
@@ -36,6 +37,11 @@ public class LivroCompletoDTO {
 
     public String getGenerosComoString() {
         return capitalizarPalavras(formatarListaComE(generos));
+    }
+
+
+    public String getClassificacaoComoString() {
+        return "★ ".repeat(Math.max(0, this.classificacao));
     }
 
 
