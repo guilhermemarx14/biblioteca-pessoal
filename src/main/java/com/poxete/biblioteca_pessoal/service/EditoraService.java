@@ -21,4 +21,8 @@ public class EditoraService {
         var editoraExistente = editoraRepository.buscarPorNome(editora.getNome().trim().toUpperCase());
         return editoraExistente.orElseGet(() -> editoraRepository.save(editora));
     }
+
+    public List<Editora> buscarTodos() {
+        return editoraRepository.findAll();
+    }
 }
