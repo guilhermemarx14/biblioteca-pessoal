@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Set;
 
 @Component
 public class SalvarAutorUseCase {
@@ -16,14 +17,7 @@ public class SalvarAutorUseCase {
     @Autowired
     WikipediaService wikipediaService;
 
-    public Autor salvarAutor(Autor autor) {
-
-        autor.setBiografia(obterBiografia(autor.getNome()));
-
-        return autorService.salvar(autor);
-    }
-
-    public List<Autor> salvarLista(List<Autor> autores) {
+    public Set<Autor> salvarLista(List<Autor> autores) {
         autores.forEach(autor -> {
             autor.setBiografia(obterBiografia(autor.getNome()));
             autor.setFavorito(autor.getFavorito() != null && autor.getFavorito());

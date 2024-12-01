@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 import static com.poxete.biblioteca_pessoal.config.Constantes.PROMT_SINOPSE;
 import static com.poxete.biblioteca_pessoal.model.mapper.LivroMapper.transformarLivroCompletoDTOEmLivro;
@@ -42,7 +43,7 @@ public class SalvarLivroUseCase {
         var livroASerSalvo = transformarLivroCompletoDTOEmLivro(livrocompletoDTO);
         livroASerSalvo.setTitulo(livrocompletoDTO.getTitulo());
 
-        livroASerSalvo.setAutores(salvarAutorUseCase.salvarLista(livroASerSalvo.getAutores()));
+        livroASerSalvo.setAutores(new ArrayList<>(salvarAutorUseCase.salvarLista(livroASerSalvo.getAutores())));
         livroASerSalvo.setGeneros(salvarGeneroUseCase.salvarLista(livroASerSalvo.getGeneros()));
         livroASerSalvo.setEditora(salvarEditoraUseCase.salvar(livroASerSalvo.getEditora()));
         livroASerSalvo.setLocalizacao(salvarLocalizacaoUseCase.salvar(livroASerSalvo.getLocalizacao()));

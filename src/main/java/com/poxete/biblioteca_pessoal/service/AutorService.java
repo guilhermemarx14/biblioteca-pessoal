@@ -6,8 +6,9 @@ import com.poxete.biblioteca_pessoal.utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class AutorService {
@@ -16,22 +17,18 @@ public class AutorService {
 
     public Autor salvar(Autor autor) {
         var autorExistente = autorRepository.buscarPorNomeCompleto(autor.getNome().trim().toUpperCase());
-        return autorExistente.orElse(autorRepository.save(autor));
+        return autorExistente.orElseGet(() -> autorRepository.save(autor));
+
     }
 
-    public List<Autor> salvarLista(List<Autor> lista) {
-        var autoresSalvos = new ArrayList<Autor>();
+    public Set<Autor> salvarLista(List<Autor> lista) {
+        var autoresSalvos = new HashSet<Autor>();
         lista.forEach(autor -> autoresSalvos.add(salvar(autor)));
         return autoresSalvos;
     }
 
     public List<Autor> buscarPorParteNome(String nome) {
         return autorRepository.buscarPorParteNome(Utils.prepararLikeParaBuscaGenerica(nome));
-    }
-
-    public Autor buscarAutorPorId(String nome) {
-        return autorRepository.buscarPorNomeCompleto(nome.toUpperCase()).orElse(null);
-
     }
 
     public List<Autor> buscarTodos() {
