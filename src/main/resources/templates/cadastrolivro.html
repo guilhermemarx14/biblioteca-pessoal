@@ -13,7 +13,7 @@
 <div class="container">
     <div class="w3-container w3-card-4 w3-light-grey w3-padding-large w3-margin">
         <h1 class="w3-center">Cadastro de Livros</h1>
-        <form th:action="@{/salvar-livro}" th:object="${livro}" method="post" class="w3-container">
+        <form th:action="@{/salvarLivro}" th:object="${livro}" method="post" class="w3-container">
 
             <label class="w3-text-gray" for="titulo">Título</label>
             <input class="w3-input w3-border w3-round" id="titulo" th:field="*{titulo}" required>
@@ -21,15 +21,11 @@
             <label class="w3-text-gray" for="anoPublicacao">Ano de Publicação</label>
             <input class="w3-input w3-border w3-round" type="number" id="anoPublicacao" th:field="*{anoPublicacao}" required>
 
-            <label class="w3-text-gray" for="autor">Autor</label>
-            <select class="w3-select w3-border w3-round" id="autor" name="autor" multiple="multiple" th:field="*{autores}">
-                <option th:each="autor : ${autores}" th:value="${autor.nome}" th:text="${autor.nome}"></option>
-            </select>
+            <label class="w3-text-gray" for="autores">Autores (separados por ponto e vírgula - ;)</label>
+            <input class="w3-input w3-border w3-round" id="autores" th:field="*{autores}" required>
 
-            <label class="w3-text-gray" for="genero">Gênero</label>
-            <select class="w3-select w3-border w3-round" id="genero" name="genero" multiple="multiple" th:field="*{generos}">
-                <option th:each="genero : ${generos}" th:value="${genero.nome}" th:text="${genero.nome}"></option>
-            </select>
+            <label class="w3-text-gray" for="generos">Gêneros (separados por ponto e vírgula - ;)</label>
+            <input class="w3-input w3-border w3-round" id="generos" th:field="*{generos}" required>
 
             <label class="w3-text-gray" for="editora">Editora</label>
             <input class="w3-input w3-border w3-round" id="editora" th:field="*{editora}" required>
@@ -51,14 +47,14 @@
 
                     <div class="estrelas">
 
-                        <input type="radio" id="star1" name="classificacao" value="1" required><label for="star1" class="star"> &#9733;</label><br>
-                        <input type="radio" id="star2" name="classificacao" value="2" required><label for="star2" class="star"> &#9733;
+                        <input type="radio" id="star1" name="classificacao" value="1"><label for="star1" class="star"> &#9733;</label><br>
+                        <input type="radio" id="star2" name="classificacao" value="2"><label for="star2" class="star"> &#9733;
                         &#9733;</label><br>
-                        <input type="radio" id="star3" name="classificacao" value="3" required><label for="star3" class="star">
+                        <input type="radio" id="star3" name="classificacao" value="3"><label for="star3" class="star">
                         &#9733;&#9733;&#9733;</label><br>
-                        <input type="radio" id="star4" name="classificacao" value="4" required><label for="star4" class="star"> &#9733; &#9733;
+                        <input type="radio" id="star4" name="classificacao" value="4"><label for="star4" class="star"> &#9733; &#9733;
                         &#9733; &#9733;</label><br>
-                        <input type="radio" id="star5" name="classificacao" value="5" required><label for="star5" class="star"> &#9733; &#9733;
+                        <input type="radio" id="star5" name="classificacao" value="5"><label for="star5" class="star"> &#9733; &#9733;
                         &#9733; &#9733; &#9733;</label><br>
 
                     </div>
@@ -67,7 +63,7 @@
 
                 <div class="w3-margin-top">
                     <label for="dataLeitura">Data da Leitura:</label>
-                    <input type="date" id="dataLeitura" name="dataLeitura" required>
+                    <input type="date" id="dataLeitura" name="dataLeitura">
                 </div>
 
                 <div class="w3-margin-top">

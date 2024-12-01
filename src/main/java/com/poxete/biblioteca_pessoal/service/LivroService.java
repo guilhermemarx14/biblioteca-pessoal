@@ -54,4 +54,8 @@ public class LivroService {
     public Livro buscarPorId(Integer id) {
         return livroRepository.findById(id).orElseThrow(() -> new LivroNaoEncontradoException(MENSAGEM_EXCEPTION_LIVRO_NAO_ENCONTRADO.formatted(id)));
     }
+
+    public void excluirLivroPorId(Integer id) {
+        livroRepository.deleteById(id);
+    }
 }

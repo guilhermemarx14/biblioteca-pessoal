@@ -1,6 +1,6 @@
 package com.poxete.biblioteca_pessoal.controller;
 
-import com.poxete.biblioteca_pessoal.usecase.ObterDetalhesAutorUseCase;
+import com.poxete.biblioteca_pessoal.usecase.obter.ObterDetalhesAutorUseCase;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

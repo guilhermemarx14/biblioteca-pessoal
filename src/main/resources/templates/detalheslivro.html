@@ -69,10 +69,10 @@
 
             <!-- Biografia -->
             <h3 class="w3-margin-top">Dados Wikipedia</h3>
-            <p th:utext="${livro.dadosWikipedia}">Texto do Wikipedia</p>
+            <p th:utext="${livro.sinopse}">Texto do Gemini</p>
 
             <footer class="w3-margin-top w3-small w3-text-grey w3-right">
-                Powered by <a href="https://www.wikipedia.org" target="_blank" class="w3-text-blue">Wikipedia</a>
+                Powered by <a href="https://ai.google.dev/gemini-api" target="_blank" class="w3-text-blue">Gemini</a>
             </footer>
 
             <form action="/atualizarStatusLivro" method="post" th:object="${livro}">

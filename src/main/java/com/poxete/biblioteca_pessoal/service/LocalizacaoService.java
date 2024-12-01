@@ -17,10 +17,7 @@ public class LocalizacaoService {
     }
 
     public Localizacao salvar(Localizacao localizacao) {
-        if (localizacao == null || localizacao.getDescricao() == null || localizacao.getDescricao().isEmpty()) {
-            return null;
-        }
-        var localizacaoExistente = localizacaoRepository.findById(localizacao.getDescricao());
+        var localizacaoExistente = localizacaoRepository.obterPorDescricao(localizacao.getDescricao());
         return localizacaoExistente.orElseGet(() -> localizacaoRepository.save(localizacao));
     }
 }

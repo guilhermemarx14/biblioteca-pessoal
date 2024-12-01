@@ -2,6 +2,8 @@ package com.poxete.biblioteca_pessoal.model;
 
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,7 +18,15 @@ import java.util.Objects;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Localizacao {
+    public Localizacao(String descricao) {
+        this.descricao = descricao;
+    }
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Integer id;
+
+
     String descricao;
 
     @Override

@@ -1,5 +1,0 @@
-ALTER TABLE Livro
-    ADD COLUMN favorito BOOLEAN;
-
-ALTER TABLE Autor
-    ADD COLUMN favorito BOOLEAN;

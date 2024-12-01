@@ -2,6 +2,8 @@ package com.poxete.biblioteca_pessoal.model;
 
 import com.poxete.biblioteca_pessoal.utils.Utils;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,7 +17,14 @@ import java.util.Objects;
 @AllArgsConstructor
 public class Editora {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Integer id;
+
     String nome;
+
+    public Editora(String nome) {
+        this.nome = nome;
+    }
 
     @Override
     public boolean equals(Object o) {

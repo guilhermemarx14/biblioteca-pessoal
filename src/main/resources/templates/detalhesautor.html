@@ -19,29 +19,20 @@
             <h2 th:text="${autor.nome}">Nome do Autor</h2>
         </header>
 
-        <div class="w3-container w3-padding" th:if="${autor.outrosNomes != null and autor.outrosNomes.size() > 0}">
-            <!-- Outros Nomes -->
-            <div>
-                <h3>Nomes Cadastrados</h3>
-                <ul class="w3-ul w3-border">
-                    <li th:each="nome : ${autor.outrosNomes}" th:text="${nome}">Nomes Cadastrados</li>
-                </ul>
-            </div>
+        <!-- Biografia -->
+        <h3 class="w3-margin-top">Biografia</h3>
+        <p th:utext="${autor.biografia}">Texto da Biografia</p>
 
-            <!-- Biografia -->
-            <h3 class="w3-margin-top">Biografia</h3>
-            <p th:utext="${autor.biografia}">Texto da Biografia</p>
+        <footer class="w3-margin-top w3-small w3-text-grey w3-right">
+            Powered by <a href="https://www.wikipedia.org" target="_blank" class="w3-text-blue">Wikipedia</a>
+        </footer>
+        <!-- Favorito -->
+        <h3 class="w3-margin-top">Favorito</h3>
+        <p>
+            <i th:if="${autor.favorito}" class="w3-text-green">Este autor é favorito.</i>
+            <i th:if="${!autor.favorito}" class="w3-text-red">Este autor não é favorito.</i>
+        </p>
 
-            <footer class="w3-margin-top w3-small w3-text-grey w3-right">
-                Powered by <a href="https://www.wikipedia.org" target="_blank" class="w3-text-blue">Wikipedia</a>
-            </footer>
-            <!-- Favorito -->
-            <h3 class="w3-margin-top">Favorito</h3>
-            <p>
-                <i th:if="${autor.favorito}" class="w3-text-green">Este autor é favorito.</i>
-                <i th:if="${!autor.favorito}" class="w3-text-red">Este autor não é favorito.</i>
-            </p>
-        </div>
         <button type="button" class="w3-button w3-light-grey w3-round w3-margin-right custom-margin" onclick="window.history.back();">Voltar</button>
     </div>
 </div>

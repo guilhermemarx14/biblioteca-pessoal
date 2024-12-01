@@ -4,6 +4,7 @@ package com.poxete.biblioteca_pessoal.model.mapper;
 import com.poxete.biblioteca_pessoal.model.*;
 import com.poxete.biblioteca_pessoal.service.dto.LivroCompletoDTO;
 import com.poxete.biblioteca_pessoal.service.dto.LivroResumoDTO;
+import com.poxete.biblioteca_pessoal.utils.Utils;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
@@ -15,12 +16,19 @@ public class LivroMapper {
             return null;
         }
 
+        if (dto.getAutores().getFirst().contains(";"))
+            dto.setAutores(Utils.obterItensDeListaAPartirDeString(dto.getAutores().getFirst()));
+
+        if (dto.getGeneros().getFirst().contains(";"))
+            dto.setGeneros(Utils.obterItensDeListaAPartirDeString(dto.getGeneros().getFirst()));
+
+
         return Livro.builder()
                 .id(dto.getId())
                 .titulo(dto.getTitulo())
-                .lido(!dto.getLido())
+                .lido(dto.getLido())
                 .generos(dto.getGeneros().stream().map(Genero::new).toList())
-                .autores(dto.getAutores().stream().map(a -> new Autor(a, null, null)).toList())
+                .autores(dto.getAutores().stream().map(a -> new Autor(a, false)).toList())
                 .editora(new Editora(dto.getEditora()))
                 .localizacao(new Localizacao(dto.getLocalizacao()))
                 .quantidade(dto.getQuantidade())
@@ -28,7 +36,8 @@ public class LivroMapper {
                 .anoPublicacao(dto.getAnoPublicacao())
                 .dataLeitura(dto.getDataLeitura())
                 .comentario(dto.getComentario())
-                .favorito(!dto.getFavorito())
+                .favorito(dto.getFavorito())
+                .sinopse(dto.getSinopse())
                 .build();
     }
 
@@ -51,6 +60,7 @@ public class LivroMapper {
                 .anoPublicacao(livro.getAnoPublicacao())
                 .comentario(livro.getComentario())
                 .favorito(livro.getFavorito())
+                .sinopse(livro.getSinopse())
                 .build();
     }
 

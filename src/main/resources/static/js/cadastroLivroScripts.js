@@ -1,13 +1,3 @@
-$(document).ready(function () {
-    $('.select2').select2({
-        width: '100%',
-        tags: true,
-        tokenSeparators: [','],
-        placeholder: "Selecione ou adicione",
-        allowClear: true
-    });
-});
-
 document.addEventListener("DOMContentLoaded", function () {
     const btnSalvar = document.getElementById('btnSalvar');
 
@@ -47,3 +37,4 @@ document.getElementById("genero").addEventListener("change", function (event) {
         newGenreOption.selected = false;
     }
 });
+

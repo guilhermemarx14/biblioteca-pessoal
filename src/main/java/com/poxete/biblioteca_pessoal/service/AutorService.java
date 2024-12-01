@@ -14,17 +14,15 @@ public class AutorService {
     @Autowired
     AutorRepository autorRepository;
 
-    public List<Autor> salvar(List<Autor> autores) {
-        final List<Autor> autoresSalvos = new ArrayList<>();
-        autores.forEach(autor -> {
-            var autorExistente = autorRepository.buscarPorNomeCompleto(Utils.prepararLikeParaBuscaGenerica(autor.getNome()));
-            autoresSalvos.add(autorExistente.orElseGet(() -> autorRepository.save(autor)));
-        });
-        return autoresSalvos;
+    public Autor salvar(Autor autor) {
+        var autorExistente = autorRepository.buscarPorNomeCompleto(autor.getNome().trim().toUpperCase());
+        return autorExistente.orElse(autorRepository.save(autor));
     }
 
-    public Autor salvar(Autor autor) {
-        return salvar(List.of(autor)).getFirst();
+    public List<Autor> salvarLista(List<Autor> lista) {
+        var autoresSalvos = new ArrayList<Autor>();
+        lista.forEach(autor -> autoresSalvos.add(salvar(autor)));
+        return autoresSalvos;
     }
 
     public List<Autor> buscarPorParteNome(String nome) {

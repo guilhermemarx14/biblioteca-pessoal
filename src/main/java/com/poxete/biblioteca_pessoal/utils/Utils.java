@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.util.Arrays;
 import java.util.List;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
@@ -52,16 +53,23 @@ public class Utils {
         if (texto == null || texto.trim().isEmpty())
             return "";
         StringBuilder resultado = new StringBuilder();
-        String[] tokens = texto.replaceAll("\\s+", " ").trim().split(" "); // Substitui múltiplos espaços por um único espaço
+        String[] tokens = texto.replaceAll("\\s+", " ").trim().split(" ");
 
         for (String token : tokens) {
-            if (!token.equalsIgnoreCase("de") && !token.equalsIgnoreCase("e") && !token.equalsIgnoreCase("do") && !token.equalsIgnoreCase("dos") &&
-                    !token.equalsIgnoreCase("da") && !token.equalsIgnoreCase("das") && !token.equalsIgnoreCase("que")) {
+            if (token.contains("-")) {
+                String[] subTokens = token.split("-");
+                for (int i = 0; i < subTokens.length; i++) {
+                    subTokens[i] = subTokens[i].substring(0, 1).toUpperCase() + subTokens[i].substring(1).toLowerCase();
+                }
+                token = String.join("-", subTokens);
+            } else if (!token.equalsIgnoreCase("de") && !token.equalsIgnoreCase("e") && !token.equalsIgnoreCase("do") &&
+                    !token.equalsIgnoreCase("dos") && !token.equalsIgnoreCase("da") && !token.equalsIgnoreCase("das") &&
+                    !token.equalsIgnoreCase("que")) {
                 token = token.substring(0, 1).toUpperCase() + token.substring(1).toLowerCase();
             } else {
                 token = token.toLowerCase();
             }
-            resultado.append(token).append(" "); // Adiciona um espaço após cada token
+            resultado.append(token).append(" ");
         }
 
         return resultado.toString().trim();
@@ -78,5 +86,9 @@ public class Utils {
         StringWriter sw = new StringWriter();
         e.printStackTrace(new PrintWriter(sw));
         return sw.toString();
+    }
+
+    public static List<String> obterItensDeListaAPartirDeString(String autores) {
+        return Arrays.stream(autores.split(";")).toList();
     }
 }

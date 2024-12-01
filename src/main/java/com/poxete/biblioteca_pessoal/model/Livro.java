@@ -7,8 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
@@ -39,7 +39,7 @@ public class Livro {
         this.localizacao = localizacao;
         this.quantidade = quantidade;
         this.classificacao = 0;
-        this.dataLeitura = new Date(LocalDate.MIN.toEpochDay());
+        this.dataLeitura = null;
         this.comentario = "";
     }
 
@@ -67,12 +67,12 @@ public class Livro {
     List<Autor> autores;
 
     @NotNull
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "editora_id")
     Editora editora;
 
     @NotNull
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "localizacao_id")
     Localizacao localizacao;
 
@@ -81,11 +81,14 @@ public class Livro {
 
     Integer classificacao;
 
-    Date dataLeitura;
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    LocalDate dataLeitura;
 
     String comentario;
 
     Boolean favorito;
+
+    String sinopse;
 
     @Override
     public boolean equals(Object o) {

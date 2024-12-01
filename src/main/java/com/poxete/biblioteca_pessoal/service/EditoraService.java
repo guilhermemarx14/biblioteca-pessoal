@@ -18,7 +18,7 @@ public class EditoraService {
     }
 
     public Editora salvar(Editora editora) {
-        var editoraExistente = editoraRepository.findById(editora.getNome());
+        var editoraExistente = editoraRepository.buscarPorNome(editora.getNome().trim().toUpperCase());
         return editoraExistente.orElseGet(() -> editoraRepository.save(editora));
     }
 }

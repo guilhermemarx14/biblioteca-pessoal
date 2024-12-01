@@ -1,6 +1,6 @@
 package com.poxete.biblioteca_pessoal.controller;
 
-import com.poxete.biblioteca_pessoal.usecase.ObterRecomendacoesUseCase;
+import com.poxete.biblioteca_pessoal.usecase.obter.ObterRecomendacoesUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

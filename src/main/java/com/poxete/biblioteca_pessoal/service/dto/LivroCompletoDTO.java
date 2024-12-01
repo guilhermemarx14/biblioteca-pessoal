@@ -2,8 +2,9 @@ package com.poxete.biblioteca_pessoal.service.dto;
 
 import com.poxete.biblioteca_pessoal.utils.IgnorarNoCoverage;
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import static com.poxete.biblioteca_pessoal.utils.Utils.capitalizarPalavras;
@@ -26,10 +27,13 @@ public class LivroCompletoDTO {
     String localizacao;
     Integer quantidade;
     Integer classificacao;
-    Date dataLeitura;
+
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    LocalDate dataLeitura;
+
     String comentario;
     Boolean favorito;
-    String dadosWikipedia;
+    String sinopse;
 
     public String getAutoresComoString() {
         return capitalizarPalavras(formatarListaComE(autores));
@@ -41,6 +45,8 @@ public class LivroCompletoDTO {
 
 
     public String getClassificacaoComoString() {
+        if (this.classificacao == null || this.classificacao == 0)
+            return "Sem classificação";
         return "★ ".repeat(Math.max(0, this.classificacao));
     }
 

@@ -1,1 +1,0 @@
-GRANT DBA TO SA;

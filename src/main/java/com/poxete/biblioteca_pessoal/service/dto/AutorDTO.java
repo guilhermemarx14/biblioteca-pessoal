@@ -11,6 +11,6 @@ import lombok.*;
 @IgnorarNoCoverage
 public class AutorDTO {
     String nome;
-    String outrosNomes;
+    String biografia;
     Boolean favorito;
 }

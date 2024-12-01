@@ -19,4 +19,8 @@ public class Constantes {
             Enumere as indicações.
             """;
 
+    public static final String PROMT_SINOPSE = """
+            Me traga a sinopse do livro %s do autor %s
+            """;
+
 }

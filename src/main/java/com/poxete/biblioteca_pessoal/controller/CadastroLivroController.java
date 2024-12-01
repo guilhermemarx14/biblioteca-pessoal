@@ -1,9 +1,9 @@
 package com.poxete.biblioteca_pessoal.controller;
 
 import com.poxete.biblioteca_pessoal.service.dto.LivroCompletoDTO;
-import com.poxete.biblioteca_pessoal.usecase.ObterDetalhesAutorUseCase;
-import com.poxete.biblioteca_pessoal.usecase.SalvarGeneroUseCase;
-import com.poxete.biblioteca_pessoal.usecase.SalvarLivroUseCase;
+import com.poxete.biblioteca_pessoal.usecase.obter.ObterDetalhesAutorUseCase;
+import com.poxete.biblioteca_pessoal.usecase.salvar.SalvarGeneroUseCase;
+import com.poxete.biblioteca_pessoal.usecase.salvar.SalvarLivroUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -43,7 +43,7 @@ public class CadastroLivroController {
      * @param model            objeto que representa a model do Spring
      * @return o nome da view que será renderizada
      */
-    @PostMapping("/salvar-livro")
+    @PostMapping("/salvarLivro")
     public String salvarLivro(@ModelAttribute LivroCompletoDTO livroCompletoDTO, Model model) {
         model.addAttribute("mensagem", "Livro salvo com sucesso!");
         salvarLivroUseCase.salvarLivro(livroCompletoDTO);

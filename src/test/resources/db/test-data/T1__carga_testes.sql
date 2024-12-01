@@ -1,3 +1,5 @@
+GRANT DBA TO SA;
+
 -- Inserindo dados na tabela Editora
 INSERT INTO Editora (nome)
 VALUES ('Editora Alfa');
@@ -25,23 +27,15 @@ INSERT INTO Localizacao (descricao)
 VALUES ('Estante C');
 
 -- Inserindo dados na tabela Autor
-INSERT INTO Autor (nome)
-VALUES ('Isaac Asimov');
-INSERT INTO Autor (nome)
-VALUES ('J.R.R. Tolkien');
-INSERT INTO Autor (nome)
-VALUES ('George R.R. Martin');
-INSERT INTO Autor (nome)
-VALUES ('Jane Austen');
-INSERT INTO Autor (nome)
-VALUES ('Poxete');
+INSERT INTO Autor (nome, favorito)
+VALUES ('Isaac Asimov', true);
+INSERT INTO Autor (nome, favorito)
+VALUES ('J.R.R. Tolkien', false);
+INSERT INTO Autor (nome, favorito)
+VALUES ('George R.R. Martin', true);
+INSERT INTO Autor (nome, favorito)
+VALUES ('Jane Austen', false);
 
-
--- Inserindo dados na tabela autor_outros_nomes
-INSERT INTO autor_outros_nomes (autor_id, outros_nomes)
-VALUES ('Isaac Asimov', 'Paul French');
-INSERT INTO autor_outros_nomes (autor_id, outros_nomes)
-VALUES ('George R.R. Martin', 'GRRM');
 
 -- Inserindo dados na tabela Livro
 INSERT INTO Livro (titulo, lido, ano_publicacao, editora_id, localizacao_id, quantidade, classificacao, data_leitura, comentario)

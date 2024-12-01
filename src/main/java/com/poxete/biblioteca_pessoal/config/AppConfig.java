@@ -32,4 +32,6 @@ public class AppConfig {
     public Connection connection(Properties properties) throws SQLException {
         return DriverManager.getConnection(properties.getDatasourceUrl(), properties.getDatasourceUsername(), properties.getDatasourcePassword());
     }
+
+
 }
