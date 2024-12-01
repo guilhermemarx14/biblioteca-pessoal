@@ -24,7 +24,7 @@ public class Genero {
     String nome;
 
     public Genero(String nome) {
-
+        this.nome = nome;
     }
 
     @Override

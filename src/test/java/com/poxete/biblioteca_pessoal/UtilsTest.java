@@ -89,9 +89,26 @@ class UtilsTest {
         resultado = Utils.capitalizarPalavras(texto);
         Truth.assertThat(resultado).isEqualTo("Multiplos Espacos");
 
+        texto = "j. r. r. Tolkien";
+        resultado = Utils.capitalizarPalavras(texto);
+        Truth.assertThat(resultado).isEqualTo("J. R. R. Tolkien");
+
+        texto = "guarda-chuva";
+        resultado = Utils.capitalizarPalavras(texto);
+        Truth.assertThat(resultado).isEqualTo("Guarda-chuva");
 
         texto = null;
         resultado = Utils.capitalizarPalavras(texto);
         Truth.assertThat(resultado).isEqualTo("");
+
+        texto = "    ";
+        resultado = Utils.capitalizarPalavras(texto);
+        Truth.assertThat(resultado).isEqualTo("");
+
+        texto = "flores e odores";
+        resultado = Utils.capitalizarPalavras(texto);
+        Truth.assertThat(resultado).isEqualTo("Flores e Odores");
+
+
     }
 }

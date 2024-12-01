@@ -31,7 +31,7 @@ class SalvarLivroUseCaseTest {
     void deveSalvarLivroNovo() {
         var livroSalvo = salvarLivroUseCase.salvarLivro(mockLivroCompletoDTO());
 
-        assertThat(livroSalvo.getId()).isNotNull();
+        assertThat(livroSalvo.getId()).isEqualTo(3);
     }
 
     private LivroCompletoDTO mockLivroCompletoDTO() {
