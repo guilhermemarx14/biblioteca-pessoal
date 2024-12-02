@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.Optional;
 
-public interface GeneroRepository extends JpaRepository<Genero, String> {
+public interface GeneroRepository extends JpaRepository<Genero, Integer> {
     @Query("SELECT g FROM Genero g  WHERE upper(g.nome) = ?1")
     Optional<Genero> encontrarPorNome(String nome);
 

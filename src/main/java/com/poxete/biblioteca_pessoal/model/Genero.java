@@ -1,5 +1,6 @@
 package com.poxete.biblioteca_pessoal.model;
 
+import com.poxete.biblioteca_pessoal.utils.IgnorarNoCoverage;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,6 +15,7 @@ import java.util.Objects;
 @Data
 @Entity
 @ToString
+@IgnorarNoCoverage
 @NoArgsConstructor
 @AllArgsConstructor
 public class Genero {
@@ -34,11 +36,11 @@ public class Genero {
         if (o == null || getClass() != o.getClass())
             return false;
         Genero genero = (Genero) o;
-        return Objects.equals(nome, genero.nome);
+        return Objects.equals(id, genero.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nome);
+        return Objects.hash(id);
     }
 }

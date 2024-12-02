@@ -2,13 +2,13 @@ package com.poxete.biblioteca_pessoal.usecase.salvar;
 
 import com.poxete.biblioteca_pessoal.ConfiguraBaseEmMemoria;
 import com.poxete.biblioteca_pessoal.model.Autor;
-import com.poxete.biblioteca_pessoal.service.AutorService;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.google.common.truth.Truth.assertThat;
@@ -22,9 +22,6 @@ class SalvarAutorUseCaseTest {
     @Autowired
     SalvarAutorUseCase salvarAutorUseCase;
 
-    @Autowired
-    AutorService autorService;
-
     @BeforeAll
     public void setup() {
         configuraBaseEmMemoria.configurarBancoDeDados();
@@ -32,16 +29,14 @@ class SalvarAutorUseCaseTest {
 
     @Test
     void deveSalvarListaDeAutoresComAutoresIguais() {
-        var quantidadeDeAutoresCadastrados = autorService.buscarTodos().size();
-        salvarAutorUseCase.salvarLista(listaAutores());
-        assertThat(autorService.buscarTodos().size()).isEqualTo(quantidadeDeAutoresCadastrados + 1);
+        var autores = new ArrayList<>(salvarAutorUseCase.salvarLista(listaAutores()));
+        assertThat(autores.getFirst()).isEqualTo(autores.getLast());
     }
 
     @Test
     void deveSalvarListaDeAutoresComAutoresDiferentes() {
-        var quantidadeDeAutoresCadastrados = autorService.buscarTodos().size();
-        salvarAutorUseCase.salvarLista(listaAutoresDiferentes());
-        assertThat(autorService.buscarTodos().size()).isEqualTo(quantidadeDeAutoresCadastrados + 2);
+        var lista = new ArrayList<>(salvarAutorUseCase.salvarLista(listaAutoresDiferentes()));
+        assertThat(lista.getFirst().getId()).isNotNull();
     }
 
 

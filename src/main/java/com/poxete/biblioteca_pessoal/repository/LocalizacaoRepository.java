@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 import java.util.Optional;
 
-public interface LocalizacaoRepository extends JpaRepository<Localizacao, String> {
+public interface LocalizacaoRepository extends JpaRepository<Localizacao, Integer> {
     @Query("Select l from Localizacao l where upper(l.descricao) like ?1")
     List<Localizacao> encontrarPorPerteDescricao(String descricao);
 

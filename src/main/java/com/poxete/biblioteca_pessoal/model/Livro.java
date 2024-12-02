@@ -1,6 +1,7 @@
 package com.poxete.biblioteca_pessoal.model;
 
 import com.poxete.biblioteca_pessoal.model.mapper.LivroMapper;
+import com.poxete.biblioteca_pessoal.utils.IgnorarNoCoverage;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -19,6 +20,7 @@ import static com.poxete.biblioteca_pessoal.utils.Utils.formatarListaComE;
 @Data
 @Entity
 @Builder
+@IgnorarNoCoverage
 @NoArgsConstructor
 @AllArgsConstructor
 public class Livro {

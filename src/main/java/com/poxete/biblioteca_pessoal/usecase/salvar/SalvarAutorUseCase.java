@@ -9,6 +9,8 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.Set;
 
+import static com.poxete.biblioteca_pessoal.config.Constantes.NAO_FORAM_ENCONTRADOS_DADOS_AUTOR;
+
 @Component
 public class SalvarAutorUseCase {
     @Autowired
@@ -30,7 +32,15 @@ public class SalvarAutorUseCase {
         try {
             return wikipediaService.obterDadosWikipedia(nome);
         } catch (Exception e) {
-            return "Não foram encontrados dados para o autor.";
+            return NAO_FORAM_ENCONTRADOS_DADOS_AUTOR;
         }
+    }
+
+    public void atualizarFavoritoAutor(Integer id, Boolean favorito) {
+        var autor = autorService.obterPorId(id);
+
+        autor.setFavorito(favorito != null && favorito);
+
+        autorService.atualizarAutor(autor);
     }
 }

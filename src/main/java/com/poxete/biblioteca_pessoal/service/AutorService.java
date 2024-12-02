@@ -40,4 +40,12 @@ public class AutorService {
     public List<Autor> buscarPorFavorito() {
         return autorRepository.findAllByFavorito(true);
     }
+
+    public Autor obterPorId(Integer id) {
+        return autorRepository.findById(id).orElse(null);
+    }
+
+    public void atualizarAutor(Autor autor) {
+        autorRepository.save(autor);
+    }
 }

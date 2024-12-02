@@ -34,22 +34,18 @@ public class Utils {
 
 
     public static String capitalizarPalavras(String textoOriginal) {
-        if (textoOriginal == null || textoOriginal.trim().isEmpty()) {
+        if (textoOriginal == null || textoOriginal.trim().isEmpty())
             return "";
-        }
 
-        // Substitui múltiplos espaços por um único espaço e remove espaços extras nas pontas
+
         String texto = textoOriginal.replaceAll("\\s+", " ").trim();
 
-        // Quebra o texto em palavras
         String[] palavras = texto.split(" ");
 
         StringBuilder resultado = new StringBuilder();
 
-        // Lista de palavras que não devem ser capitalizadas
         String[] excecoes = {"de", "e", "do", "dos", "da", "das", "que"};
 
-        // Para cada palavra, capitaliza a primeira letra, exceto as palavras de exceção
         for (String palavra : palavras) {
             if (isExcecao(palavra, excecoes)) {
                 resultado.append(palavra.toLowerCase()).append(" ");

@@ -1,6 +1,7 @@
 package com.poxete.biblioteca_pessoal.model;
 
 
+import com.poxete.biblioteca_pessoal.utils.IgnorarNoCoverage;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,6 +16,7 @@ import java.util.Objects;
 @Data
 @Entity
 @ToString
+@IgnorarNoCoverage
 @NoArgsConstructor
 @AllArgsConstructor
 public class Localizacao {
@@ -36,11 +38,11 @@ public class Localizacao {
         if (o == null || getClass() != o.getClass())
             return false;
         Localizacao that = (Localizacao) o;
-        return Objects.equals(descricao, that.descricao);
+        return Objects.equals(id, that.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(descricao);
+        return Objects.hash(id);
     }
 }

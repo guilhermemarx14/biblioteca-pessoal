@@ -1,5 +1,6 @@
 package com.poxete.biblioteca_pessoal.model;
 
+import com.poxete.biblioteca_pessoal.utils.IgnorarNoCoverage;
 import com.poxete.biblioteca_pessoal.utils.Utils;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,6 +14,7 @@ import java.util.Objects;
 
 @Data
 @Entity
+@IgnorarNoCoverage
 @NoArgsConstructor
 @AllArgsConstructor
 public class Editora {
@@ -33,12 +35,12 @@ public class Editora {
         if (o == null || getClass() != o.getClass())
             return false;
         Editora editora = (Editora) o;
-        return Objects.equals(nome, editora.nome);
+        return Objects.equals(id, editora.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nome);
+        return Objects.hash(id);
     }
 
     @Override

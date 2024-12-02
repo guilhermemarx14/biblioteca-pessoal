@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 import java.util.Optional;
 
-public interface EditoraRepository extends JpaRepository<Editora, String> {
+public interface EditoraRepository extends JpaRepository<Editora, Integer> {
 
     @Query("Select e from Editora e where upper(e.nome) like ?1")
     List<Editora> buscarTodosPorNome(String nome);
