@@ -1,11 +1,11 @@
 package com.poxete.biblioteca_pessoal.service.dto;
 
 import com.poxete.biblioteca_pessoal.utils.IgnorarNoCoverage;
+import com.poxete.biblioteca_pessoal.utils.Utils;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
-import java.util.List;
 
 import static com.poxete.biblioteca_pessoal.utils.Utils.capitalizarPalavras;
 import static com.poxete.biblioteca_pessoal.utils.Utils.formatarListaComE;
@@ -21,8 +21,8 @@ public class LivroCompletoDTO {
     String titulo;
     Boolean lido;
     Integer anoPublicacao;
-    List<String> generos;
-    List<String> autores;
+    String generos;
+    String autores;
     String editora;
     String localizacao;
     Integer quantidade;
@@ -36,11 +36,11 @@ public class LivroCompletoDTO {
     String sinopse;
 
     public String getAutoresComoString() {
-        return capitalizarPalavras(formatarListaComE(autores));
+        return capitalizarPalavras(formatarListaComE(Utils.obterItensDeListaAPartirDeString(autores)));
     }
 
     public String getGenerosComoString() {
-        return capitalizarPalavras(formatarListaComE(generos));
+        return capitalizarPalavras(formatarListaComE(Utils.obterItensDeListaAPartirDeString(generos)));
     }
 
 

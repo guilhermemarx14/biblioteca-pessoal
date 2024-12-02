@@ -8,8 +8,6 @@ import org.junit.jupiter.api.TestInstance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.List;
-
 import static com.google.common.truth.Truth.assertThat;
 
 @SpringBootTest(properties = "spring.profiles.active=test")
@@ -28,18 +26,19 @@ class SalvarLivroUseCaseTest {
 
     @Test
     void deveSalvarLivroNovo() {
-        var livroSalvo = salvarLivroUseCase.salvarLivro(mockLivroCompletoDTO());
+        var livroSalvo = salvarLivroUseCase.salvarLivro(mockLivroCompletoDTOMultiplosAutoresEgeneros());
 
         assertThat(livroSalvo.getId()).isEqualTo(3);
+
     }
 
-    private LivroCompletoDTO mockLivroCompletoDTO() {
+    private LivroCompletoDTO mockLivroCompletoDTOMultiplosAutoresEgeneros() {
         return LivroCompletoDTO.builder()
                 .titulo("titulo")
                 .lido(true)
                 .anoPublicacao(2020)
-                .generos(List.of("genero"))
-                .autores(List.of("Poxete"))
+                .generos("genero1;genero2")
+                .autores("Poxete1;poxete2")
                 .editora("editora")
                 .localizacao("localizacao")
                 .quantidade(1)

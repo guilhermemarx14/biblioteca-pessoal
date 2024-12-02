@@ -2,6 +2,7 @@ package com.poxete.biblioteca_pessoal.controller;
 
 import com.poxete.biblioteca_pessoal.usecase.deletar.DeletarLivrosUseCase;
 import com.poxete.biblioteca_pessoal.usecase.obter.ObterDetalhesLivroUseCase;
+import com.poxete.biblioteca_pessoal.utils.IgnorarNoCoverage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+@IgnorarNoCoverage
 @Controller
 public class ListagemLivrosController {
     @Autowired

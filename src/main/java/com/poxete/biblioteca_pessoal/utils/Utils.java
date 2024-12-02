@@ -7,6 +7,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Utils {
@@ -77,6 +78,14 @@ public class Utils {
     }
 
     public static List<String> obterItensDeListaAPartirDeString(String autores) {
+        if (autores == null || autores.isEmpty())
+            return List.of();
         return Arrays.stream(autores.split(";")).toList();
+    }
+
+    public static String obterStringAPartirDeLista(List<String> autores) {
+        if (autores == null || autores.isEmpty())
+            return "";
+        return autores.stream().collect(Collectors.joining(";"));
     }
 }

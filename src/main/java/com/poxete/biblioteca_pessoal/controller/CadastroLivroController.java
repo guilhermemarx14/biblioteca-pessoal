@@ -4,6 +4,7 @@ import com.poxete.biblioteca_pessoal.service.dto.LivroCompletoDTO;
 import com.poxete.biblioteca_pessoal.usecase.obter.ObterDetalhesAutorUseCase;
 import com.poxete.biblioteca_pessoal.usecase.salvar.SalvarGeneroUseCase;
 import com.poxete.biblioteca_pessoal.usecase.salvar.SalvarLivroUseCase;
+import com.poxete.biblioteca_pessoal.utils.IgnorarNoCoverage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+@IgnorarNoCoverage
 @Controller
 public class CadastroLivroController {
     @Autowired
@@ -50,3 +52,4 @@ public class CadastroLivroController {
         return "redirect:/";
     }
 }
+
