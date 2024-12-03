@@ -9,18 +9,6 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
     <style>
-        .w3-button.w3-red {
-            background-color: #f44336;
-            color: white;
-            border: none;
-            cursor: pointer;
-            padding: 8px 12px;
-        }
-
-        .w3-button.w3-red:hover {
-            background-color: #d32f2f;
-        }
-
         table {
             width: 100%;
             margin-top: 20px;
@@ -49,49 +37,25 @@
 <body>
 
 <div class="w3-container w3-card-4 w3-light-grey w3-padding-large w3-margin">
-    <form action="/buscar" method="get">
-        <input type="text" id="searchInput" name="chave" placeholder="Pesquisar...">
-        <button type="submit">Pesquisar</button>
-    </form>
     <table class="w3-table-all tabela-listagem-livros ">
         <thead>
         <tr>
+            <th>Id</th>
+            <th>Nome</th>
             <th>Favorito</th>
-            <th>Título</th>
-            <th>Autores</th>
-            <th>Editora</th>
-            <th>Generos</th>
-            <th>Ano de Publicação</th>
-            <th>Excluir</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="livro : ${livros}">
-            <td th:text="${livro.getFavorito()}">Favorito</td>
+        <tr th:each="autor : ${autores}">
+            <td th:text="${autor.id}">Id</td>
             <td>
-                <span th:each="titulo : ${livro.getTitulo()}">
-                    <a href="#" th:attr="href='/detalhesLivro?id=' + ${livro.id}"
-                       th:text="${titulo}"
-                       onclick="this.href='${/detalhesLivro?id=' + encodeURIComponent(livro.id)"></a><br/>
+                <span th:each="nome : ${autor.getNome()}">
+                    <a href="#" th:attr="href='/detalhesAutor?nome=' + ${autor.nome}"
+                       th:text="${nome}"
+                       onclick="this.href='${/detalhesAutor?nome=' + encodeURIComponent(autor.nome)"></a><br/>
                 </span>
             </td>
-            <td>
-                <span th:each="autor : ${livro.obterAutoresComoString()}">
-                    <a href="#" th:attr="href='/detalhesAutor?nome=' + ${autor}"
-                       th:text="${autor}"
-                       onclick="this.href='${/detalhesAutor?nome=' + encodeURIComponent(autor)"></a><br/>
-                </span>
-            </td>
-            <td th:text="${livro.getEditora()}">Editora</td>
-            <td th:text="${livro.obterGenerosComoString()}">Generos</td>
-            <td th:text="${livro.getAnoPublicacao()}">Ano de Publicação</td>
-            <td>
-                <button class="w3-button w3-red w3-round"
-                        th:attr="onclick='confirmarExclusao(' + ${livro.id} + ')'">
-                    Excuir
-                </button>
-            </td>
-        </tr>
+            <td th:text="${autor.favorito}">Favorito</td>
         </tbody>
     </table>
     <button class="mdc-button mdc-js-button mdc-button--raised mdc-button--colored"

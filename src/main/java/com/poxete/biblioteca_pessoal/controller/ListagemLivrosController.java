@@ -23,7 +23,7 @@ public class ListagemLivrosController {
 
     private static final String MENSAGEM = "mensagem";
 
-    @GetMapping("/listar")
+    @GetMapping("/listarLivros")
     public String exibirMensagem(Model model) {
         var livros = obterDetalhesLivroUseCase.obterTodosOsLivros();
 

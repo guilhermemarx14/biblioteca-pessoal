@@ -6,6 +6,8 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import static com.poxete.biblioteca_pessoal.config.Constantes.NAO_FORAM_ENCONTRADOS_DADOS_AUTOR;
+
 @Service
 public class WikipediaService {
     @Autowired
@@ -15,11 +17,16 @@ public class WikipediaService {
 
     public String obterDadosWikipedia(String nome) {
         String reposta = wikipediaFeignClient.search(ACTION_QUERY, LIST_SEARCH, nome, "json", "*");
-        Integer idPagina = extractPageIdFromResponse(reposta);
+        Integer idPagina;
+        String response;
+        try {
+            idPagina = extractPageIdFromResponse(reposta);
+            response = wikipediaFeignClient.getPageExtract(ACTION_QUERY, "extracts", true, idPagina, "json", "*");
+            return extrairDadosDoResponse(response);
+        } catch (RuntimeException e) {
+            return NAO_FORAM_ENCONTRADOS_DADOS_AUTOR;
+        }
 
-        String biografiaResponse = wikipediaFeignClient.getPageExtract(ACTION_QUERY, "extracts", true, idPagina, "json", "*");
-
-        return extrairDadosDoResponse(biografiaResponse);
     }
 
     private Integer extractPageIdFromResponse(String response) {
