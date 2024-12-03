@@ -35,8 +35,3 @@ build/
 /mvnw.cmd
 /.mvn/
 /.gitattributes
-/data/
-/lib/
-/basedados/
-/basedados.properties
-/basedados.script
