@@ -1,6 +1,9 @@
 package com.poxete.biblioteca_pessoal.repository;
 
-import com.poxete.biblioteca_pessoal.model.*;
+import com.poxete.biblioteca_pessoal.model.Autor;
+import com.poxete.biblioteca_pessoal.model.Editora;
+import com.poxete.biblioteca_pessoal.model.Genero;
+import com.poxete.biblioteca_pessoal.model.Livro;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -18,9 +21,9 @@ public interface LivroRepository extends JpaRepository<Livro, Integer> {
     @Query("SELECT l FROM Livro l JOIN l.generos g WHERE g IN :generos")
     List<Livro> buscarTodosPorGenero(@Param("generos") List<Genero> generos);
 
-    List<Livro> findAllByEditoraIn(List<Editora> editoras);
+    @Query("SELECT l FROM Livro l WHERE l.editora in :editoras")
+    List<Livro> buscarTodosPorEditora(@Param("editoras") List<Editora> editoras);
 
-    List<Livro> findAllByLocalizacaoIn(List<Localizacao> localizacoes);
 
     List<Livro> findAllByFavorito(Boolean favorito);
 

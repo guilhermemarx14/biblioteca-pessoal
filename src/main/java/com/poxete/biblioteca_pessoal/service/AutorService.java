@@ -28,7 +28,7 @@ public class AutorService {
     }
 
     public List<Autor> buscarPorParteNome(String nome) {
-        return autorRepository.buscarPorParteNome(Utils.prepararLikeParaBuscaGenerica(nome));
+        return autorRepository.buscarPorParteNome(nome);
     }
 
     public List<Autor> buscarTodos() {

@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 @IgnorarNoCoverage
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Constantes {
+    // mensagens de exceptions
     public static final String MENSAGEM_EXCEPTION_LIVRO_NAO_ENCONTRADO = "Livro com id %d não encontrado";
     public static final String MENSAGEM_EXCEPTION_SERIALIZACAO = "Você deve fornecer pelo menos um parâmetro de classe para a serialização.";
 
@@ -22,5 +23,8 @@ public class Constantes {
             Me traga a sinopse do livro %s do autor %s
             """;
 
+
     public static final String NAO_FORAM_ENCONTRADOS_DADOS_AUTOR = "Não foram encontrados dados para o autor.";
+
+    public static final String NAO_FOI_POSSIVEL_OBTER_RECOMENDACOES = "Não foi possível obter recomendações.";
 }

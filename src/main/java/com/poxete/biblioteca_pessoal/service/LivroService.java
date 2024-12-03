@@ -1,7 +1,10 @@
 package com.poxete.biblioteca_pessoal.service;
 
 import com.poxete.biblioteca_pessoal.exception.LivroNaoEncontradoException;
-import com.poxete.biblioteca_pessoal.model.*;
+import com.poxete.biblioteca_pessoal.model.Autor;
+import com.poxete.biblioteca_pessoal.model.Editora;
+import com.poxete.biblioteca_pessoal.model.Genero;
+import com.poxete.biblioteca_pessoal.model.Livro;
 import com.poxete.biblioteca_pessoal.repository.LivroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,22 +30,6 @@ public class LivroService {
         return livroRepository.buscarPorTituloLike(titulo);
     }
 
-    public List<Livro> buscarTodosPorListAutor(List<Autor> autores) {
-        return livroRepository.buscarTodosPorAutor(autores);
-    }
-
-    public List<Livro> buscarTodosPorGenero(List<Genero> genero) {
-        return livroRepository.buscarTodosPorGenero(genero);
-    }
-
-    public List<Livro> buscarTodosPorEditora(List<Editora> editoras) {
-        return livroRepository.findAllByEditoraIn(editoras);
-    }
-
-    public List<Livro> buscarTodosPorLocalizacao(List<Localizacao> localizacoes) {
-        return livroRepository.findAllByLocalizacaoIn(localizacoes);
-    }
-
     public List<Livro> buscarTodosPorFavorito() {
         return livroRepository.findAllByFavorito(true);
     }
@@ -57,5 +44,18 @@ public class LivroService {
 
     public void excluirLivroPorId(Integer id) {
         livroRepository.deleteById(id);
+    }
+
+    public List<Livro> buscarTodosPorAutor(List<Autor> autor) {
+        return livroRepository.buscarTodosPorAutor(autor);
+
+    }
+
+    public List<Livro> buscarTodosPorGenero(List<Genero> genero) {
+        return livroRepository.buscarTodosPorGenero(genero);
+    }
+
+    public List<Livro> buscarTodosPorEditora(List<Editora> editora) {
+        return livroRepository.buscarTodosPorEditora(editora);
     }
 }

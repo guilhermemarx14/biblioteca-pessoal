@@ -20,11 +20,39 @@
         .w3-button.w3-red:hover {
             background-color: #d32f2f;
         }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 8px 16px;
+        }
     </style>
 </head>
 <body>
 
 <div class="w3-container w3-card-4 w3-light-grey w3-padding-large w3-margin">
+    <form action="/buscar" method="get">
+        <input type="text" id="searchInput" name="chave" placeholder="Pesquisar...">
+        <button type="submit">Pesquisar</button>
+    </form>
     <table class="w3-table-all tabela-listagem-livros ">
         <thead>
         <tr>
@@ -72,26 +100,26 @@
     </button>
 </div>
 <script>
-    function confirmarExclusao(id) {
-        if (confirm('Tem certeza de que deseja excluir este livro?')) {
-            fetch('/excluirLivro?id=' + id, {
-                method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/json'
+
+    function searchTable() {
+        const input = document.getElementById("searchInput").value.toLowerCase();
+        const table = document.getElementById("dataTable");
+        const rows = table.getElementsByTagName("tr");
+
+        for (let i = 1; i < rows.length; i++) {
+            const cells = rows[i].getElementsByTagName("td");
+            let found = false;
+            for (let j = 0; j < cells.length; j++) {
+                if (cells[j].innerText.toLowerCase().includes(input)) {
+                    found = true;
+                    break;
                 }
-            })
-                .then(response => {
-                    if (response.ok) {
-                        alert('Livro excluído com sucesso!');
-                        location.reload();  // Recarrega a página para refletir a exclusão
-                    } else {
-                        alert('Erro ao excluir o livro.1' + response.status);
-                    }
-                })
-                .catch(error => {
-                    console.error('Erro:', error);
-                    alert('Erro ao excluir o livro.2' + error);
-                });
+            }
+            if (found) {
+                rows[i].style.display = "";
+            } else {
+                rows[i].style.display = "none";
+            }
         }
     }
 </script>

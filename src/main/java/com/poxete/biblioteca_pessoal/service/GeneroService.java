@@ -32,5 +32,9 @@ public class GeneroService {
         todos.forEach(g -> g.setNome(Utils.capitalizarPalavras(g.getNome())));
         return todos;
     }
-    
+
+    public List<Genero> encontrarPorParteNome(String parteNome) {
+        return generoRepository.encontrarPorParteNome(parteNome);
+    }
+
 }
