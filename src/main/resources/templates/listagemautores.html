@@ -4,42 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mensagem</title>
-    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
-    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
-    <style>
-        table {
-            width: 100%;
-            margin-top: 20px;
-            border-collapse: collapse;
-        }
-
-        table, th, td {
-            border: 1px solid black;
-        }
-
-        th, td {
-            padding: 8px;
-            text-align: left;
-        }
-
-        input[type="text"] {
-            padding: 8px;
-            margin-right: 10px;
-        }
-
-        button {
-            padding: 8px 16px;
-        }
-    </style>
+    <link rel="stylesheet" href="/css/listagemlivros.css">
 </head>
 <body>
 
-<div class="w3-container w3-card-4 w3-light-grey w3-padding-large w3-margin">
-    <table class="w3-table-all tabela-listagem-livros ">
+<div class="w3-container w3-card-4 w3-padding-large w3-margin">
+    <h2 class="w3-center w3-text-purple">Lista de Autores</h2>
+
+    <table class="w3-table w3-striped w3-bordered w3-hoverable">
         <thead>
-        <tr>
+        <tr class="w3-purple w3-text-white">
             <th>Id</th>
             <th>Nome</th>
             <th>Favorito</th>
@@ -49,45 +24,19 @@
         <tr th:each="autor : ${autores}">
             <td th:text="${autor.id}">Id</td>
             <td>
-                <span th:each="nome : ${autor.getNome()}">
-                    <a href="#" th:attr="href='/detalhesAutor?nome=' + ${autor.nome}"
-                       th:text="${nome}"
-                       onclick="this.href='${/detalhesAutor?nome=' + encodeURIComponent(autor.nome)"></a><br/>
-                </span>
+                    <span th:each="nome : ${autor.getNome()}">
+                        <a href="#" th:attr="href='/detalhesAutor?nome=' + ${autor.nome}"
+                           th:text="${nome}"
+                           onclick="this.href='${/detalhesAutor?nome=' + encodeURIComponent(autor.nome)"></a><br/>
+                    </span>
             </td>
             <td th:text="${autor.favorito}">Favorito</td>
+        </tr>
         </tbody>
     </table>
-    <button class="mdc-button mdc-js-button mdc-button--raised mdc-button--colored"
-            onclick="window.location.href='/';"
-            style="margin-top: 20px;">
-        Voltar
-    </button>
+
+    <a href="/" class="btn-back">Voltar</a>
 </div>
-<script>
-
-    function searchTable() {
-        const input = document.getElementById("searchInput").value.toLowerCase();
-        const table = document.getElementById("dataTable");
-        const rows = table.getElementsByTagName("tr");
-
-        for (let i = 1; i < rows.length; i++) {
-            const cells = rows[i].getElementsByTagName("td");
-            let found = false;
-            for (let j = 0; j < cells.length; j++) {
-                if (cells[j].innerText.toLowerCase().includes(input)) {
-                    found = true;
-                    break;
-                }
-            }
-            if (found) {
-                rows[i].style.display = "";
-            } else {
-                rows[i].style.display = "none";
-            }
-        }
-    }
-</script>
 
 </body>
 </html>
