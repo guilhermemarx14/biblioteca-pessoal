@@ -1,116 +1,104 @@
-<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="pt-br">
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Livros</title>
 
     <link rel="stylesheet" href="/css/styles.css">
-    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
-    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="/css/w3.css">
     <script src="/js/cadastroLivroScripts.js"></script>
-
 </head>
-<body>
-<div class="container">
-    <div class="w3-container w3-card-4 w3-light-grey w3-padding-large w3-margin">
-        <h1 class="w3-center">Cadastro de Livros</h1>
+<body class="w3-light-grey">
+
+<!-- Container para centralizar tudo -->
+<div class="w3-display-container w3-full" style="height: 100vh;">
+    <div class="w3-container w3-card-4 w3-padding-large w3-margin w3-white w3-round-large w3-center w3-display-middle" style="max-width: 700px;">
+        <h1 class="w3-text-blue">Cadastro de Livros</h1>
         <form th:action="@{/salvarLivro}" th:object="${livro}" method="post" class="w3-container">
 
-            <label class="w3-text-gray" for="titulo">Título</label>
-            <input class="w3-input w3-border w3-round" id="titulo" th:field="*{titulo}" required>
+            <!-- Título -->
+            <label class="w3-text-grey w3-large" for="titulo">Título</label>
+            <input class="w3-input w3-border w3-round w3-margin-bottom" id="titulo" th:field="*{titulo}" required>
 
-            <label class="w3-text-gray" for="anoPublicacao">Ano de Publicação</label>
-            <input class="w3-input w3-border w3-round" type="number" id="anoPublicacao" th:field="*{anoPublicacao}" required>
+            <!-- Ano de Publicação -->
+            <label class="w3-text-grey w3-large" for="anoPublicacao">Ano de Publicação</label>
+            <input class="w3-input w3-border w3-round w3-margin-bottom" type="number" id="anoPublicacao" th:field="*{anoPublicacao}" required>
 
-            <label class="w3-text-gray" for="autores">Autores (separados por ponto e vírgula - ;)</label>
-            <input class="w3-input w3-border w3-round" id="autores" th:field="*{autores}" required>
+            <!-- Autores -->
+            <label class="w3-text-grey w3-large" for="autores">Autores (separados por ponto e vírgula - ;)</label>
+            <input class="w3-input w3-border w3-round w3-margin-bottom" id="autores" th:field="*{autores}" required>
 
-            <label class="w3-text-gray" for="generos">Gêneros (separados por ponto e vírgula - ;)</label>
-            <input class="w3-input w3-border w3-round" id="generos" th:field="*{generos}" required>
+            <!-- Gêneros -->
+            <label class="w3-text-grey w3-large" for="generos">Gêneros (separados por ponto e vírgula - ;)</label>
+            <input class="w3-input w3-border w3-round w3-margin-bottom" id="generos" th:field="*{generos}" required>
 
-            <label class="w3-text-gray" for="editora">Editora</label>
-            <input class="w3-input w3-border w3-round" id="editora" th:field="*{editora}" required>
+            <!-- Editora -->
+            <label class="w3-text-grey w3-large" for="editora">Editora</label>
+            <input class="w3-input w3-border w3-round w3-margin-bottom" id="editora" th:field="*{editora}" required>
 
-            <label class="w3-text-gray" for="localizacao">Localização</label>
-            <input class="w3-input w3-border w3-round" id="localizacao" th:field="*{localizacao}" required>
+            <!-- Localização -->
+            <label class="w3-text-grey w3-large" for="localizacao">Localização</label>
+            <input class="w3-input w3-border w3-round w3-margin-bottom" id="localizacao" th:field="*{localizacao}" required>
 
-            <label class="w3-text-gray" for="quantidade">Quantidade</label>
-            <input class="w3-input w3-border w3-round" type="number" id="quantidade" th:field="*{quantidade}" required>
+            <!-- Quantidade -->
+            <label class="w3-text-grey w3-large" for="quantidade">Quantidade</label>
+            <input class="w3-input w3-border w3-round w3-margin-bottom" type="number" id="quantidade" th:field="*{quantidade}" required>
 
-            <label class="w3-text-gray" for="lido">Lido</label>
+            <!-- Lido -->
+            <label class="w3-text-grey w3-large" for="lido">Lido</label>
             <input class="w3-check" id="lido" type="checkbox" th:field="*{lido}" value="false" onclick="mostrarCampos()">
 
-            <label class="w3-text-gray" for="favorito">Favorito</label>
+            <!-- Favorito -->
+            <label class="w3-text-grey w3-large" for="favorito">Favorito</label>
             <input class="w3-check" id="favorito" type="checkbox" th:field="*{favorito}" value="true">
-            <div id="camposLido" style="display:none;">
-                <div class="w3-margin-top">
-                    <label for="classificacao">Classificação (1 a 5 estrelas):</label><br>
 
-                    <div class="estrelas">
-
-                        <input type="radio" id="star1" name="classificacao" value="1"><label for="star1" class="star"> &#9733;</label><br>
-                        <input type="radio" id="star2" name="classificacao" value="2"><label for="star2" class="star"> &#9733;
-                        &#9733;</label><br>
-                        <input type="radio" id="star3" name="classificacao" value="3"><label for="star3" class="star">
-                        &#9733;&#9733;&#9733;</label><br>
-                        <input type="radio" id="star4" name="classificacao" value="4"><label for="star4" class="star"> &#9733; &#9733;
-                        &#9733; &#9733;</label><br>
-                        <input type="radio" id="star5" name="classificacao" value="5"><label for="star5" class="star"> &#9733; &#9733;
-                        &#9733; &#9733; &#9733;</label><br>
-
-                    </div>
-
+            <!-- Campos adicionais quando "Lido" for selecionado -->
+            <div id="camposLido" class="w3-margin-top" style="display:none;">
+                <!-- Classificação -->
+                <label for="classificacao">Classificação (1 a 5 estrelas):</label><br>
+                <div class="w3-row w3-large">
+                    <input type="radio" id="star1" name="classificacao" value="1"><label for="star1" class="star">&#9733;</label>
+                    <input type="radio" id="star2" name="classificacao" value="2"><label for="star2" class="star">&#9733;&#9733;</label>
+                    <input type="radio" id="star3" name="classificacao" value="3"><label for="star3" class="star">&#9733;&#9733;&#9733;</label>
+                    <input type="radio" id="star4" name="classificacao" value="4"><label for="star4" class="star">&#9733;&#9733;&#9733;&#9733;</label>
+                    <input type="radio" id="star5" name="classificacao" value="5"><label for="star5"
+                                                                                         class="star">&#9733;&#9733;&#9733;&#9733;&#9733;</label>
                 </div>
 
-                <div class="w3-margin-top">
-                    <label for="dataLeitura">Data da Leitura:</label>
-                    <input type="date" id="dataLeitura" name="dataLeitura">
-                </div>
+                <!-- Data da Leitura -->
+                <label for="dataLeitura">Data da Leitura:</label>
+                <input type="date" id="dataLeitura" name="dataLeitura" class="w3-input w3-border w3-round w3-margin-top">
 
-                <div class="w3-margin-top">
-                    <label for="comentario">Comentário (máximo de 5000 caracteres):</label><br>
-                    <textarea id="comentario" name="comentario" rows="4" maxlength="5000" class="comment-field"></textarea>
-                </div>
+                <!-- Comentário -->
+                <label for="comentario">Comentário (máximo de 5000 caracteres):</label>
+                <textarea id="comentario" name="comentario" rows="4" maxlength="5000"
+                          class="w3-input w3-border w3-round w3-margin-top comment-field"></textarea>
             </div>
 
+            <!-- Botões -->
             <div class="w3-margin-top">
                 <button type="button" class="w3-button w3-light-grey w3-round w3-margin-right" onclick="window.history.back();">Voltar</button>
-                <button type="submit" class="w3-button w3-blue w3-round">Salvar</button>
+                <button type="submit" class="w3-button w3-blue w3-round w3-padding">Salvar</button>
             </div>
 
         </form>
     </div>
-
 </div>
+
 <script>
-
-    document.addEventListener('DOMContentLoaded', function () {
-        M.AutoInit();  // Isso garante que todos os componentes sejam inicializados corretamente
-    });
-
+    // Função para mostrar os campos extras se "Lido" estiver selecionado
     function mostrarCampos() {
         var lido = document.getElementById("lido");
         var camposLido = document.getElementById("camposLido");
 
-        // Se a flag 'lido' estiver marcada, mostra os campos, caso contrário, esconde
         if (lido.checked) {
             camposLido.style.display = "block";
         } else {
             camposLido.style.display = "none";
         }
     }
-
-    function formatDate(date) {
-        const year = date.getFullYear();
-        const month = String(date.getMonth() + 1).padStart(2, '0');
-        const day = String(date.getDate()).padStart(2, '0');
-        return `${day}/${month}/${year}`;
-    }
-
-    // Obter a data de hoje e definir no input
-    const today = new Date();
-    document.getElementById('data').value = formatDate(today);
 </script>
-
 
 </body>
 </html>
