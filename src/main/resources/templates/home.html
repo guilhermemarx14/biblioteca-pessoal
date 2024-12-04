@@ -1,39 +1,21 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biblioteca Pessoal</title>
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
+    <link rel="stylesheet" href="/css/w3.css">
+    <link rel="stylesheet" href="/css/home.css">
 </head>
 <body>
-<div class="w3-container">
-    <div class="w3-card-4 w3-light-grey w3-padding-large w3-margin">
-        <h1 th:text="${titulo}">Título padrão</h1>
-
-        <button class="w3-button w3-teal w3-margin-bottom"
-                onclick="window.location.href='/listarLivros';">
-            Listar Livros
-        </button>
-        <button class="w3-button w3-teal w3-margin-bottom"
-                onclick="window.location.href='/cadastroLivro';">
-            Adicionar livro
-        </button>
-
-        <button class="w3-button w3-teal w3-margin-bottom"
-                onclick="window.location.href='/recomendacaoLivro';">
-            Obter recomendação
-        </button>
-
-        <button class="w3-button w3-teal w3-margin-bottom"
-                onclick="window.location.href='/listarAutores';">
-            Listar Autores
-        </button>
-
-    </div>
+<div class="header">
+    <h1>Biblioteca Pessoal</h1>
 </div>
-
+<div class="container">
+    <button class="w3-button w3-teal btn" onclick="window.location.href='/listarLivros';">Listar Livros</button>
+    <button class="w3-button w3-teal btn" onclick="window.location.href='/cadastroLivro';">Adicionar Livro</button>
+    <button class="w3-button w3-teal btn" onclick="window.location.href='/recomendacaoLivro';">Obter Recomendação</button>
+    <button class="w3-button w3-teal btn" onclick="window.location.href='/listarAutores';">Listar Autores</button>
+</div>
 </body>
 </html>
