@@ -5,21 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biblioteca Pessoal</title>
     <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <style>
-        .custom-margin {
-            margin: 20px; /* Adiciona uma margem de 20px em todos os lados */
-        }
-    </style>
+    <link rel="stylesheet" href="/css/w3.css">
+    <link rel="stylesheet" href="/css/recomendacaolivro.css">
+
 </head>
-<body>
-<div class="w3-container">
-    <div class="w3-card-4 w3-light-grey w3-padding-large w3-margin">
-        <h1 th:text="${titulo}">Título padrão</h1>
+<body class="w3-light-grey">
 
-        <p th:utext="${texto}"></p>
+<div class="w3-container w3-padding-32">
+    <div class="w3-card-4 w3-white w3-padding-large w3-margin w3-card">
+        <h1 class="header-title" th:text="${titulo}">Título padrão</h1>
 
-        <button type="button" class="w3-button w3-light-grey w3-round w3-margin-right custom-margin" onclick="window.history.back();">
+        <p class="content-text" th:utext="${texto}"></p>
+
+        <button class="back-button w3-hover-opacity w3-margin-top" onclick="window.history.back();">
             Voltar
         </button>
     </div>
