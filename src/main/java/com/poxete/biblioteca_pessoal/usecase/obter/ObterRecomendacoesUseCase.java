@@ -35,7 +35,7 @@ public class ObterRecomendacoesUseCase {
         );
         var retorno = "";
         try {
-            retorno = geminiService.realizarConsulta(promt).replaceAll("1.", "<br>1.").replaceAll("2.", "<br>2.").replaceAll("3.", "<br>3.");
+            retorno = geminiService.realizarConsulta(promt);
         } catch (FeignException e) {
             retorno = NAO_FOI_POSSIVEL_OBTER_RECOMENDACOES;
         }

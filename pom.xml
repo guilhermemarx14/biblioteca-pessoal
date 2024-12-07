@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.poxete</groupId>
     <artifactId>biblioteca-pessoal</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>biblioteca-pessoal</name>
     <description>Projeto de biblioteca pessoal utilizando Spring Boot MVC e base de dados HSQLDB versionada com flyway.</description>
     <url/>

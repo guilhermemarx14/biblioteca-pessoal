@@ -18,26 +18,26 @@
 .back-button {
     display: inline-block;
     font-size: 1.1em;
-    background-color: #f1f1f1; /* Cor de fundo cinza */
+    background-color: #f1f1f1;
     color: #555;
-    border: none; /* Removendo as bordas */
-    border-radius: 50px; /* Bordas arredondadas */
+    border: none;
+    border-radius: 50px;
     padding: 10px 20px;
     text-align: center;
 }
 
 .back-button:hover {
-    background-color: #e0e0e0; /* Tom de cinza mais claro no hover */
+    background-color: #e0e0e0;
     cursor: pointer;
 }
 
 .update-button {
     display: inline-block;
     font-size: 1.1em;
-    background-color: #3700b3; /* Cor de fundo roxa */
+    background-color: #3700b3;
     color: white;
-    border: none; /* Removendo as bordas */
-    border-radius: 50px; /* Bordas arredondadas */
+    border: none;
+    border-radius: 50px;
     padding: 10px 20px;
     text-align: center;
 }
