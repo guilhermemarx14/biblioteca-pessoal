@@ -25,12 +25,12 @@ public class Utils {
         }
 
         if (lista.size() == 1) {
-            return lista.getFirst().toString();
+            return lista.get(0).toString();
         }
 
         List<String> listaString = lista.stream().map(Object::toString).toList();
 
-        return String.join(", ", listaString.subList(0, listaString.size() - 1)) + " e " + listaString.getLast();
+        return String.join(", ", listaString.subList(0, listaString.size() - 1)) + " e " + listaString.get(listaString.size() - 1);
     }
 
 

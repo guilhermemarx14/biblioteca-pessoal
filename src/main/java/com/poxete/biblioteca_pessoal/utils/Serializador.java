@@ -82,7 +82,7 @@ public class Serializador {
         }
         var classePrincipal = classes.get(0);
         var classesAdicionais = new ArrayList<>(classes);
-        classesAdicionais.removeFirst();
+        classesAdicionais.remove(0);
         var adicional = gerarTipoRecursivamente(classesAdicionais);
         return objectMapper.getTypeFactory().constructParametricType(classePrincipal, adicional);
     }

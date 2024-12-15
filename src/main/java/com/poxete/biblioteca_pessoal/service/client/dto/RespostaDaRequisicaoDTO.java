@@ -11,7 +11,7 @@ public class RespostaDaRequisicaoDTO {
     private List<Candidate> candidates;
 
     public String obterTexto() {
-        return candidates.getFirst().content.parts.getFirst().text;
+        return candidates.get(0).content.parts.get(0).text;
     }
 
     @Data
